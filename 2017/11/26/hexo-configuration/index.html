@@ -213,12 +213,47 @@
 <!-- Import Font -->
 <!-- Import Roboto -->
 
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: 300;
+            src: url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-300.eot);
+            src: local('Roboto'),local('Roboto-Normal'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-300.eot?#iefix) format('embedded-opentype'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-300.woff2) format('woff2'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-300.woff) format('woff'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-300.ttf) format('truetype'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-300.svg#Roboto) format('svg')
+        }
+
+        @font-face {
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: regular;
+            src: url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-regular.eot);
+            src: local('Roboto'),local('Roboto-Normal'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-regular.eot?#iefix) format('embedded-opentype'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-regular.woff2) format('woff2'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-regular.woff) format('woff'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-regular.ttf) format('truetype'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-regular.svg#Roboto) format('svg')
+        }
+
+        @font-face {
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: 500;
+            src: url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-500.eot);
+            src: local('Roboto'),local('Roboto-Normal'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-500.eot?#iefix) format('embedded-opentype'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-500.woff2) format('woff2'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-500.woff) format('woff'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-500.ttf) format('truetype'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-500.svg#Roboto) format('svg')
+        }
+    </style>
 
 
 <!-- Import Material Icon -->
 
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Material Icons';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Material Icons'),
+            local('MaterialIcons-Regular'),
+            url(/fonts/MaterialIcons-Regular.woff2) format('woff2'),
+            url(/fonts/MaterialIcons-Regular.woff) format('woff'),
+            url(/fonts/MaterialIcons-Regular.ttf) format('truetype');
+        }
+    </style>
 
 
 
@@ -238,7 +273,7 @@
 
     
         <meta property="article:published_time" content="Sun Nov 26 2017 16:22:26 GMT+0800" />
-        <meta property="article:modified_time" content="Sun Nov 26 2017 16:50:15 GMT+0800" />
+        <meta property="article:modified_time" content="Sun Nov 26 2017 16:52:54 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
@@ -265,7 +300,7 @@
     "mainEntityOfPage": "http://yoursite.com/2017/11/26/hexo-configuration/index.html",
     "headline": "Hexo 搭建 github 个人博客",
     "datePublished": "Sun Nov 26 2017 16:22:26 GMT+0800",
-    "dateModified": "Sun Nov 26 2017 16:50:15 GMT+0800",
+    "dateModified": "Sun Nov 26 2017 16:52:54 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "茂松",
@@ -524,7 +559,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
 <p>如果安装成功则会输出：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">hexo-cli: 1.0.4</span><br><span class="line">os: Linux 4.4.0-101-generic linux x64</span><br><span class="line">http_parser: 2.7.0</span><br><span class="line">node: 9.2.0</span><br><span class="line">v8: 6.2.414.44-node.11</span><br><span class="line">uv: 1.16.1</span><br><span class="line">zlib: 1.2.11</span><br><span class="line">ares: 1.13.0</span><br><span class="line">modules: 59</span><br><span class="line">nghttp2: 1.25.0</span><br><span class="line">openssl: 1.0.2m</span><br><span class="line">icu: 60.1</span><br><span class="line">unicode: 10.0</span><br><span class="line">cldr: 32.0</span><br><span class="line">tz: 2017c</span><br></pre></td></tr></table></figure>
-<p>2.接受我们初始化我们的博客环境，这里有两种方法</p>
+<p>2.接着我们初始化我们的博客环境，这里有两种方法</p>
 <ul>
 <li><p>先建立一个 blogname 文件夹，然后进入文件夹执行如下语句：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
@@ -536,6 +571,8 @@
 </li>
 </ul>
 <p><img src="/images/17-11-26-1.png" alt="17-11-26-1"></p>
+<p>至此，我们的博客环境已经搭建好，那么我们该怎么查看博客内容呢，首先我们需要生成静态页面，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br></pre></td></tr></table></figure>
 
         
     
