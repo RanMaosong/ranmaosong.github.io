@@ -459,11 +459,29 @@
 
     <!-- Share LinkedIn -->
     
+        <a class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com/2017/11/25/Hello/index.html&title=Hello" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 LinkedIn
+            </li>
+        </a>
+    
 
     <!-- Share QQ -->
     
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=茂松之园&title=Hello&summary=技术闲谈&pics=http://yoursite.com/img/favicon.png&url=http://yoursite.com/2017/11/25/Hello/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
 
     <!-- Share Telegram -->
+    
+        <a class="post_share-link" href="https://telegram.me/share/url?url=http://yoursite.com/2017/11/25/Hello/index.html&text=Hello" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Telegram
+            </li>
+        </a>
     
 </ul>
 
@@ -488,6 +506,35 @@
                 <!-- Post Comments -->
                 
                     
+    <!-- 使用 DISQUS -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/2017/11/25/Hello/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://yoursite.com/2017/11/25/Hello/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script type="text/ls-javascript" id="disqus-thread-script">
+    queue.offer(function() {
+            (function() { // DON'T EDIT BELOW THIS LINE
+                var d = document;
+                var s = d.createElement('script');
+                s.src = '//.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', + new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        });
+</script>
+
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
                 
             </div>
 
@@ -544,7 +591,7 @@
 
     <!-- Sidebar Email -->
     <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
-        youremail@email.com
+        maosongran@gmail.com
         <b class="caret"></b>
     </a>
 </div>
@@ -557,7 +604,7 @@
         <ul id="settings-dropdown" class="dropdown-menu">
             
                 <li>
-                    <a href="#" target="_blank" title="Email Me">
+                    <a href="mailto: maosongran@gmail.com" target="_blank" title="Email Me">
                         
                             <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
                         
@@ -601,11 +648,44 @@
 
     <!-- Categories  -->
     
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                
+            </ul>
+        </li>
+        
+    
 
     <!-- Pages  -->
     
+        <li>
+            <a href="/about" title="About">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                About
+            </a>
+        </li>
+        
+    
 
     <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                文章总数
+                <span class="sidebar-badge">2</span>
+            </a>
+        </li>
+        
     
 </ul>
 
@@ -639,15 +719,36 @@ It will not impact the appearance and can give developers a lot of support :)
 <!-- Help & Support -->
 <!--
 
+    <a href="mailto:hiviosey@gmail.com" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+        sidebar.help
+        <span class="mdl-button__ripple-container">
+          <span class="mdl-ripple"></span>
+        </span>
+      </div>
+    </a>
+
 -->
 
 <!-- Feedback -->
 <!--
 
+    <a href="https://github.com/viosey/hexo-theme-material/issues" target="_blank" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+        sidebar.feedback
+        <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></div>
+    </a>
+
 -->
 
 <!-- About Theme -->
 <!--
+
+    <a href="https://blog.viosey.com/index.php/Material.html" target="_blank" class="sidebar-footer-text-a">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+             sidebar.about_theme
+            <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></div>
+    </a>
 
 -->
 
@@ -712,6 +813,12 @@ It will not impact the appearance and can give developers a lot of support :)
     
 
     <!-- Github -->
+    
+        <a href="https://github.com/ranmaosong" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
     
 
     <!-- LinkedIn -->
@@ -798,6 +905,9 @@ It will not impact the appearance and can give developers a lot of support :)
 
 
 
+
+   <!-- 使用 DISQUS js 代码 -->
+<script id="dsq-count-scr" src="//.disqus.com/count.js" async></script>
 
 
 
