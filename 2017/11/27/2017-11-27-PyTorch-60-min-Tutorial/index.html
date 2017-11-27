@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.0 -->
+    <script>
+        window.materialVersion = "1.5.0"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Title -->
+    
+    <title>
+        
+            PyTorch 深度学习:60分钟快速入门 | 
+        
+        技术闲谈
+    </title>
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="theme-color" content="#0097A7">
+    <meta name="author" content="茂松">
+    <meta name="description" itemprop="description" content="Through studying you will gain success and fortunes will follow. ,">
+    <meta name="keywords" content=",Deep Learning,PyTorch,Tutorial,Translation">
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(window.oldVersion){var remove=window.oldVersion.reduce(function(p,c){return p||data.indexOf("/*"+c+"*/")!==-1},false);if(remove){lsloader.removeLS(key)}}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload,isJs){if(typeof cssonload==="boolean"){isJs=cssonload;cssonload=undefined}isJs=isJs||false;cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}code=code.split(versionString)[1];if(isJs){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload,isJs)}};lsloader.requestResource=function(name,path,cssonload,isJs){var that=this;if(isJs){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else{this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" sizes="192x192" href="/img/favicon.png">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!--iOS -->
+    <meta name="apple-mobile-web-app-title" content="Title">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="480">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="技术闲谈">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <style>
+        @font-face {
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: 300;
+            src: url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-300.eot);
+            src: local('Roboto'),local('Roboto-Normal'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-300.eot?#iefix) format('embedded-opentype'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-300.woff2) format('woff2'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-300.woff) format('woff'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-300.ttf) format('truetype'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-300.svg#Roboto) format('svg')
+        }
+
+        @font-face {
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: regular;
+            src: url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-regular.eot);
+            src: local('Roboto'),local('Roboto-Normal'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-regular.eot?#iefix) format('embedded-opentype'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-regular.woff2) format('woff2'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-regular.woff) format('woff'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-regular.ttf) format('truetype'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-regular.svg#Roboto) format('svg')
+        }
+
+        @font-face {
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: 500;
+            src: url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-500.eot);
+            src: local('Roboto'),local('Roboto-Normal'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-500.eot?#iefix) format('embedded-opentype'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-500.woff2) format('woff2'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-500.woff) format('woff'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-500.ttf) format('truetype'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-500.svg#Roboto) format('svg')
+        }
+    </style>
+
+
+<!-- Import Material Icon -->
+
+    <style>
+        @font-face {
+            font-family: 'Material Icons';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Material Icons'),
+            local('MaterialIcons-Regular'),
+            url(/fonts/MaterialIcons-Regular.woff2) format('woff2'),
+            url(/fonts/MaterialIcons-Regular.woff) format('woff'),
+            url(/fonts/MaterialIcons-Regular.ttf) format('truetype');
+        }
+    </style>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://yoursite.com">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="PyTorch 深度学习:60分钟快速入门 | 技术闲谈">
+    <meta property="og:image" content="http://yoursite.com/img/favicon.png" />
+    <meta property="og:description" content="Through studying you will gain success and fortunes will follow. ,">
+    <meta property="og:article:tag" content="Deep Learning"> <meta property="og:article:tag" content="PyTorch"> <meta property="og:article:tag" content="Tutorial"> <meta property="og:article:tag" content="Translation"> 
+
+    
+        <meta property="article:published_time" content="Mon Nov 27 2017 00:20:22 GMT+0800" />
+        <meta property="article:modified_time" content="Mon Nov 27 2017 10:57:04 GMT+0800" />
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:title" content="PyTorch 深度学习:60分钟快速入门 | 技术闲谈">
+    <meta name="twitter:description" content="Through studying you will gain success and fortunes will follow. ,">
+    <meta name="twitter:image" content="http://yoursite.com/img/favicon.png">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="http://yoursite.com" />
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://yoursite.com/2017/11/27/2017-11-27-PyTorch-60-min-Tutorial/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://yoursite.com/2017/11/27/2017-11-27-PyTorch-60-min-Tutorial/index.html",
+    "headline": "PyTorch 深度学习:60分钟快速入门",
+    "datePublished": "Mon Nov 27 2017 00:20:22 GMT+0800",
+    "dateModified": "Mon Nov 27 2017 10:57:04 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "茂松",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar.png"
+        },
+        "description": "吾生也有涯，而知也无涯."
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "技术闲谈",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",Deep Learning,PyTorch,Tutorial,Translation",
+    "description": "Through studying you will gain success and fortunes will follow. ,",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#把x加到y上"><span class="post-toc-number">1.</span> <span class="post-toc-text">把x加到y上</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#let-us-run-this-cell-only-if-CUDA-is-available"><span class="post-toc-number">2.</span> <span class="post-toc-text">let us run this cell only if CUDA is available</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#损失函数"><span class="post-toc-number">2.0.1.</span> <span class="post-toc-text">损失函数</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#create-your-optimizer"><span class="post-toc-number">3.</span> <span class="post-toc-text">create your optimizer</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#functions-to-show-an-image"><span class="post-toc-number">4.</span> <span class="post-toc-text">functions to show an image</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#get-some-random-training-images"><span class="post-toc-number">5.</span> <span class="post-toc-text">get some random training images</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#show-images"><span class="post-toc-number">6.</span> <span class="post-toc-text">show images</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#print-labels"><span class="post-toc-number">7.</span> <span class="post-toc-text">print labels</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#print-images"><span class="post-toc-number">8.</span> <span class="post-toc-text">print images</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Parameters-and-DataLoaders"><span class="post-toc-number">9.</span> <span class="post-toc-text">Parameters and DataLoaders</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#on-2-GPUs"><span class="post-toc-number">10.</span> <span class="post-toc-text">on 2 GPUs</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#总结"><span class="post-toc-number">10.0.1.</span> <span class="post-toc-text">总结</span></a></li></ol></li></ol></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                PyTorch 深度学习:60分钟快速入门
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>茂松</strong>
+        <span>11月 27, 2017</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/PyTorch/">PyTorch</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/Translation/">Translation</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/Tutorial/">Tutorial</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=PyTorch 深度学习:60分钟快速入门&url=http://yoursite.com/2017/11/27/2017-11-27-PyTorch-60-min-Tutorial/index.html&pic=http://yoursite.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=PyTorch 深度学习:60分钟快速入门&url=http://yoursite.com/2017/11/27/2017-11-27-PyTorch-60-min-Tutorial/index.html&via=茂松" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/11/27/2017-11-27-PyTorch-60-min-Tutorial/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2017/11/27/2017-11-27-PyTorch-60-min-Tutorial/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+        <a class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com/2017/11/27/2017-11-27-PyTorch-60-min-Tutorial/index.html&title=PyTorch 深度学习:60分钟快速入门" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 LinkedIn
+            </li>
+        </a>
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=技术闲谈&title=PyTorch 深度学习:60分钟快速入门&summary=Through studying you will gain success and fortunes will follow. ,&pics=http://yoursite.com/img/favicon.png&url=http://yoursite.com/2017/11/27/2017-11-27-PyTorch-60-min-Tutorial/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+        <a class="post_share-link" href="https://telegram.me/share/url?url=http://yoursite.com/2017/11/27/2017-11-27-PyTorch-60-min-Tutorial/index.html&text=PyTorch 深度学习:60分钟快速入门" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Telegram
+            </li>
+        </a>
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p>此教程为翻译<a href="http://pytorch.org/tutorials/beginner/deep_learning_60min_blitz.html" target="_blank" rel="noopener">官方地址</a></p>
+<p><strong>作者:</strong><a href="http://soumith.ch/" target="_blank" rel="noopener">Soumith Chintala</a></p>
+<p>本教程的目标:</p>
+<ul>
+<li>深入理解PyTorch张量库和神经网络</li>
+<li>训练一个小的神经网络来分类图片</li>
+</ul>
+<p>这个教程假设你熟悉numpy的基本操作。</p>
+<p><strong>注意</strong></p>
+<p>请确保<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 一、PyTorch 是什么</span><br><span class="line"></span><br><span class="line">他是一个基于Python的科学计算包，目标用户有两类</span><br><span class="line"></span><br><span class="line">* 为了使用GPU来替代numpy</span><br><span class="line">* 一个深度学习援救平台：提供最大的灵活性和速度</span><br><span class="line"></span><br><span class="line">## 开始</span><br><span class="line"></span><br><span class="line">#### 张量（Tensors)</span><br><span class="line"></span><br><span class="line">张量类似于numpy的ndarrays，不同之处在于张量可以使用GPU来加快计算。</span><br></pre></td></tr></table></figure></p>
+<p>from <strong>future</strong> import print_function<br>import torch<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">构建一个未初始化的5\*3的矩阵：</span><br></pre></td></tr></table></figure></p>
+<p>x = torch.Tensor(5, 3)<br>print(x)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">输出 ：</span><br></pre></td></tr></table></figure></p>
+<p>1.00000e-10 *<br> -1.1314  0.0000 -1.1314<br>  0.0000  0.0000  0.0000<br>  0.0000  0.0000  0.0000<br>  0.0000  0.0000  0.0000<br>  0.0000  0.0000  0.0000<br>[torch.FloatTensor of size 5x3]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">构建一个随机初始化的矩阵</span><br></pre></td></tr></table></figure></p>
+<p>x = torch.rand(5, 3)<br>print(x)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">输出：</span><br></pre></td></tr></table></figure></p>
+<p>0.2836  0.6710  0.5146<br> 0.8842  0.2821  0.7768<br> 0.3409  0.0428  0.6726<br> 0.1982  0.6950  0.6040<br> 0.0272  0.6586  0.3555<br>[torch.FloatTensor of size 5x3]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">获取矩阵的大小：</span><br></pre></td></tr></table></figure></p>
+<p>print(x.size())<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">输出:</span><br></pre></td></tr></table></figure></p>
+<p>torch.Size([5, 3])<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**注意**</span><br><span class="line"></span><br><span class="line">```torch.Size```实际上是一个元组，所以它支持元组相同的操作。</span><br><span class="line"></span><br><span class="line">#### 操作</span><br><span class="line"></span><br><span class="line">张量上的操作有多重语法形式，下面我们一加法为例进行讲解。</span><br><span class="line"></span><br><span class="line">**语法1**</span><br></pre></td></tr></table></figure></p>
+<p>y = torch.rand(5, 3)<br>print(x + y)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">输出:</span><br></pre></td></tr></table></figure></p>
+<p>0.9842  1.5171  0.8148<br> 1.1334  1.6540  1.5739<br> 0.9804  1.1647  0.4759<br> 0.6232  0.2689  1.0596<br> 1.0777  1.1705  0.3206<br>[torch.FloatTensor of size 5x3]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**语法二**</span><br></pre></td></tr></table></figure></p>
+<p>print(torch.add(x, y))<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">输出：</span><br></pre></td></tr></table></figure></p>
+<p>0.9842  1.5171  0.8148<br> 1.1334  1.6540  1.5739<br> 0.9804  1.1647  0.4759<br> 0.6232  0.2689  1.0596<br> 1.0777  1.1705  0.3206<br>[torch.FloatTensor of size 5x3]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**语法三**：给出一个输出向量</span><br></pre></td></tr></table></figure></p>
+<p>result = torch.Tensor(5, 3)<br>torch.add(x, y, out=result)<br>print(result)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">输出：</span><br></pre></td></tr></table></figure></p>
+<p>0.9842  1.5171  0.8148<br> 1.1334  1.6540  1.5739<br> 0.9804  1.1647  0.4759<br> 0.6232  0.2689  1.0596<br> 1.0777  1.1705  0.3206<br>[torch.FloatTensor of size 5x3]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**语法四：**原地操作（in-place）</span><br></pre></td></tr></table></figure></p>
+<h1 id="把x加到y上"><a href="#把x加到y上" class="headerlink" title="把x加到y上"></a>把x加到y上</h1><p>y.add_(x)<br>print(y)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">输出：</span><br></pre></td></tr></table></figure></p>
+<p>0.9842  1.5171  0.8148<br> 1.1334  1.6540  1.5739<br> 0.9804  1.1647  0.4759<br> 0.6232  0.2689  1.0596<br> 1.0777  1.1705  0.3206<br>[torch.FloatTensor of size 5x3]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**注意**</span><br><span class="line"></span><br><span class="line">任何在原地(in-place)改变张量的操作都有一个&apos;\_&apos;后缀。例如```x.copy_(y), x.t_()```操作将改变```x```.</span><br><span class="line"></span><br><span class="line">你可以使用所有的numpy索引操作。</span><br></pre></td></tr></table></figure></p>
+<p>print(x[:, 1])<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">输出：</span><br></pre></td></tr></table></figure></p>
+<p>1.5171<br>1.6540<br>1.1647<br>0.2689<br>1.1705<br>[torch.FloatTensor of size 5]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**稍后阅读**</span><br><span class="line"></span><br><span class="line">[这里](http://pytorch.org/docs/torch)描述了一百多种张量操作，包括转置，索引，数学运算，线性代数，随机数等。</span><br><span class="line"></span><br><span class="line">### numpy桥</span><br><span class="line"></span><br><span class="line">把一个torch张量转换为numpy数组或者反过来都是很简单的。</span><br><span class="line"></span><br><span class="line">Torch张量和numpy数组将共享潜在的内存，改变其中一个也将改变另一个。</span><br><span class="line"></span><br><span class="line">#### 把Torch张量转换为numpy数组</span><br></pre></td></tr></table></figure></p>
+<p>a = torch.ones(5)<br>print(a)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">输出：</span><br></pre></td></tr></table></figure></p>
+<p>1<br> 1<br> 1<br> 1<br> 1<br>[torch.FloatTensor of size 5]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>b = a.numpy()<br>print(b)<br>print(type(b))<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">输出：</span><br></pre></td></tr></table></figure></p>
+<p>[ 1.  1.  1.  1.  1.]</p>
+<p><class 'numpy.ndarray'=""><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">通过如下操作，我们看一下numpy数组的值如何在改变。</span><br></pre></td></tr></table></figure></class></p>
+<p> 2<br> 2<br> 2<br> 2<br> 2<br>[torch.FloatTensor of size 5]</p>
+<p>[ 2.  2.  2.  2.  2.]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 把numpy数组转换为torch张量</span><br><span class="line"></span><br><span class="line">看看改变numpy数组如何自动改变torch张量。</span><br></pre></td></tr></table></figure></p>
+<p>[ 2.  2.  2.  2.  2.]</p>
+<p> 2<br> 2<br> 2<br> 2<br> 2<br>[torch.DoubleTensor of size 5]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">所有在CPU上的张量，除了字符张量，都支持在numpy之间转换。</span><br><span class="line"></span><br><span class="line">### CUDA张量</span><br><span class="line"></span><br><span class="line">使用```.cuda```函数可以将张量移动到GPU上。</span><br></pre></td></tr></table></figure></p>
+<h1 id="let-us-run-this-cell-only-if-CUDA-is-available"><a href="#let-us-run-this-cell-only-if-CUDA-is-available" class="headerlink" title="let us run this cell only if CUDA is available"></a>let us run this cell only if CUDA is available</h1><p>if torch.cuda.is_available():<br>    x = x.cuda()<br>    y = y.cuda()<br>    x + y<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**脚本总运行时间:**0.003秒</span><br><span class="line"></span><br><span class="line">[Python源码](http://pytorch.org/tutorials/_downloads/tensor_tutorial.py)</span><br><span class="line"></span><br><span class="line">[Jupyter源码](http://pytorch.org/tutorials/_downloads/tensor_tutorial.ipynb)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 二、Autograd: 自动求导(automatic differentiation)</span><br><span class="line"></span><br><span class="line">PyTorch 中所有神经网络的核心是```autograd```包.我们首先简单介绍一下这个包,然后训练我们的第一个神经网络.</span><br><span class="line"></span><br><span class="line">```autograd```包为张量上的所有操作提供了自动求导.它是一个运行时定义的框架,这意味着反向传播是根据你的代码如何运行来定义,并且每次迭代可以不同.</span><br><span class="line"></span><br><span class="line">接下来我们用一些简单的示例来看这个包</span><br><span class="line"></span><br><span class="line">### 变量(Variable)</span><br><span class="line"></span><br><span class="line">*```autograd.Variable```*是```autograd```包的核心类.它包装了*张量*(```Tensor```),支持几乎所有的张量上的操作.一旦你完成你的前向计算,可以通过``` .backward()```方法来自动计算所有的梯度.</span><br><span class="line"></span><br><span class="line">你可以通过```.data```属性来访问变量中的原始张量,关于这个变量的梯度被计算放入```.grad```属性中</span><br><span class="line"></span><br><span class="line">![Variable](/home/song/Documents/images/Variable.png)</span><br><span class="line"></span><br><span class="line">对自动求导的实现还有一个非常重要的类,即*函数*(```Function```).</span><br><span class="line"></span><br><span class="line">*变量*(```Variable```)和*函数*(```Function```)是相互联系的,并形成一个非循环图来构建一个完整的计算过程.每个变量有一个```.grad_fn```属性,它指向创建该变量的一个```Function```,用户自己创建的变量除外,它的```grad_fn```属性为None.</span><br><span class="line"></span><br><span class="line">如果你想计算导数,可以在一个变量上调用```.backward()```.如果一个```Variable```是一个标量(它只有一个元素值),你不必给该方法指定任何的参数,但是该```Variable```有多个值,你需要指定一个和该变量相同形状的的```grad_output```参数(查看API发现实际为```gradients```参数).</span><br></pre></td></tr></table></figure></p>
+<p>import torch<br>from torch.autograd import Variable<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">创建一个变量:</span><br></pre></td></tr></table></figure></p>
+<p>x = Variable(torch.ones(2, 2), requires_grad=True)<br>print(x)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">输出:</span><br></pre></td></tr></table></figure></p>
+<p>Variable containing:<br> 1  1<br> 1  1<br>[torch.FloatTensor of size 2x2]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">在变量上执行操作:</span><br></pre></td></tr></table></figure></p>
+<p>y = x + 2<br>print(y)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">输出:</span><br></pre></td></tr></table></figure></p>
+<p>Variable containing:<br> 3  3<br> 3  3<br>[torch.FloatTensor of size 2x2]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">因为```y```是通过一个操作创建的,所以它有```grad_fn```,而```x```是由用户创建,所以它的```grad_fn```为None.</span><br></pre></td></tr></table></figure></p>
+<p>print(y.grad_fn)<br>print(x.grad_fn)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">输出:</span><br></pre></td></tr></table></figure></p>
+<p><torch.autograd.function.addconstantbackward object="" at="" 0x7faa6f3bdd68=""><br>None<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">在y上执行操作</span><br></pre></td></tr></table></figure></torch.autograd.function.addconstantbackward></p>
+<p>z = y <em> y </em> 3<br>out = z.mean()</p>
+<p>print(z, out)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">输出:</span><br></pre></td></tr></table></figure></p>
+<p>Variable containing:<br> 27  27<br> 27  27<br>[torch.FloatTensor of size 2x2]<br> Variable containing:<br> 27<br>[torch.FloatTensor of size 1]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 梯度(Gradients)</span><br><span class="line"></span><br><span class="line">现在我们来执行反向传播,```out.backward()```相当于执行```out.backward(torch.Tensor([1.0]))</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">out.backward()</span><br></pre></td></tr></table></figure>
+<p>输出<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>print(x.grad)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">输出:</span><br></pre></td></tr></table></figure></p>
+<p>Variable containing:<br> 4.5000  4.5000<br> 4.5000  4.5000<br>[torch.FloatTensor of size 2x2]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">你应该得到一个值全为4.5的矩阵,我们把变量```out```称为$$o$$,则$$o=\frac&#123;1&#125;&#123;4&#125;\sum_iz_i,z_i=3(x_i + 2)^2,z_i|_&#123;x_i=1&#125;=27$$, 因此$$\frac&#123;\partial o&#125;&#123;\partial x_i&#125;=\frac&#123;3&#125;&#123;2&#125;(x_i+2),\frac&#123;\partial o&#125;&#123;\partial x_i&#125;=\frac&#123;9&#125;&#123;2&#125;=4.5$$</span><br><span class="line"></span><br><span class="line">我们还可以用自动求导做更多有趣的事!</span><br></pre></td></tr></table></figure></p>
+<p>x = torch.randn(3)<br>x = Variable(x, requires_grad=True)</p>
+<p>y = x <em> 2<br>while y.data.norm() &lt; 1000:<br>    y = y </em> 2</p>
+<p>print(y)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">输出:</span><br></pre></td></tr></table></figure></p>
+<p>Variable containing:<br> 682.4722<br>-598.8342Zero the gradient buffers of all parameters and backprops with random gradients:<br> 692.9528<br>[torch.FloatTensor of size 3]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>gradients = torch.FloatTensor([0.1, 1.0, 0.0001])<br>y.backward(gradients)</p>
+<p>print(x.grad)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">输出:</span><br></pre></td></tr></table></figure></p>
+<p>Variable containing:<br>  102.4000<br> 1024.0000<br>    0.1024Zero the gradient buffers of all parameters and backprops with random gradients:<br>[torch.FloatTensor of size 3]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">稍后阅读:</span><br><span class="line"></span><br><span class="line">关于```Variable```和```Function```的文档在[http://pytorch.org/docs/autograd](http://pytorch.org/docs/autograd).</span><br><span class="line"></span><br><span class="line">以上脚本的总的运行时间为0.003秒.</span><br><span class="line"></span><br><span class="line">[Python源码](http://pytorch.org/tutorials/_downloads/autograd_tutorial.py)</span><br><span class="line"></span><br><span class="line">[Jupyter源码](http://pytorch.org/tutorials/_downloads/autograd_tutorial.ipynb)</span><br><span class="line"></span><br><span class="line">## 三、神经网络</span><br><span class="line"></span><br><span class="line">可以使用```torch.nn```包来构Zero the gradient buffers of all parameters and backprops with random gradients:建神经网络.</span><br><span class="line"></span><br><span class="line">你已知道```autograd```包,``nn``包依赖```autograd```包来定义模型并求导.一个```nn.Module```包含各个层和一个```faward(input)```方法,该方法返回```output```.</span><br><span class="line"></span><br><span class="line">例如,我们来看一下下面这个分类数字图像的网络.</span><br><span class="line"></span><br><span class="line">![mnist](/home/song/Documents/images/mnist.png)</span><br><span class="line"></span><br><span class="line">&lt;p align=&apos;center&apos;&gt;convnet&lt;/p&gt;</span><br><span class="line"></span><br><span class="line">他是一个简单的前馈神经网络,它接受一个输入,然后一层接着一层的输入,知道最后得到结果.</span><br><span class="line"></span><br><span class="line">神经网络的典型训练过程如下:</span><br><span class="line"></span><br><span class="line">1. 定义神经网络模型,它有一些可学习的参数(或者权重);</span><br><span class="line"></span><br><span class="line">2. 在数据集上迭代;</span><br><span class="line"></span><br><span class="line">3. 通过神经网络处理输入;</span><br><span class="line"></span><br><span class="line">4. 计算损失(输出结果Zero the gradient buffers of all parameters and backprops with random gradients:Zero the gradient buffers of all parameters and backprops with random gradients:和正确值的差距大小)</span><br><span class="line"></span><br><span class="line">5. 将梯度反向传播会网络的参数;</span><br><span class="line"></span><br><span class="line">6. 更新网络的参数,主要使用如下简单的更新原则:</span><br></pre></td></tr></table></figure></p>
+<p>   weight = weight - learning_rate * gradient<br>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">###  定义网络</span><br><span class="line"></span><br><span class="line">我们先定义一个网络</span><br></pre></td></tr></table></figure></p>
+<p>import torch<br>from torch.autograd import Variable<br>import torch.nn Zero the gradient buffers of all parameters and backprops with random gradients:as nn<br>import torch.nn.functional as F</p>
+<p>class Net(nn.Module):<br>    def <strong>init</strong>(self):<br>        super(Net, self).<strong>init</strong>()</p>
+<pre><code>    # 1 input image channel, 6 output channels, 5*5 square convolution
+    # kernel
+
+    self.conv1 = nn.Conv2d(1, 6, 5)
+    self.conv2 = nn.Conv2d(6, 16, 5)
+    # an affZero the gradient buffers of all parameters and backprops with random gradients:ine operation: y = Wx + b
+    self.fc1 = nn.Linear(16 * 5 * 5, 120)
+    self.fc2 = nn.Linear(120, 84)
+    self.fc3 = nn.Linear(84, 10)
+
+def forward(self, x):
+    # max pooling over a (2, 2) window
+    x = F.max_pool2d(F.relu(self.conv1(x)), (2, 2))
+    # If size is a square you can only specify a single number
+    x = F.max_pool2d(F.relu(self.conv2(x)), 2)
+    x = x.view(-1, self.num_flat_features(x))
+    x = F.reZero the gradient buffers of all parameters and backprops with random gradients:lu(self.fc1(x))
+    x = F.relu(self.fc2(x))
+    x = self.fc3(x)
+    return x
+
+def num_flat_features(self, x):
+    size = x.size()[1:] # all dimensions except the batch dimension
+    num_features = 1
+    for s in size:
+        num_features *= s
+    return num_features
+</code></pre><p>net = Net()<br>print(net)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">输出:</span><br></pre></td></tr></table></figure></p>
+<p>Net (<br>  (conv1): Conv2d(1, 6, kernel_size=(5, 5), stride=(1, 1))<br>  (conv2): Conv2d(6, 16, kernel_size=(5, 5), stride=(1, 1))<br>  (fc1): LiZero the gradient buffers of all parameters and backprops with random gradients:Zero the gradient buffers of all parameters and backprops with random gradients:near (400 -&gt; 120)<br>  (fc2): Linear (120 -&gt; 84)<br>  (fc3): Linear (84 -&gt; 10)<br>)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">你只需定义```forward```函数,```backward```函数(计算梯度)在使用```autograd```时自动为你创建.你可以在```forward```函数中使用```Tensor```的任何操作.</span><br><span class="line"></span><br><span class="line">```net.parameters()```返回模型需要学习的参数Zero the gradient buffers of all parameters and backprops with random gradients:</span><br></pre></td></tr></table></figure></p>
+<p>params = list(net.parameters())<br>print(len(params))<br>for param in params:<br>    print(param.size())<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">输出:</span><br></pre></td></tr></table></figure></p>
+<p>10<br>torch.Size([6, 1, 5, 5])<br>torch.Size([6])<br>torch.Size([16, 6, 5, 5])<br>torch.Size([16])<br>torch.Size([120, 400])<br>torch.Size([120])<br>torch.Size([84, 120])<br>torch.Size([84])<br>torch.Size([10, 84])<br>torch.Size([10])<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```forward```的输入和输出都是```autograd.Variable```.*注意*:这个网络(LeNet)期望的输入大小是32\*32.如果使用MNIST数据集来训练这个网络,请把图片大小重新调整到32\*32.</span><br></pre></td></tr></table></figure></p>
+<p>input = Variable(torch.randn(1, 1, 32, 32))<br>out = net(input)<br>print(out)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">输出:</span><br></pre></td></tr></table></figure></p>
+<p>Variable containing:<br>-0.0536 -0.0548 -0.1079  0.0030  0.0521 -0.1061 -0.1456 -0.0095  0.0704  0.0259<br>[torch.FloatTensor of size 1x10]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">将所有参数的梯度缓存清零,然后进行随机梯度的的反向传播.</span><br></pre></td></tr></table></figure></p>
+<p>net.zero_grad()<br>out.backward(torch.randn(1, 10))<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**注意**</span><br><span class="line"></span><br><span class="line">1. ```torch.nn``` 只支持小批量输入,整个```torch.nn```包都只支持小批量样本,而不支持单个样本</span><br><span class="line">2. 例如,```nn.Conv2d```将接受一个4维的张量,每一维分别是sSamples * nChannels * Height * Width(样本数\*通道数\*高*宽).</span><br><span class="line">3. 如果你有单个样本,只需使用```input.unsqueeze(0)```来添加其它的维数.</span><br><span class="line"></span><br><span class="line">在继续之前,我们回顾一下到目前为止见过的所有类.</span><br><span class="line"></span><br><span class="line">**回顾**</span><br><span class="line"></span><br><span class="line">* ```torch.Tensor```-一个多维数组</span><br><span class="line">* ```autograd.Variable```-包装一个```Tensor```,记录在其上执行过的操作.除了拥有```Tensor```拥有的API,还有类似```backward()```的API.也保存关于这个向量的梯度.</span><br><span class="line">* ```nn.Module```-神经网络模块.封装参数,移动到GPU上运行,导出,加载等</span><br><span class="line">* ```nn.Parameter```-一种变量,当把它赋值给一个```Module```时,被自动的注册为一个参数.</span><br><span class="line">* ```autograd.Function```-实现一个自动求导操作的前向和反向定义,每个变量操作至少创建一个函数节点,(Every `Variable` operation, creates at least a single `Function` node, that connects to functions that created a `Variable` and *encodes its history*.)</span><br><span class="line"></span><br><span class="line">现在,我们包含了如下内容:</span><br><span class="line"></span><br><span class="line">* 定义一个神经网络</span><br><span class="line">* 处理输入和调用```backward</span><br></pre></td></tr></table></figure></p>
+<p>剩下的内容:</p>
+<ul>
+<li>计算损失值</li>
+<li>更新神经网络的权值</li>
+</ul>
+<h3 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h3><p>一个损失函数接受一对<figure class="highlight plain"><figcaption><span>target)```作为输入(output为网络的输出,target为实际值),计算一个值来估计网络的输出和目标值相差多少.</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">在```nn```包中有几种不同的损失函数.一个简单的损失函数是:```nn.MSELoss```,他计算输入(个人认为是网络的输出)和目标值之间的均方误差.</span><br><span class="line"></span><br><span class="line">例如:</span><br></pre></td></tr></table></figure></p>
+<p>out = net(input)<br>target = Variable(torch.arange(1, 11))  # a dummy target, for example<br>criterion = nn.MSELoss()</p>
+<p>loss = criterion(out, target)<br>print(loss)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">输出:</span><br></pre></td></tr></table></figure></p>
+<p>Variable containing:<br> 38.1365<br>[torch.FloatTensor of size 1]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">现在,你反向跟踪```loss```,使用它的```.grad_fn```属性,你会看到向下面这样的一个计算图:</span><br></pre></td></tr></table></figure></p>
+<p>input -&gt; conv2d -&gt; relu -&gt; maxpool2d -&gt; conv2d -&gt; relu -&gt; maxpool2d<br>      -&gt; view -&gt; linear -&gt; relu -&gt; linear -&gt; relu -&gt; linear<br>      -&gt; MSELoss<br>      -&gt; loss<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">所以, 当你调用```loss.backward()```,整个图关于损失被求导,图中所有变量将拥有```.grad```变量来累计他们的梯度.</span><br><span class="line"></span><br><span class="line">为了说明,我们反向跟踪几步:</span><br></pre></td></tr></table></figure></p>
+<p>print(loss.grad_fn)  # MSELoss<br>print(loss.grad_fn.next_functions[0][0])  # Linear<br>print(loss.grad_fn.next_functions[0][0].next_functions[0][0])  # ReLU<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">输出:</span><br></pre></td></tr></table></figure></p>
+<p><torch.autograd.function.mselossbackward object="" at="" 0x7fb3c0dcf4f8=""></torch.autograd.function.mselossbackward></p>
+<p><torch.autograd.function.addmmbackward object="" at="" 0x7fb3c0dcf408=""></torch.autograd.function.addmmbackward></p>
+<p><accumulategrad object="" at="" 0x7fb3c0db79e8=""><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 反向传播</span><br><span class="line"></span><br><span class="line">为了反向传播误差,我们所需做的是调用```loss.backward()```.你需要清除已存在的梯度,否则梯度将被累加到已存在的梯度.</span><br><span class="line"></span><br><span class="line">现在,我们将调用```loss.backward()```,并查看conv1层的偏置项在反向传播前后的梯度.</span><br><span class="line"></span><br><span class="line">输出(官网的例子)</span><br></pre></td></tr></table></figure></accumulategrad></p>
+<p>conv1.bias.grad before backward<br>Variable containing:<br> 0numpy<br> 0<br> 0<br> 0<br> 0<br> 0<br>[torch.FloatTensor of size 6]</p>
+<p>conv1.bias.grad after backward<br>Variable containing:<br>-0.0317<br>-0.1682<br>-0.0158<br> 0.2276<br>-0.0148<br>-0.0254<br>[torch.FloatTensor of size 6]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">本人运行输出</span><br></pre></td></tr></table></figure></p>
+<p>conv1.bias.grad before backward<br>None<br>conv1.bias.grad after backward<br>Variable containing:<br> 0.0011<br> 0.1170<br>-0.0012<br>-0.0204<br>-0.0325<br>-0.0648<br>[torch.FloatTensor of size 6]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">不同之处在于backward之前不同,官网示例的梯度为0,而实际运行出来却是None.</span><br><span class="line"></span><br><span class="line">现在我们已知道如何使用损失函数.</span><br><span class="line"></span><br><span class="line">**稍后阅读**</span><br><span class="line"></span><br><span class="line">神经网络包包含了各种用来构成深度神经网络构建块的模块和损失函数,一份完整的文档查看[这里](http://pytorch.org/docs/nn)</span><br><span class="line"></span><br><span class="line">**唯一剩下的内容:**</span><br><span class="line"></span><br><span class="line">* 更新网络的权重</span><br><span class="line"></span><br><span class="line">### 更新权重</span><br><span class="line"></span><br><span class="line">实践中最简单的更新规则是随机梯度下降(SGD)．</span><br><span class="line"></span><br><span class="line">$$weight = weight - learning\_rate * gradient$$</span><br><span class="line"></span><br><span class="line">我们可以使用简单的Python代码实现这个规则.</span><br></pre></td></tr></table></figure></p>
+<p>learning<em>rate = 0.01<br>for f in net.parameters():<br>    f.data.sub</em>(f.grad.data * learning_rate)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">然而,当你使用神经网络是,你想要使用各种不同的更新规则,比如SGD,Nesterov-SGD,Adam, RMSPROP等.为了能做到这一点,我们构建了一个包```torch.optim```实现了所有的这些规则.使用他们非常简单:</span><br></pre></td></tr></table></figure></p>
+<p>import torch.optim as optim</p>
+<h1 id="create-your-optimizer"><a href="#create-your-optimizer" class="headerlink" title="create your optimizer"></a>create your optimizer</h1><p>optimizer = optim.SGD(net.parameters(), lr=0.01)</p>
+<p>#in your trainning loop:<br>optimizer.zero_grad()  # zero the gradient buffers<br>output = net(input)<br>loss = criter(output, target)<br>loss.backward()<br>optimizer.setp() # does the update<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**脚本总运行时间: 0.367秒**</span><br><span class="line"></span><br><span class="line">[Python源码](http://pytorch.org/tutorials/_downloads/neural_networks_tutorial.py)</span><br><span class="line"></span><br><span class="line">[Jupyter源码](http://pytorch.org/tutorials/_downloads/neural_networks_tutorial.ipynb)</span><br><span class="line"></span><br><span class="line">## 四、训练一个分类器</span><br><span class="line"></span><br><span class="line">你已经看到如何去定义一个神经网络,计算损失值和更新网络的权重.</span><br><span class="line"></span><br><span class="line">你现在可能在思考.</span><br><span class="line"></span><br><span class="line">### 关于数据</span><br><span class="line"></span><br><span class="line">通常，当你处理图像，文本，音频和视频数据时，你可以使用标准的Python包来加载数据到一个numpy数组中.然后把这个数组转换成```torch.*Tensor```.</span><br><span class="line"></span><br><span class="line">* 对于图像,有诸如Pillow,OpenCV包.</span><br><span class="line">* 对于音频,有诸如scipy和librosa包</span><br><span class="line">* 对于文本,原始Python和Cython来加载,或者NLTK和SpaCy是有用的.</span><br><span class="line"></span><br><span class="line">对于视觉,我们创建了一个```torchvision```包,包含常见数据集的数据加载,比如Imagenet,CIFAR10,MNIST等,和图像转换器,也就是```torchvision.datasets```和```torch.utils.data.DataLoader```.</span><br><span class="line"></span><br><span class="line">这提供了巨大的便利,也避免了代码的重复.</span><br><span class="line"></span><br><span class="line">在这个教程中,我们使用CIFAR10数据集,它有如下10个类别:&apos;airplane&apos;,&apos;automobile&apos;,&apos;bird&apos;,&apos;cat&apos;,&apos;deer&apos;,&apos;dog&apos;,&apos;frog&apos;,&apos;horse&apos;,&apos;ship&apos;,&apos;truck&apos;.这个数据集中的图像大小为3\*32\*32,即,3通道,32\*32像素.</span><br><span class="line"></span><br><span class="line">![cifar10](/home/song/Documents/images/cifar10.png)</span><br><span class="line"></span><br><span class="line">### 训练一个图像分类器</span><br><span class="line"></span><br><span class="line">我们将一次按照下列顺序进行:</span><br><span class="line"></span><br><span class="line">1. 使用```torchvision```加载和归一化CIFAR10训练集和测试集.</span><br><span class="line">2. 定义一个卷积神经网络</span><br><span class="line">3. 定义损失函数</span><br><span class="line">4. 在训练集上训练网络</span><br><span class="line">5. 在测试机上测试网络</span><br><span class="line"></span><br><span class="line">#### 1. 加载和归一化CIFAR0</span><br><span class="line"></span><br><span class="line">使用```torchvision```加载CIFAR10是非常容易的.</span><br></pre></td></tr></table></figure></p>
+<p>import torch<br>import torchvision<br>import torchvision.transforms as transforms<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">torchvision的输出是[0,1]的PILImage图像,我们把它转换为归一化范围为[-1, 1]的张量.</span><br></pre></td></tr></table></figure></p>
+<p>Files already downloaded and verified<br>Files already downloaded and verified<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">为了好玩,我们展示一些训练图像.</span><br></pre></td></tr></table></figure></p>
+<p>import matplotlib.pyplot as plt<br>import numpy as np</p>
+<h1 id="functions-to-show-an-image"><a href="#functions-to-show-an-image" class="headerlink" title="functions to show an image"></a>functions to show an image</h1><p>def imshow(img):<br>    img = img / 2 + 0.5     # unnormalize<br>    npimg = img.numpy()<br>    plt.imshow(np.transpose(npimg, (1, 2, 0)))<br>    plt.show()</p>
+<h1 id="get-some-random-training-images"><a href="#get-some-random-training-images" class="headerlink" title="get some random training images"></a>get some random training images</h1><p>dataiter = iter(trainloader)<br>images, labels = dataiter.next()</p>
+<h1 id="show-images"><a href="#show-images" class="headerlink" title="show images"></a>show images</h1><p>imshow(torchvision.utils.make_grid(images))</p>
+<h1 id="print-labels"><a href="#print-labels" class="headerlink" title="print labels"></a>print labels</h1><p>print(‘ ‘.join(‘%5s’ % classes[labels[j]] for j in range(4)))<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">输出:</span><br></pre></td></tr></table></figure></p>
+<p>truck   cat   car plane<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">![sphx_glr_cifar10_tutorial_001](/home/song/Documents/images/sphx_glr_cifar10_tutorial_001.png)</span><br><span class="line"></span><br><span class="line">#### 2. 定义一个卷积神经网络</span><br><span class="line"></span><br><span class="line">从之前的神经网络一节复制神经网络代码,并修改为接受3通道图像取代之前的接受单通道图像.</span><br></pre></td></tr></table></figure></p>
+<p>from torch.autograd import Variable<br>import torch.nn as nn<br>import torch.nn.functional as F</p>
+<p>class Net(nn.Module):<br>    def <strong>init</strong>(self):<br>        super(Net, self).<strong>init</strong>()<br>        self.conv1 = nn.Conv2d(3, 6, 5)<br>        self.pool = nn.MaxPool2d(2, 2)<br>        self.conv2 = nn.Conv2d(6, 16, 5)<br>        self.fc1 = nn.Linear(16 <em> 5 </em> 5, 120)<br>        self.fc2 = nn.Linear(120, 84)<br>        self.fc3 = nn.Linear(84, 10)</p>
+<pre><code>def forward(self, x):
+    x = self.pool(F.relu(self.conv1(x)))
+    x = self.pool(F.relu(self.conv2(x)))
+    x = x.view(-1, 16 * 5 * 5)
+    x = F.relu(self.fc1(x))
+    x = F.relu(self.fc2(x))
+    x = self.fc3(x)
+    return x
+</code></pre><p>net = Net()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 3. 定义损失函数和优化器</span><br><span class="line"></span><br><span class="line">我们使用交叉熵作为损失函数,使用带动量的随机梯度下降.</span><br></pre></td></tr></table></figure></p>
+<p>import torch.optim as optim</p>
+<p>criterion = nn.CrossEntropyLoss()<br>optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.9)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 4. 训练网络</span><br><span class="line"></span><br><span class="line">这是开始有趣的时刻.我们只需在数据迭代器上循环,听歌数据输入给网络,并优化.</span><br></pre></td></tr></table></figure></p>
+<p>for epoch in range(2):  # loop over the dataset multiple times</p>
+<pre><code>running_loss = 0.0
+for i, data in enumerate(trainloader, 0):
+    # get the inputs
+    inputs, labels = data
+
+    # wrap them in Variable
+    inputs, labels = Variable(inputs), Variable(labels)
+
+    # zero the parameter gradients
+    optimizer.zero_grad()
+
+    # forward + backward + optimize
+    outputs = net(inputs)
+    loss = criterion(outputs, labels)
+    loss.backward()
+    optimizer.step()
+
+    # print statistics
+    running_loss += loss.data[0]
+    if i % 2000 == 1999:    # print every 2000 mini-batches
+        print(&apos;[%d, %5d] loss: %.3f&apos; %
+              (epoch + 1, i + 1, running_loss / 2000))
+        running_loss = 0.0
+</code></pre><p>print(‘Finished Training’)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">输出:</span><br></pre></td></tr></table></figure></p>
+<p>[1,  2000] loss: 2.191<br>[1,  4000] loss: 1.866<br>[1,  6000] loss: 1.696<br>[1,  8000] loss: 1.596<br>[1, 10000] loss: 1.502<br>[1, 12000] loss: 1.496<br>[2,  2000] loss: 1.422<br>[2,  4000] loss: 1.370<br>[2,  6000] loss: 1.359<br>[2,  8000] loss: 1.321<br>[2, 10000] loss: 1.311<br>[2, 12000] loss: 1.275<br>Finished Training<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 5. 在测试集上测试网络</span><br><span class="line"></span><br><span class="line">我们在整个训练集上训练了两次网络,但是我们需要检查网络是否从数据集中学习到东西.</span><br><span class="line"></span><br><span class="line">我们通过预测神经网络输出的类别标签并根据实际情况进行检测.如果预测正确,我们把该样本添加到正确预测列表.</span><br><span class="line"></span><br><span class="line">第一步,显示测试集中的图片一遍熟悉图片内容.</span><br></pre></td></tr></table></figure></p>
+<p>dataiter = iter(testloader)<br>images, labels = dataiter.next()</p>
+<h1 id="print-images"><a href="#print-images" class="headerlink" title="print images"></a>print images</h1><p>imshow(torchvision.utils.make_grid(images))<br>print(‘GroundTruth: ‘, ‘ ‘.join(‘%5s’ % classes[labels[j]] for j in range(4)))<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">![sphx_glr_cifar10_tutorial_002](/home/song/Documents/images/sphx_glr_cifar10_tutorial_002.png)</span><br><span class="line"></span><br><span class="line">输出:</span><br></pre></td></tr></table></figure></p>
+<p>GroundTruth:    cat  ship  ship plane<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">现在我们来看看神经网络认为以上图片是什么?</span><br></pre></td></tr></table></figure></p>
+<p>outputs = net(Variable(images))<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">输出是10个标签的能量.一个类别的能量越大,神经网络越认为他是这个类别.所以让我们得到最高能量的标签.</span><br></pre></td></tr></table></figure></p>
+<p>_, predicted = torch.max(outputs.data, 1)</p>
+<p>print(‘Predicted: ‘, ‘ ‘.join(‘%5s’ % classes[predicted[j]]<br>                              for j in range(4)))<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">输出:</span><br></pre></td></tr></table></figure></p>
+<p>Predicted:    cat  ship   car plane<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">这结果看起来非常的好.</span><br><span class="line"></span><br><span class="line">接下来让我们看看网络在整个测试集上的结果如何.</span><br></pre></td></tr></table></figure></p>
+<p>correct = 0<br>total = 0<br>for data in testloader:<br>    images, labels = data<br>    outputs = net(Variable(images))<br>    _, predicted = torch.max(outputs.data, 1)<br>    total += labels.size(0)<br>    correct += (predicted == labels).sum()</p>
+<p>print(‘Accuracy of the network on the 10000 test images: %d %%’ % (<br>    100 * correct / total))<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">输出:</span><br></pre></td></tr></table></figure></p>
+<p>Accuracy of the network on the 10000 test images: 55 %<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">结果看起来好于偶然,偶然的正确率为10%,似乎网络学习到了一些东西.</span><br><span class="line"></span><br><span class="line">那在什么类上预测较好,什么类预测结果不好呢.</span><br></pre></td></tr></table></figure></p>
+<p>class_correct = list(0. for i in range(10))<br>class<em>total = list(0. for i in range(10))<br>for data in testloader:<br>    images, labels = data<br>    outputs = net(Variable(images))
+    </em>, predicted = torch.max(outputs.data, 1)<br>    c = (predicted == labels).squeeze()<br>    for i in range(4):<br>        label = labels[i]<br>        class_correct[label] += c[i]<br>        class_total[label] += 1</p>
+<p>for i in range(10):<br>    print(‘Accuracy of %5s : %2d %%’ % (<br>        classes[i], 100 * class_correct[i] / class_total[i]))<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">输出:</span><br></pre></td></tr></table></figure></p>
+<p>Accuracy of plane : 60 %<br>Accuracy of   car : 46 %<br>Accuracy of  bird : 44 %<br>Accuracy of   cat : 35 %<br>Accuracy of  deer : 38 %<br>Accuracy of   dog : 43 %<br>Accuracy of  frog : 57 %<br>Accuracy of horse : 76 %<br>Accuracy of  ship : 71 %<br>Accuracy of truck : 74 %<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">接下来干什么?</span><br><span class="line"></span><br><span class="line">我们如何在GPU上运行神经网络呢?</span><br><span class="line"></span><br><span class="line">### 在GPU上训练</span><br><span class="line"></span><br><span class="line">你是如何把一个```Tensor```转换GPU上,你就如何把一个神经网络移动到GPU上训练.这个操作会递归遍历有所模块,并将其参数和缓冲区转换为CUDA张量.</span><br></pre></td></tr></table></figure></p>
+<p>net.cuda()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">请记住,你也必须在每一步中把你的输入和目标值转换到GPU上:</span><br></pre></td></tr></table></figure></p>
+<p>inputs, labels = Variable(inputs.cuda()), Variable(target.cuda())<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">为什么我们没注意到GPU的速度提升很多?那是因为网络非常的小.</span><br><span class="line"></span><br><span class="line">**实践**:尝试增加你的网络的宽度(第一个```nn.Conv2d```的第2个参数, 第二个```nn.Conv2d```的第一个参数,他们需要是相同的数字),看看你得到了什么样的加速.</span><br><span class="line"></span><br><span class="line">**实现的目标:**</span><br><span class="line"></span><br><span class="line">* 深入了解了PyTorch的张量库和神经网络.</span><br><span class="line">* 训练了一个小网络来分类图片.</span><br><span class="line"></span><br><span class="line">### 在多GPU上训练</span><br><span class="line"></span><br><span class="line">如果你希望使用所有GPU来更大的加快速度,请查看[选读:数据并行](http://pytorch.org/tutorials/beginner/blitz/data_parallel_tutorial.html)</span><br><span class="line"></span><br><span class="line">### 接下来做什么?</span><br><span class="line"></span><br><span class="line">* [训练神经网络玩电子游戏](http://pytorch.org/tutorials/intermediate/reinforcement_q_learning.html)</span><br><span class="line">* [在ImageNet上训练最好的ResNet](https://github.com/pytorch/examples/tree/master/imagenet)</span><br><span class="line">* [使用对抗生成网络来训练一个人脸生成器](https://github.com/pytorch/examples/tree/master/dcgan)</span><br><span class="line">* [使用LSTM网络训练一个字符级的语言模型](https://github.com/pytorch/examples/tree/master/word_language_model)</span><br><span class="line">* [更多示例](https://github.com/pytorch/examples)</span><br><span class="line">* [更多教程](https://github.com/pytorch/tutorials)</span><br><span class="line">* [在论坛上讨论PyTorch](https://discuss.pytorch.org/)</span><br><span class="line">* [在Slack上与其他用户聊天]([Chat with other users on Slack](http://pytorch.slack.com/messages/beginner/))</span><br><span class="line"></span><br><span class="line">**脚本总运行时间:**3:24.484</span><br><span class="line"></span><br><span class="line">[Python源码](http://pytorch.org/tutorials/_downloads/cifar10_tutorial.py)</span><br><span class="line"></span><br><span class="line">[Jupyter源码](http://pytorch.org/tutorials/_downloads/cifar10_tutorial.ipynb)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 五、数据并行(选读)</span><br><span class="line"></span><br><span class="line">**作者**:[Sung Kim](https://github.com/hunkim)和[Jenny Kang](https://github.com/jennykang)</span><br><span class="line"></span><br><span class="line">在这个教程里,我们将学习如何使用```DataParallel```来使用多GPU.</span><br><span class="line"></span><br><span class="line">PyTorch非常容易的就可以使用GPU,你可以用如下方式把一个模型防盗GPU上:</span><br></pre></td></tr></table></figure></p>
+<p>model.gpu()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">然后你可以复制所有的张量到GPU上:</span><br></pre></td></tr></table></figure></p>
+<p>mytensor = mytensor.gpu()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">请注意,只调用```mytensor.gpu()```并没有复制张量到GPU上。你需要把它赋值给一个新的张量并在GPU上使用这个张量。</span><br><span class="line"></span><br><span class="line">在多GPU上执行前向和反向传播是自然而然的事。然而，PyTorch默认将只是用一个GPU。你可以使用```DataParallel```让模型并行运行来轻易的让你的操作在多个GPU上运行。</span><br></pre></td></tr></table></figure></p>
+<p>model = nn.DataParallel(model)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">这是这篇教程背后的核心，我们接下来将更详细的介绍它。</span><br><span class="line"></span><br><span class="line">### 导入和参数</span><br><span class="line"></span><br><span class="line">导入PyTorch模块和定义参数。</span><br></pre></td></tr></table></figure></p>
+<p>import torch<br>import torch.nn as nn<br>from torch.autograd import Variable<br>from torch.utils.data import Dataset, DataLoader</p>
+<h1 id="Parameters-and-DataLoaders"><a href="#Parameters-and-DataLoaders" class="headerlink" title="Parameters and DataLoaders"></a>Parameters and DataLoaders</h1><p>input_size = 5<br>output_size = 2</p>
+<p>batch_size = 30<br>data_size = 100<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 虚拟数据集</span><br><span class="line"></span><br><span class="line">制作一个虚拟（随机）数据集，你只需实现```__getitem__```.</span><br></pre></td></tr></table></figure></p>
+<p>class RandomDataset(Dataset):</p>
+<pre><code>def __init__(self, size, length):
+    self.len = length
+    self.data = torch.randn(length, size)
+
+def __getitem__(self, index):
+    return self.data[index]
+
+def __len__(self):
+    return self.len
+</code></pre><p>rand_loader = DataLoader(dataset=RandomDataset(input_size, 100),<br>                         batch_size=batch_size, shuffle=True)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 简单模型</span><br><span class="line"></span><br><span class="line">作为演示，我们的模型只接受一个输入，执行一个线性操作，然后得到结果。然而，你能在任何模型（CNN，RNN，Capsule Net等）上使用```DataParallel```。</span><br><span class="line"></span><br><span class="line">我们在模型内部放置了一条打印语句来检测输入和输出向量的大小。请注意批等级为0时打印的内容。</span><br></pre></td></tr></table></figure></p>
+<p>class Model(nn.Module):</p>
+<pre><code># Our model
+
+def __init__(self, input_size, output_size):
+    super(Model, self).__init__()
+    self.fc = nn.Linear(input_size, output_size)
+
+def forward(self, input):
+    output = self.fc(input)
+    print(&quot;  In Model: input size&quot;, input.size(),
+          &quot;output size&quot;, output.size())
+
+    return output
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 创建一个模型和数据并行</span><br><span class="line"></span><br><span class="line">这是本教程的核心部分。首先，我们需要创建一个模型实例和检测我们是否有多个GPU。如果我们有多个GPU，我们使用```nn.DataParallel```来包装我们的模型。然后通过```model.gpu()```（看代码实际是```model.cuda()```)把模型放到GPU上。</span><br><span class="line"></span><br><span class="line">### 运行模型</span><br><span class="line"></span><br><span class="line">现在我们可以看输入和输出张量的大小。</span><br></pre></td></tr></table></figure>
+<p>for data in rand_loader:<br>    if torch.cuda.is_available():<br>        input_var = Variable(data.cuda())<br>    else:<br>        input_var = Variable(data)</p>
+<pre><code>output = model(input_var)
+print(&quot;Outside: input size&quot;, input_var.size(),
+      &quot;output_size&quot;, output.size())
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">输出：</span><br></pre></td></tr></table></figure>
+<p>In Model: input size torch.Size([30, 5]) output size torch.Size([30, 2])<br>Outside: input size torch.Size([30, 5]) output_size torch.Size([30, 2])<br>  In Model: input size torch.Size([30, 5]) output size torch.Size([30, 2])<br>Outside: input size torch.Size([30, 5]) output_size torch.Size([30, 2])<br>  In Model: input size torch.Size([30, 5]) output size torch.Size([30, 2])<br>Outside: input size torch.Size([30, 5]) output_size torch.Size([30, 2])<br>  In Model: input size torch.Size([10, 5]) output size torch.Size([10, 2])<br>Outside: input size torch.Size([10, 5]) output_size torch.Size([10, 2])<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 结果</span><br><span class="line"></span><br><span class="line">当我们对30个输入和输出进行批处理时，我们和期望的一样得到30个输入和输出，但是如果你有多个GPU，你得到如下的结果。</span><br><span class="line"></span><br><span class="line">**2个GPU**</span><br><span class="line"></span><br><span class="line">如果你有2个GPU，你将看到：</span><br></pre></td></tr></table></figure></p>
+<h1 id="on-2-GPUs"><a href="#on-2-GPUs" class="headerlink" title="on 2 GPUs"></a>on 2 GPUs</h1><p>Let’s use 2 GPUs!<br>    In Model: input size torch.Size([15, 5]) output size torch.Size([15, 2])<br>    In Model: input size torch.Size([15, 5]) output size torch.Size([15, 2])<br>Outside: input size torch.Size([30, 5]) output_size torch.Size([30, 2])<br>    In Model: input size torch.Size([15, 5]) output size torch.Size([15, 2])<br>    In Model: input size torch.Size([15, 5]) output size torch.Size([15, 2])<br>Outside: input size torch.Size([30, 5]) output_size torch.Size([30, 2])<br>    In Model: input size torch.Size([15, 5]) output size torch.Size([15, 2])<br>    In Model: input size torch.Size([15, 5]) output size torch.Size([15, 2])<br>Outside: input size torch.Size([30, 5]) output_size torch.Size([30, 2])<br>    In Model: input size torch.Size([5, 5]) output size torch.Size([5, 2])<br>    In Model: input size torch.Size([5, 5]) output size torch.Size([5, 2])<br>Outside: input size torch.Size([10, 5]) output_size torch.Size([10, 2])<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**3个GPU**</span><br></pre></td></tr></table></figure></p>
+<p>Let’s use 3 GPUs!<br>    In Model: input size torch.Size([10, 5]) output size torch.Size([10, 2])<br>    In Model: input size torch.Size([10, 5]) output size torch.Size([10, 2])<br>    In Model: input size torch.Size([10, 5]) output size torch.Size([10, 2])<br>Outside: input size torch.Size([30, 5]) output_size torch.Size([30, 2])<br>    In Model: input size torch.Size([10, 5]) output size torch.Size([10, 2])<br>    In Model: input size torch.Size([10, 5]) output size torch.Size([10, 2])<br>    In Model: input size torch.Size([10, 5]) output size torch.Size([10, 2])<br>Outside: input size torch.Size([30, 5]) output_size torch.Size([30, 2])<br>    In Model: input size torch.Size([10, 5]) output size torch.Size([10, 2])<br>    In Model: input size torch.Size([10, 5]) output size torch.Size([10, 2])<br>    In Model: input size torch.Size([10, 5]) output size torch.Size([10, 2])<br>Outside: input size torch.Size([30, 5]) output_size torch.Size([30, 2])<br>    In Model: input size torch.Size([4, 5]) output size torch.Size([4, 2])<br>    In Model: input size torch.Size([4, 5]) output size torch.Size([4, 2])<br>    In Model: input size torch.Size([2, 5]) output size torch.Size([2, 2])<br>Outside: input size torch.Size([10, 5]) output_size torch.Size([10, 2])<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**8个GPU**</span><br></pre></td></tr></table></figure></p>
+<p>Let’s use 8 GPUs!<br>    In Model: input size torch.Size([4, 5]) output size torch.Size([4, 2])<br>    In Model: input size torch.Size([4, 5]) output size torch.Size([4, 2])<br>    In Model: input size torch.Size([2, 5]) output size torch.Size([2, 2])<br>    In Model: input size torch.Size([4, 5]) output size torch.Size([4, 2])<br>    In Model: input size torch.Size([4, 5]) output size torch.Size([4, 2])<br>    In Model: input size torch.Size([4, 5]) output size torch.Size([4, 2])<br>    In Model: input size torch.Size([4, 5]) output size torch.Size([4, 2])<br>    In Model: input size torch.Size([4, 5]) output size torch.Size([4, 2])<br>Outside: input size torch.Size([30, 5]) output_size torch.Size([30, 2])<br>    In Model: input size torch.Size([4, 5]) output size torch.Size([4, 2])<br>    In Model: input size torch.Size([4, 5]) output size torch.Size([4, 2])<br>    In Model: input size torch.Size([4, 5]) output size torch.Size([4, 2])<br>    In Model: input size torch.Size([4, 5]) output size torch.Size([4, 2])<br>    In Model: input size torch.Size([4, 5]) output size torch.Size([4, 2])<br>    In Model: input size torch.Size([4, 5]) output size torch.Size([4, 2])<br>    In Model: input size torch.Size([2, 5]) output size torch.Size([2, 2])<br>    In Model: input size torch.Size([4, 5]) output size torch.Size([4, 2])<br>Outside: input size torch.Size([30, 5]) output_size torch.Size([30, 2])<br>    In Model: input size torch.Size([4, 5]) output size torch.Size([4, 2])<br>    In Model: input size torch.Size([4, 5]) output size torch.Size([4, 2])<br>    In Model: input size torch.Size([4, 5]) output size torch.Size([4, 2])<br>    In Model: input size torch.Size([4, 5]) output size torch.Size([4, 2])<br>    In Model: input size torch.Size([4, 5]) output size torch.Size([4, 2])<br>    In Model: input size torch.Size([4, 5]) output size torch.Size([4, 2])<br>    In Model: input size torch.Size([4, 5]) output size torch.Size([4, 2])<br>    In Model: input size torch.Size([2, 5]) output size torch.Size([2, 2])<br>Outside: input size torch.Size([30, 5]) output_size torch.Size([30, 2])<br>    In Model: input size torch.Size([2, 5]) output size torch.Size([2, 2])<br>    In Model: input size torch.Size([2, 5]) output size torch.Size([2, 2])<br>    In Model: input size torch.Size([2, 5]) output size torch.Size([2, 2])<br>    In Model: input size torch.Size([2, 5]) output size torch.Size([2, 2])<br>    In Model: input size torch.Size([2, 5]) output size torch.Size([2, 2])<br>Outside: input size torch.Size([10, 5]) output_size torch.Size([10, 2])<br>```</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>DataParallel自动的划分数据，并将作业发送到多个GPU上的多个模型。在每个模型完成作业后，DataParallel收集并合并结果返回给你。</p>
+<p>更多信息请看这里：</p>
+<p><a href="http://pytorch.org/tutorials/beginner/former_torchies/parallelism_tutorial.html" target="_blank" rel="noopener">http://pytorch.org/tutorials/beginner/former_torchies/parallelism_tutorial.html</a></p>
+<p><strong>脚本总运行时间：</strong>0.0003秒</p>
+<p><a href="http://pytorch.org/tutorials/_downloads/data_parallel_tutorial.py" target="_blank" rel="noopener">Python源码</a></p>
+<p><a href="http://pytorch.org/tutorials/_downloads/data_parallel_tutorial.ipynb" target="_blank" rel="noopener">Jupyter源码</a></p>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2017/11/26/hexo-configuration/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.png" alt="茂松's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        maosongran@gmail.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto: maosongran@gmail.com" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">2</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/Hexo/">Hexo<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Hexo/环境搭建/">环境搭建<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+            <li class="divider"></li>
+        
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/about" title="关于">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                关于
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/tags" title="标签云">
+                
+                    <i class="material-icons sidebar-material-icons">bookmark</i>
+                
+                标签云
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/timeline" title="时间轴">
+                
+                    <i class="material-icons sidebar-material-icons">visibility</i>
+                
+                时间轴
+            </a>
+        </li>
+        
+            <li class="divider"></li>
+        
+    
+
+    <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                文章总数
+                <span class="sidebar-badge">2</span>
+            </a>
+        </li>
+        
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/ranmaosong" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>技术闲谈
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.0 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>
