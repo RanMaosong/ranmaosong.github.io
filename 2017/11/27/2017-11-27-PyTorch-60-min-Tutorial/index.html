@@ -273,7 +273,7 @@
 
     
         <meta property="article:published_time" content="Mon Nov 27 2017 00:20:22 GMT+0800" />
-        <meta property="article:modified_time" content="Wed Nov 29 2017 19:40:12 GMT+0800" />
+        <meta property="article:modified_time" content="Wed Nov 29 2017 19:50:09 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
@@ -300,7 +300,7 @@
     "mainEntityOfPage": "http://yoursite.com/2017/11/27/2017-11-27-PyTorch-60-min-Tutorial/index.html",
     "headline": "PyTorch 深度学习:60分钟快速入门",
     "datePublished": "Mon Nov 27 2017 00:20:22 GMT+0800",
-    "dateModified": "Wed Nov 29 2017 19:40:12 GMT+0800",
+    "dateModified": "Wed Nov 29 2017 19:50:09 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "茂松",
@@ -751,8 +751,7 @@
 <li>更新网络的权重</li>
 </ul>
 <h3 id="更新权重"><a href="#更新权重" class="headerlink" title="更新权重"></a>更新权重</h3><p>实践中最简单的更新规则是随机梯度下降(SGD)．</p>
-<script type="math/tex; mode=display">weight = weight - learning\_rate * gradient</script><p>![]</p>
-<p>我们可以使用简单的Python代码实现这个规则.</p>
+<script type="math/tex; mode=display">weight = weight - learning\_rate * gradient</script><p>我们可以使用简单的Python代码实现这个规则.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">learning_rate = 0.01</span><br><span class="line">for f in net.parameters():</span><br><span class="line">	f.data.sub_(f.grad.data * learning_rate)</span><br></pre></td></tr></table></figure>
 <p>然而,当你使用神经网络是,你想要使用各种不同的更新规则,比如SGD,Nesterov-SGD,Adam, RMSPROP等.为了能做到这一点,我们构建了一个包<code>torch.optim</code>实现了所有的这些规则.使用他们非常简单:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import torch.optim as optim</span><br><span class="line"></span><br><span class="line"># create your optimizer</span><br><span class="line">optimizer = optim.SGD(net.parameters(), lr=0.01)</span><br><span class="line"></span><br><span class="line">#in your trainning loop:</span><br><span class="line">optimizer.zero_grad()  # zero the gradient buffers</span><br><span class="line">output = net(input)</span><br><span class="line">loss = criter(output, target)</span><br><span class="line">loss.backward()</span><br><span class="line">optimizer.setp() # does the update</span><br></pre></td></tr></table></figure>
