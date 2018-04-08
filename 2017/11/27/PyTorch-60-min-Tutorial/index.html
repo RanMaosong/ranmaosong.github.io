@@ -564,7 +564,7 @@
 </ul>
 <h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><h4 id="张量（Tensors"><a href="#张量（Tensors" class="headerlink" title="张量（Tensors)"></a>张量（Tensors)</h4><p>张量类似于numpy的ndarrays，不同之处在于张量可以使用GPU来加快计算。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> print_function</span><br><span class="line"><span class="keyword">import</span> torch</span><br></pre></td></tr></table></figure>
-<p>构建一个未初始化的5*3的矩阵：</p>
+<p>******3的矩阵：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = torch.Tensor(5, 3)</span><br><span class="line">print(x)</span><br></pre></td></tr></table></figure>
 <p>输出 ：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1.00000e-10 *</span><br><span class="line"> -1.1314  0.0000 -1.1314</span><br><span class="line">  0.0000  0.0000  0.0000</span><br><span class="line">  0.0000  0.0000  0.0000</span><br><span class="line">  0.0000  0.0000  0.0000</span><br><span class="line">  0.0000  0.0000  0.0000</span><br><span class="line">[torch.FloatTensor of size 5x3]</span><br></pre></td></tr></table></figure>
@@ -596,7 +596,7 @@
 <p>输出：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">0.9842  1.5171  0.8148</span><br><span class="line"> 1.1334  1.6540  1.5739</span><br><span class="line"> 0.9804  1.1647  0.4759</span><br><span class="line"> 0.6232  0.2689  1.0596</span><br><span class="line"> 1.0777  1.1705  0.3206</span><br><span class="line">[torch.FloatTensor of size 5x3]</span><br></pre></td></tr></table></figure>
 <p><strong>注意</strong></p>
-<p>任何在原地(in-place)改变张量的操作都有一个’_‘后缀。例如<code>x.copy_(y), x.t_()</code>操作将改变<code>x</code>.</p>
+<p>_______________’后缀。例如<code>x.copy_(y), x.t_()</code>操作将改变<code>x</code>.</p>
 <p>你可以使用所有的numpy索引操作。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(x[:, 1])</span><br></pre></td></tr></table></figure>
 <p>输出：</p>
@@ -624,11 +624,11 @@
 <h2 id="二、Autograd-自动求导-automatic-differentiation"><a href="#二、Autograd-自动求导-automatic-differentiation" class="headerlink" title="二、Autograd: 自动求导(automatic differentiation)"></a>二、Autograd: 自动求导(automatic differentiation)</h2><p>PyTorch 中所有神经网络的核心是<code>autograd</code>包.我们首先简单介绍一下这个包,然后训练我们的第一个神经网络.</p>
 <p><code>autograd</code>包为张量上的所有操作提供了自动求导.它是一个运行时定义的框架,这意味着反向传播是根据你的代码如何运行来定义,并且每次迭代可以不同.</p>
 <p>接下来我们用一些简单的示例来看这个包</p>
-<h3 id="变量-Variable"><a href="#变量-Variable" class="headerlink" title="变量(Variable)"></a>变量(Variable)</h3><p><em><code>autograd.Variable</code></em>是<code>autograd</code>包的核心类.它包装了<em>张量</em>(<code>Tensor</code>),支持几乎所有的张量上的操作.一旦你完成你的前向计算,可以通过<code>.backward()</code>方法来自动计算所有的梯度.</p>
+<h3 id="变量-Variable"><a href="#变量-Variable" class="headerlink" title="变量(Variable)"></a>变量(Variable)</h3><p><em><code>autograd.Variable</code></em><em>张量</em><em>张量</em><em>张量</em><em>张量</em><em>张量</em><em>张量</em>*(<code>Tensor</code>),支持几乎所有的张量上的操作.一旦你完成你的前向计算,可以通过<code>.backward()</code>方法来自动计算所有的梯度.</p>
 <p>你可以通过<code>.data</code>属性来访问变量中的原始张量,关于这个变量的梯度被计算放入<code>.grad</code>属性中</p>
 <p><img src="/images/Variable.png" alt="Variable"></p>
-<p>对自动求导的实现还有一个非常重要的类,即<em>函数</em>(<code>Function</code>).</p>
-<p><em>变量</em>(<code>Variable</code>)和<em>函数</em>(<code>Function</code>)是相互联系的,并形成一个非循环图来构建一个完整的计算过程.每个变量有一个<code>.grad_fn</code>属性,它指向创建该变量的一个<code>Function</code>,用户自己创建的变量除外,它的<code>grad_fn</code>属性为None.</p>
+<p><em>函数</em><em>函数</em><em>函数</em><em>函数</em><em>函数</em><em>函数</em>(<code>Function</code>).</p>
+<p><em>变量</em><em>函数</em><em>函数</em><em>函数</em><em>函数</em>*(<code>Function</code>)是相互联系的,并形成一个非循环图来构建一个完整的计算过程.每个变量有一个<code>.grad_fn</code>属性,它指向创建该变量的一个<code>Function</code>,用户自己创建的变量除外,它的<code>grad_fn</code>属性为None.</p>
 <p>如果你想计算导数,可以在一个变量上调用<code>.backward()</code>.如果一个<code>Variable</code>是一个标量(它只有一个元素值),你不必给该方法指定任何的参数,但是该<code>Variable</code>有多个值,你需要指定一个和该变量相同形状的的<code>grad_output</code>参数(查看API发现实际为<code>gradients</code>参数).</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import torch</span><br><span class="line">from torch.autograd import Variable</span><br></pre></td></tr></table></figure>
 <p>创建一个变量:</p>
@@ -692,7 +692,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">params = list(net.parameters())</span><br><span class="line">print(len(params))</span><br><span class="line">for param in params:</span><br><span class="line">	print(param.size())</span><br></pre></td></tr></table></figure>
 <p>输出:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">10</span><br><span class="line">torch.Size([6, 1, 5, 5])</span><br><span class="line">torch.Size([6])</span><br><span class="line">torch.Size([16, 6, 5, 5])</span><br><span class="line">torch.Size([16])</span><br><span class="line">torch.Size([120, 400])</span><br><span class="line">torch.Size([120])</span><br><span class="line">torch.Size([84, 120])</span><br><span class="line">torch.Size([84])</span><br><span class="line">torch.Size([10, 84])</span><br><span class="line">torch.Size([10])</span><br></pre></td></tr></table></figure>
-<p><code>forward</code>的输入和输出都是<code>autograd.Variable</code>.<em>注意</em>:这个网络(LeNet)期望的输入大小是32*32.如果使用MNIST数据集来训练这个网络,请把图片大小重新调整到32*32.</p>
+<p>****************************************************32.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">input = Variable(torch.randn(1, 1, 32, 32))</span><br><span class="line">out = net(input)</span><br><span class="line">print(out)</span><br></pre></td></tr></table></figure>
 <p>输出:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Variable containing:</span><br><span class="line">-0.0536 -0.0548 -0.1079  0.0030  0.0521 -0.1061 -0.1456 -0.0095  0.0704  0.0259</span><br><span class="line">[torch.FloatTensor of size 1x10]</span><br></pre></td></tr></table></figure>
@@ -701,7 +701,7 @@
 <p><strong>注意</strong></p>
 <ol>
 <li><code>torch.nn</code> 只支持小批量输入,整个<code>torch.nn</code>包都只支持小批量样本,而不支持单个样本</li>
-<li>例如,<code>nn.Conv2d</code>将接受一个4维的张量,每一维分别是sSamples <em> nChannels </em> Height <em> Width(样本数\</em>通道数*高*宽).</li>
+<li>***************************************<em>高</em>宽).</li>
 <li>如果你有单个样本,只需使用<code>input.unsqueeze(0)</code>来添加其它的维数.</li>
 </ol>
 <p>在继续之前,我们回顾一下到目前为止见过的所有类.</p>
@@ -711,7 +711,7 @@
 <li><code>autograd.Variable</code>-包装一个<code>Tensor</code>,记录在其上执行过的操作.除了拥有<code>Tensor</code>拥有的API,还有类似<code>backward()</code>的API.也保存关于这个向量的梯度.</li>
 <li><code>nn.Module</code>-神经网络模块.封装参数,移动到GPU上运行,导出,加载等</li>
 <li><code>nn.Parameter</code>-一种变量,当把它赋值给一个<code>Module</code>时,被自动的注册为一个参数.</li>
-<li><code>autograd.Function</code>-实现一个自动求导操作的前向和反向定义,每个变量操作至少创建一个函数节点,(Every <code>Variable</code> operation, creates at least a single <code>Function</code> node, that connects to functions that created a <code>Variable</code> and <em>encodes its history</em>.)</li>
+<li><em>encodes its history</em><em>encodes its history</em><em>encodes its history</em><em>encodes its history</em><em>encodes its history</em><em>encodes its history</em><em>encodes its history</em><em>encodes its history</em><em>encodes its history</em>odes its history*.)</li>
 </ul>
 <p>现在,我们包含了如下内容:</p>
 <ul>
@@ -768,7 +768,7 @@
 </ul>
 <p>对于视觉,我们创建了一个<code>torchvision</code>包,包含常见数据集的数据加载,比如Imagenet,CIFAR10,MNIST等,和图像转换器,也就是<code>torchvision.datasets</code>和<code>torch.utils.data.DataLoader</code>.</p>
 <p>这提供了巨大的便利,也避免了代码的重复.</p>
-<p>在这个教程中,我们使用CIFAR10数据集,它有如下10个类别:’airplane’,’automobile’,’bird’,’cat’,’deer’,’dog’,’frog’,’horse’,’ship’,’truck’.这个数据集中的图像大小为3*32*32,即,3通道,32*32像素.</p>
+<p>************************************************************************32像素.</p>
 <p><img src="/images/cifar10.png" alt="cifar10"></p>
 <h3 id="训练一个图像分类器"><a href="#训练一个图像分类器" class="headerlink" title="训练一个图像分类器"></a>训练一个图像分类器</h3><p>我们将一次按照下列顺序进行:</p>
 <ol>
