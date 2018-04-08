@@ -547,7 +547,7 @@
 <li>启动式(Started)</li>
 </ol>
 <blockquote>
-<p><em><em>注意</em></em><em><em>注意</em></em><em><em>注意</em></em><em><em>注意</em></em><em><em>注意</em></em><em><em>注意</em></em><em><em>注意</em></em><em><em>注意</em></em><em><em>注意</em></em><em><em>注意</em></em><em><em>注意</em></em><em><em>注意</em></em><em><em>注意</em></em><em><em>注意</em></em><em><em>注意</em></em><em><em>注意</em></em><em><em>注意</em></em><em><em>注意</em></em><em><em>注意</em></em><em><em>注意</em></em><em><em>注意</em></em><em><em>注意</em></em><em><em>注意</em></em><em><em>注意</em></em><em><em>注意</em></em><em><em>注意</em></em><em><em>注意</em></em><em><em>注意</em></em><em><em>注意</em></em>*,当操作执行完后,应该手动停止 <code>Service</code>。</p>
+<p>当一个组件(比如 <code>Activity</code>)通过调用<code>startService()</code>时,就会启动一个 <code>Service</code>。一旦启动,这个 <code>service</code> 就会在后台无限执行下去,即使创建这个 <code>Service</code> 的组件已经销毁。通常启动式(started)的 <code>Service</code> 执行单一操作切不给调用者返回结果。比如,通过网络下载文件。<strong>注意</strong>,当操作执行完后,应该手动停止 <code>Service</code>。</p>
 </blockquote>
 <ol>
 <li>绑定式(Bound)</li>
