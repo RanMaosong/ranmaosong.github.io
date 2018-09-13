@@ -39,7 +39,7 @@
     
     <title>
         
-            Spring（二） —— 核心： 依赖注入 | 
+            归档: 2018 | 
         
         技术闲谈
     </title>
@@ -51,7 +51,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="茂松">
     <meta name="description" itemprop="description" content="Through studying you will gain success and fortunes will follow. ,">
-    <meta name="keywords" content=",Spring">
+    <meta name="keywords" content="">
 
     <!-- Import lsloader -->
     <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(window.oldVersion){var remove=window.oldVersion.reduce(function(p,c){return p||data.indexOf("/*"+c+"*/")!==-1},false);if(remove){lsloader.removeLS(key)}}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload,isJs){if(typeof cssonload==="boolean"){isJs=cssonload;cssonload=undefined}isJs=isJs||false;cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}code=code.split(versionString)[1];if(isJs){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload,isJs)}};lsloader.requestResource=function(name,path,cssonload,isJs){var that=this;if(isJs){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else{this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
@@ -268,18 +268,15 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://yoursite.com">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="Spring（二） —— 核心： 依赖注入 | 技术闲谈">
+    <meta property="og:title" content="归档: 2018 | 技术闲谈">
     <meta property="og:image" content="http://yoursite.com/img/favicon.png" />
     <meta property="og:description" content="Through studying you will gain success and fortunes will follow. ,">
-    <meta property="og:article:tag" content="Spring"> 
-
     
-        <meta property="article:published_time" content="Tue Mar 20 2018 22:05:32 GMT+0800" />
-        <meta property="article:modified_time" content="Sun Apr 08 2018 21:36:44 GMT+0800" />
+
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="Spring（二） —— 核心： 依赖注入 | 技术闲谈">
+    <meta name="twitter:title" content="归档: 2018 | 技术闲谈">
     <meta name="twitter:description" content="Through studying you will gain success and fortunes will follow. ,">
     <meta name="twitter:image" content="http://yoursite.com/img/favicon.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -287,43 +284,13 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/2018/03/20/002-Spring-IoC/index.html" />
+        <link rel="canonical" href="http://yoursite.com/archives/2018/page/2/index.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "mainEntityOfPage": "http://yoursite.com/2018/03/20/002-Spring-IoC/index.html",
-    "headline": "Spring（二） —— 核心： 依赖注入",
-    "datePublished": "Tue Mar 20 2018 22:05:32 GMT+0800",
-    "dateModified": "Sun Apr 08 2018 21:36:44 GMT+0800",
-    "author": {
-        "@type": "Person",
-        "name": "茂松",
-        "image": {
-            "@type": "ImageObject",
-            "url": "/img/avatar.png"
-        },
-        "description": "吾生也有涯，而知也无涯."
-    },
-    "publisher": {
-        "@type": "Organization",
-        "name": "技术闲谈",
-        "logo": {
-            "@type":"ImageObject",
-            "url": "/img/favicon.png"
-        }
-    },
-    "keywords": ",Spring",
-    "description": "Through studying you will gain success and fortunes will follow. ,",
-}
-</script>
 
 
     
@@ -359,327 +326,103 @@
                         </button>
                     
 
-                    <!-- Post TOC -->
-
+                    <!-- Index Module -->
+<div class="material-index mdl-grid">
     
-    <!-- Back Button -->
-    <!--
-    <div class="material-back" id="backhome-div" tabindex="0">
-        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
-           href="#" onclick="window.history.back();return false;"
-           target="_self"
-           role="button"
-           data-upgraded=",MaterialButton,MaterialRipple">
-            <i class="material-icons" role="presentation">arrow_back</i>
-            <span class="mdl-button__ripple-container">
-                <span class="mdl-ripple"></span>
-            </span>
-        </a>
-    </div>
-    -->
+    <div class="locate-thumbnail-symbol"></div>
 
-
-    <!-- Left aligned menu below button -->
-    
-    
-    <button id="post-toc-trigger-btn"
-        class="mdl-button mdl-js-button mdl-button--icon">
-        <i class="material-icons">format_list_numbered</i>
-    </button>
-
-    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、理解依赖注入"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、理解依赖注入</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、设值注入"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、设值注入</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、构造注入"><span class="post-toc-number">3.</span> <span class="post-toc-text">三、构造注入</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四、对比两种方式"><span class="post-toc-number">4.</span> <span class="post-toc-text">四、对比两种方式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#五-总结"><span class="post-toc-number">5.</span> <span class="post-toc-text">五 总结</span></a></li></ol>
-    </ul>
+    <!-- Pin on top -->
     
 
-
-
-
-<!-- Layouts -->
-
-    <!-- Post Module -->
-    <div class="material-post_container">
-
-        <div class="material-post mdl-grid">
-            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
-
-                <!-- Post Header(Thumbnail & Title) -->
-                
-    <!-- Paradox Post Header -->
+    <!-- Normal Post -->
+    
+        
+            
+                <!-- Paradox Thumbnail -->
+                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
+    <!-- Post Thumbnail -->
     
         
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-            <script type="text/ls-javascript" id="post-thumbnail-script">
-    var randomNum = Math.floor(Math.random() * 19 + 1);
+        
+    
 
-    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+        <!-- Post Title -->
+        <p class="article-headline-p"><a href="/2018/01/05/PyTorch-Data-Loading-and-Processing-TUtorial/">PyTorch:数据加载和预处理</a></p>
+    </div>
+
+    <!-- Post Excerpt -->
+    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
+        
+            
+        
+        &nbsp;&nbsp;&nbsp;
+        <span>
+            <a href="/2018/01/05/PyTorch-Data-Loading-and-Processing-TUtorial/" target="_self">阅读全文</a>
+        </span>
+    </div>
+    <!-- Post_entry Info-->
+    <div id="post_entry-info">
+        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
+            <!-- Author Avatar -->
+            <div id="author-avatar">
+                <img src="/img/avatar.png" width="44px" height="44px" alt="茂松's avatar">
+            </div>
+            <div>
+                <strong>茂松</strong>
+                <span>1月 05, 2018</span>
+            </div>
+        </div>
+        <div id="post_entry-right-info">
+          
+              <!-- Category -->
+              <span class="post_entry-category">
+                  <a class="post_category-link" href="/categories/PyTorch/">PyTorch</a>
+              </span>
+            
+
+            
+
+            
+
+            <!-- Post Views -->
+            <span class="post_entry-views">
+            </span>
+        </div>
+    </div>
+</div>
+
+            
+            
+        
+    
+
+    
+    <!-- Index nav -->
+        <nav class="material-nav mdl-cell mdl-cell--12-col">
+            <a class="extend prev" rel="prev" href="/archives/2018/"><button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"><i class="material-icons" role="presentation">arrow_back</i></button></a><a class="page-number" href="/archives/2018/">1</a><span class="page-number current">2</span>
+        </nav>
+    
+
+    
+        <script type="text/ls-javascript" id="thumbnail-script">
+    var randomNum;
+
+    var locatePost = $('.locate-thumbnail-symbol').next();
+    for(var i = 0; i < 10; i++) {
+        randomNum = Math.floor(Math.random() * 19 + 1);
+
+        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
+        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
+
+        locatePost = locatePost.next();
+    }
 </script>
 
-        
-    
-            <p class="article-headline-p">
-                Spring（二） —— 核心： 依赖注入
-            </p>
-        </div>
-
-
-
-
-
-                
-                    <!-- Paradox Post Info -->
-                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
-
-    <!-- Author Avatar -->
-    <div id="author-avatar">
-        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
-    </div>
-    <!-- Author Name & Date -->
-    <div>
-        <strong>茂松</strong>
-        <span>3月 20, 2018</span>
-    </div>
-
-    <div class="section-spacer"></div>
-
-    <!-- Favorite -->
-    <!--
-        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
-            <i class="material-icons" role="presentation">favorite</i>
-            <span class="visuallyhidden">favorites</span>
-        </button>
-    -->
-
-    <!-- Qrcode -->
-    
-
-    <!-- Tags (bookmark) -->
-    
-    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-        <i class="material-icons" role="presentation">bookmark</i>
-        <span class="visuallyhidden">bookmark</span>
-    </button>
-    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
-        <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/Spring/">Spring</a>
-    </ul>
-    
-
-    <!-- Share -->
-    
-        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-    <i class="material-icons" role="presentation">share</i>
-    <span class="visuallyhidden">share</span>
-</button>
-<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
-    
-
-    
-
-    <!-- Share Weibo -->
-    
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Spring（二） —— 核心： 依赖注入&url=http://yoursite.com/2018/03/20/002-Spring-IoC/index.html&pic=http://yoursite.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
-            <li class="mdl-menu__item">
-                分享到微博
-            </li>
-        </a>
-    
-
-    <!-- Share Twitter -->
-    
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Spring（二） —— 核心： 依赖注入&url=http://yoursite.com/2018/03/20/002-Spring-IoC/index.html&via=茂松" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 Twitter
-            </li>
-        </a>
-    
-
-    <!-- Share Facebook -->
-    
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/03/20/002-Spring-IoC/index.html" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 Facebook
-            </li>
-        </a>
-    
-
-    <!-- Share Google+ -->
-    
-        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2018/03/20/002-Spring-IoC/index.html" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 Google+
-            </li>
-        </a>
-    
-
-    <!-- Share LinkedIn -->
-    
-        <a class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com/2018/03/20/002-Spring-IoC/index.html&title=Spring（二） —— 核心： 依赖注入" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 LinkedIn
-            </li>
-        </a>
-    
-
-    <!-- Share QQ -->
-    
-        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=技术闲谈&title=Spring（二） —— 核心： 依赖注入&summary=Through studying you will gain success and fortunes will follow. ,&pics=http://yoursite.com/img/favicon.png&url=http://yoursite.com/2018/03/20/002-Spring-IoC/index.html" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 QQ
-            </li>
-        </a>
-    
-
-    <!-- Share Telegram -->
-    
-        <a class="post_share-link" href="https://telegram.me/share/url?url=http://yoursite.com/2018/03/20/002-Spring-IoC/index.html&text=Spring（二） —— 核心： 依赖注入" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 Telegram
-            </li>
-        </a>
-    
-</ul>
-
-
-    
-    <!-- Busuanzi Views -->
-        <span id="busuanzi_container_page_pv">
-            阅读 <span id="busuanzi_value_page_pv"></span>&nbsp;
-            
-    </a>
-    
-
-
-    
-
     
 </div>
-
-
-                
-
-                <!-- Post Content -->
-                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
-    
-        <p>在所有的 Java 程序中，总存在 A 对象调用 B 对象， B 对象调用 C 对象，这种情形被 Spring 称为依赖，即 A 对象依赖 B 对象，B 对象依赖 C 对象。对于整个 Java 项目而言，它是由一些相互调用的对象所构成， Spring 把这种相互调用的关系称为依赖关系。</p>
-<p>Spring 提供的核心功能有两个：</p>
-<ol>
-<li>Spring容器作为一个超级大工厂，负责创建、管理所有的Bean（Java对象）；</li>
-<li>Spring容器管理容器中Bean之间的依赖关系，它使用一种称为“依赖注入”的方式来管理 Bean 之间的依赖关系。</li>
-</ol>
-<p>依赖注入是一种优秀的解耦方法，使用依赖注入，程序中的各个组件不需要以硬编码的方式耦合在一起，同时不再需要工厂模式，我们只需使用配置文件就可将各个组件组织在一起。使用依赖注入，不仅可以为Bean注入普通的属性值，还可以注入其它 Bean 的引用。</p>
-<h2 id="一、理解依赖注入"><a href="#一、理解依赖注入" class="headerlink" title="一、理解依赖注入"></a>一、理解依赖注入</h2><p>依赖注入(Dependency Injection)最开始的时候被称为控制反转(Inversion of Control,IoC).在传统方法中，我们主要有两种方式来实现依赖注入：</p>
-<pre><code>1. 原始方法：调用者通过被调用对象的构造函数主动创建以来对象，在调用被依赖对象的方法；
-2. 工厂方法：调用者通过被依赖对象的的工厂方法来调用其方法； 
-</code></pre><p>第一种方法，调用者通过“new”来创建被依赖对象，当被依赖对象做出更改时，必须修改调用者中的代码，这种以硬编码方法的耦合，非常不利于项目的升级维护。</p>
-<p>工厂方法，大致分为三点：1、调用者面向被依赖对象的借口编程，2、被依赖对象的创建交给工厂实现，3、 调用者通过工厂来获得被依赖对象。但是这种方法会将工厂方法和被依赖对象耦合在一起。</p>
-<p>由于Spring容器负责将被依赖对象赋值给调用者的成员变量，这样调用者无需主动获取被依赖对象，，这样对象间的耦合就通过配置文件来实现。</p>
-<p>总之，Spring 框架的优点有：</p>
-<pre><code>1. 程序无需主动使用 new 调用构造器来创建依赖对象，所有的java对象可交给 Spring 容器去创建。
-2. 调用者需要调用被依赖对象的方法时，调用者无需主动获取被依赖对象，Spring 容器会注入依赖对象。
-</code></pre><p>依赖注入有两种方式：</p>
-<pre><code>1. 设值构造： IoC 容器使用成员变量的 setter 方法来注入被依赖对象。
-2. 构造注入： IoC 容器使用构造器来注入被依赖对象。
-</code></pre><h2 id="二、设值注入"><a href="#二、设值注入" class="headerlink" title="二、设值注入"></a>二、设值注入</h2><p>设置注入是指 IoC 容器通过成员变量的 setter 方法来注入被依赖对象，这种方法简单、直观，且大量使用。Spring 容器推荐面向接口编程，不管是调用者还是被依赖对象，都应该定义为借口，程序面向他们的借口编程而不是实现类编程。面向借口编程，可以更好地让规范和实现分离，从而更好的解耦，对于 Java EE，不管是 DAO组件还是应用业务逻辑组件，都应该先定义一个借口，来规范该组件应该实现的功能。</p>
-<p>下面我们先定义两个接口在分别实现这两个接口。</p>
-<p>1、 Person 接口</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> demo1;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 定义一个使用斧头的方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">useAxe</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol>
-<li><p>Axe 接口</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> demo1;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Axe</span> </span>&#123;</span><br><span class="line">    <span class="comment">//Axe 借口中定义一个 chop() 方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">chop</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Chinese 类</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> demo1;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Chinese</span> <span class="keyword">implements</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Axe axe;</span><br><span class="line">    <span class="comment">// 设值注入所需的setter方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAxe</span><span class="params">(Axe axe)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.axe = axe;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">useAxe</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 调用 axe 的chop方法</span></span><br><span class="line">        <span class="comment">// 表明 Person 对象依赖于 axe 对象</span></span><br><span class="line">        System.out.println(axe.chop());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>StoneAxe 类 </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> demo1;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StoneAxe</span> <span class="keyword">implements</span> <span class="title">Axe</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">chop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"石头砍柴好慢"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>此时，我们已创建好所有的 Java 类，但是他们都还不是 Bean， Spring 也不知道哪些类相互耦合和相互依赖，这时我们需要使用 XML 配置文件来指定实例之间的依赖关系。Spring 2.0 开始，采用 XML Schema 来定义配置文件的语义约束。</p>
-<p>XML 配置文件的内容如下：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--配置 chinese 实例，其实现类是 Chinese 类--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"chinese"</span> <span class="attr">class</span>=<span class="string">"demo1.Chinese"</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--驱动调用 chinese 的 setAxe 方法，将容器中的stoneAxe 作为参数传入--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"axe"</span> <span class="attr">ref</span>=<span class="string">"stoneAxe"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"stoneAxe"</span> <span class="attr">class</span>=<span class="string">"demo1.StoneAxe"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>Spring 配置 Bean 实例时必须指定两个属性：</p>
-<ol>
-<li>id： 该 Bean 的唯一标志，Spring 根据 id 属性来管理 Bean，程序通过 id 属性值来访问该 Bean；</li>
-<li><p>class: 指定该 Bean 的实现类，此处不可一世借口，必须是实现类，因为借口不可以实例化。</p>
-<p>Spring 会自动检测每个 <bean...>定义里面的<property...>元素，Spring 会在自动调用默认构造器创建实例之后，立即调用对应的setter方法维 Bean 的成员变量注入值。</property...></bean...></p>
-<p>下面的代码通过 ApplicationContest 的子类 ClassPathXmlApplicationContext 来获取 Person 实例。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> demo1;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.context.ApplicationContext;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.support.ClassPathXmlApplicationContext;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BeanTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 创建容器</span></span><br><span class="line">        ApplicationContext ctx = <span class="keyword">new</span> ClassPathXmlApplicationContext(<span class="string">"beans1.xml"</span>);</span><br><span class="line">        <span class="comment">//获取 chinese 实例</span></span><br><span class="line">        Person p = ctx.getBean(<span class="string">"chinese"</span>, Chinese.class);</span><br><span class="line">        <span class="comment">// 调用 useAxe() 方法</span></span><br><span class="line">        p.useAxe();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>输出：</p>
-<blockquote>
-<p>石头砍柴好慢</p>
-</blockquote>
-</li>
-</ol>
-<p>如果某一天，系统需要改变 Axe 的实现，比如 SteelAxe 类，此时只需给出 Axe 的另一个类和更改 XML 配置文件，而Person、Chinese类如需任何改动。</p>
-<p>SteelAxe 类<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> demo1;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SteelAxe</span> <span class="keyword">implements</span> <span class="title">Axe</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">chop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"钢斧砍柴真快"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>XML 配置文件更改如下：<br>添加一行<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"steelAxe"</span> <span class="attr">class</span>=<span class="string">"demo1.SteelAxe"</span> /&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>将<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"axe"</span> <span class="attr">ref</span>=<span class="string">"stoneAxe"</span> /&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>改成：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"axe"</span> <span class="attr">ref</span>=<span class="string">"steelAxe"</span> /&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>输出：</p>
-<blockquote>
-<p>钢斧砍柴真快</p>
-</blockquote>
-<p>从上面的变化可以看出，chinese 实例与具体的 Axe 实现类没有任何联系，chinese 实例只与 Axe 借口耦合，这就是 Spring 强调面向借口编程的原因。</p>
-<h2 id="三、构造注入"><a href="#三、构造注入" class="headerlink" title="三、构造注入"></a>三、构造注入</h2><h2 id="四、对比两种方式"><a href="#四、对比两种方式" class="headerlink" title="四、对比两种方式"></a>四、对比两种方式</h2><h2 id="五-总结"><a href="#五-总结" class="headerlink" title="五 总结"></a>五 总结</h2><p>Spring IoC容器的三个基本要点：</p>
-<ol>
-<li><p>应用程序各组件面向借口编程。面向接口编程可以讲组件之间的耦合关系提升到借口层次，从而有利于项目的后期维护。</p>
-</li>
-<li><p>应用程序的各组件不在有程序主动创建，而是由 Spring 容器负责产生并初始化。</p>
-</li>
-<li><p>Spring 采用配置文件或注解来管理 Bean 的实现类、依赖关系， Spring容器则根据配置文件或注解，利用反射机制来创建实例，并为之注入依赖关系</p>
-</li>
-</ol>
-<p>$c^{T}x^{<em>}=y^{T}Ax^{</em>}=y^{*T}b$</p>
-<script type="math/tex; mode=display">c^Tx^*=y^{T}Ax^*=y^{*T}b</script><p>2</p>
-
-        
-    
-
-    
-</div>
-
-
-                
-
-                <!-- Post Comments -->
-                
-                    
-                
-            </div>
-
-            <!-- Post Prev & Next Nav -->
-            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
-    <!-- Prev Nav -->
-    
-        <a href="/2018/04/08/issue-mathjax/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
-
-    <!-- Section Spacer -->
-    <div class="section-spacer"></div>
-
-    <!-- Next Nav -->
-    
-        <a href="/2018/03/17/001-Spring-Introduction/" id="post_nav-older" class="next-content">
-            旧篇
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_forward</i>
-            </button>
-        </a>
-    
-</nav>
-
-        </div>
-    </div>
-
 
 
                     
@@ -1063,26 +806,6 @@ It will not impact the appearance and can give developers a lot of support :)
 </script>
 
 <!-- MathJax Load-->
-
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
-        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
-        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
-        messageStyle: "none"
-    });
-</script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-
-    <script src="[object Object]?config=TeX-AMS-MML_HTMLorMML"></script>
-
-
 
 
 <!-- Bing Background -->
