@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-11-05T12:47:06.151Z</updated>
+  <updated>2018-11-22T07:14:58.614Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>GloVe:Global Vectors for Word Representation</title>
+    <link href="http://yoursite.com/2018/11/21/nlp-glove/"/>
+    <id>http://yoursite.com/2018/11/21/nlp-glove/</id>
+    <published>2018-11-21T14:33:10.000Z</published>
+    <updated>2018-11-22T07:14:58.614Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://ranmaosong.github.io/2018/11/21/nlp-glove/" target="_blank" rel="noopener">Github</a><br><a href="https://www.jianshu.com/p/a6fb7e3530a0" target="_blank" rel="noopener">简书</a><br><a href="https://blog.csdn.net/u014630987/article/details/84339695" target="_blank" rel="noopener">CSDN</a></p><p>词作为自然语言处理中的一个基本单元，如何表示一个词对于后续的处理任务至关重要，最简单的表示方式是 One-hot，但是该方法表示的词之间是相互独立的，因此局限性很大，需要采用一种更合理的表示方法。</p><h1 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h1><p>目前，学习词向量的方法主流的有两种：</p><ol><li><p>全局矩阵分解的方法，比如LSA，HAL，这类方法首先统计语料库中的“词-文档”或者“词-词”共现矩阵，然后通过矩阵分解的方法来获得一个低维词向量。“词-文档”矩阵是指矩阵的行表示词，列表示文档，矩阵的元素是改词在文档中出现的次数。“词-词”共现矩阵的行和列都表示一个矩阵，</p></li><li><p>局部上下文窗口的方法， 比如skip-gram，通过神经网络的方法使语料库中给定上下文中共同出现的单词对的概率更大</p></li></ol><p>但是这两种方法都有一个缺点全局矩阵分解的方法虽然利用了全局统计信息，但是他会过度重视共现词频高的单词对，然而这些词并没有多大的语义联系，局部上下文窗口的方法虽然在词类比方面的任务表现的很好，但是没有充分利用全局统计信息。</p><p>该篇文章的主要思想就是两者取其长，结合各自的优点进行词向量学习。</p><h1 id="2-Glove"><a href="#2-Glove" class="headerlink" title="2.Glove"></a>2.Glove</h1><p>首先我们先定义一些符号</p><p>$X$ : 表示“词-词”共现矩阵，是一个对阵矩阵</p><p>$X_{ij}$: 表示词 j 出现在中心词 i 的上下文（基于窗口）的次数。</p><p>$X_i$: 表示任何词出现在词 i 上下文的总的次数。</p><p>$P_{ij}=\frac{X_{ij}}{X_i}$: 表示单词 j 出现在 单词 i 的上下文的概率。</p><p>假设我们有一个检测词 k，则存在如下关系</p><div class="table-container"><table><thead><tr><th>$ratio=\frac{P_{ik}}{P_{jk}}$</th><th style="text-align:right">j,k 相关</th><th style="text-align:center">j,k不相</th></tr></thead><tbody><tr><td>i,k相关</td><td style="text-align:right">1</td><td style="text-align:center">非常大</td></tr><tr><td>i,k不相关</td><td style="text-align:right">非常小</td><td style="text-align:center">1</td></tr></tbody></table></div><p>上面表格的意思就是当词 i，k相关时，如果j，k相关，则$ratio=\frac{P_{ik}}{P_{jk}}$接近于1，如果j，k不想管，此时$P_{jk}$非常小，则$ratio=\frac{P_{ik}}{P_{jk}}$的值会很大，如果i，k不相关，我们可以依次类推出上面的结果。</p><p>如果我们单纯地预测$P_{ij}$，此时就变回skip-gram，我们如何利用全局统计信息呢，此时我们可以利用上面表格思想，我们预测概率的比率，即：</p><script type="math/tex; mode=display">F(w_i, w_j, \hat w_k)=\frac{P_{ik}}{P_{ij}} \tag{1}</script><p>其中，$w$表示一个d维的词向量，$\hat w$ 表示上下文检测词。这里的F存在很多解，但是我们可以一步步地添加约束来得到最后的一个解</p><p>因为向量空间具有线性结构，因此我们只考虑函数 $F$ 在目标词的差异上进行运算（这个原因个人觉得理由有点牵强）</p><script type="math/tex; mode=display">F(w_i-w_j, \hat w_k)=\frac{P_{ik}}{P_{ij}} \tag{2}</script><p><strong>这句话是个人的理解</strong>：个人感觉这一部还有个原因是为了减少计算量。</p><p>从上面公式我们可以看到公式左边是个向量，右边是一个标量，因此我们可以使用向量的点乘来解决这个问题。</p><script type="math/tex; mode=display">F((w_i-w_j)^T\hat w_k)=\frac{P_{ik}}{P_{ij}}  \tag{3}</script><p>即</p><script type="math/tex; mode=display">F(w_i^T\hat w_k-w_j^T\hat w_k)=\frac{P_{ik}}{P_{ij}}  \tag{4}</script><p>在这里我们需要寻找一个在 + 和 × 之间的同态函数，比如：</p><script type="math/tex; mode=display">F(w_i^T\hat w_k-w_j^T\hat w_k)=\frac{F(w_i^T\hat w_k)}{F(w_j^T\hat w_k)} \tag{5}</script><p>该式在结合上面地公式(4)：即</p><script type="math/tex; mode=display">\frac{F(w_i^T\hat w_k)}{F(w_i^T\hat w_k)}=\frac{P_{ik}}{P_{ij}} \tag{6}</script><p>因此：</p><script type="math/tex; mode=display">F(w_i^T\hat w_k)=P_{ik}=\frac{X_{ik}}{X_i} \tag{7}</script><p>对于满足公式(5)的函数，我们可以想到有指数函数 exp，即：</p><script type="math/tex; mode=display">\exp(w_i^T\hat w_k-w_j^T\hat w_k)=\frac{\exp(w_i^T\hat w_k)}{\exp(w_j^T\hat w_k)} \tag{8}</script><p>结合公式(7)和(8)我们可以得到</p><script type="math/tex; mode=display">exp(w_i^T\hat w_k)=P_{ik}=\frac{X_{ik}}{X_i} \tag{9}</script><p>我们对其取对数可以得到：</p><script type="math/tex; mode=display">w_i^T\hat w_k=\log(P_{ik})=\log(X_{ik}) - \log(X_i) \tag{10}</script><p>由于上面左边具有交换性，而右边不具有，同时$X_i$和k无关因此可以作为一个偏织项，因此公式(10)可以演变为</p><script type="math/tex; mode=display">w_i^T\hat w_k + b_i + \hat b_k=log(X_{ik}) \tag{11}</script><p>其中$\hat b_k$ 作为 k 的偏置项来保持公式的对称性。</p><p>同事为了防止$X_{ik}$接近0时，log 趋向于负无穷大，因此我们对右式加上一个平滑项，即$\log(X_{ik}) \to log(1+X_{ik})$</p><p>因此该模型的损失函数为：</p><script type="math/tex; mode=display">J = \sum _{i,j}^{V} (w_i^T\hat w_k + b_i + \hat b_k-log(X_{ik}) )^2 \tag{12}</script><p>在这里有个问题就是他对每个单词对平等对待，但是这是不合理的，应该对 $X_{ij}$值较大的，权重应该更大，同时，我们又不应该过度重视高频词，该论文选取的权重函数如下：</p><script type="math/tex; mode=display">f(x)=\begin{cases}-(x/x_{max})^\alpha,\quad if x<x_{max} \\1, otherwise\end{cases}\tag{13}</script><p>最终该损失函数如下：</p><script type="math/tex; mode=display">J = \sum _{i,j}^{V} f(X_{ij})(w_i^T\hat w_k + b_i + \hat b_k-log(X_{ik}) )^2 \tag{14}</script><p>论文中$\alpha$ 和 $x_{max}$分别取值$3/4$ 和 100.</p><h1 id="3-和Skip-gram的联系"><a href="#3-和Skip-gram的联系" class="headerlink" title="3. 和Skip-gram的联系"></a>3. 和Skip-gram的联系</h1><p>前面提过，Glove 结合了之前两种方法的优点，但是他是如何结合或者如何从Skip-gram演变而来的呢？</p><p>总所周知，Skip-gram模型可以通过如下一个公式来表达，即Softmax：</p><script type="math/tex; mode=display">Q_{ij}=\frac{exp(w_i^T\hat w_j)}{\sum_{k=1}^V exp(w_i^T\hat w_k)} \tag{15}</script><p>则该模型的损失函数为：</p><script type="math/tex; mode=display">J =-\sum_{i \in corpus, j \in context(i)} \log Q_{ij} \tag{16}</script><p>由于我们需要利用全局统计信息，因此一个单词对可能出现很多次，因此，我们首先把所有相同的单词对先进行计算，即</p><script type="math/tex; mode=display">\begin{align}J &= -\sum_{i=1}^V\sum_{j=1}^V X_{ij} \log Q_{ij}\\&=-\sum_{i=1}^V X_i \sum_{j=1}^V P_{ij} \log Q_{ij}\\&=\sum_{i=1}^V X_iH(P_i, Q_i)\end{align}\tag {17}</script><p>由于交叉熵具有某些缺点，交叉熵具有长尾效应，当过分重视不太可能的事件时建模效果不是很好，而且交叉熵需要Q归一化，这样计算很大，因此使用这样一个未归一化的最小二成损失来替代 </p><script type="math/tex; mode=display">\hat J = \sum_{i,j} X_i (X_{ij} - \exp(w_i^T \hat w _j))^2\tag{18}</script><p>这里是因为18式中当$X_{ij}$变得很大时，训练变得复杂，于是使用对数可以缓解或补交这个问题,即：</p><script type="math/tex; mode=display">\hat J = \sum_{i,j} X_i (w_i^T \hat w _j- \log X_{ij} )^2\tag{19}</script><p>这里$X_i$可以视为一个权重项，我们通过调整这个权重和添加权重项公式19就演变为公式14.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://ranmaosong.github.io/2018/11/21/nlp-glove/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Github&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://www.jianshu.co
+      
+    
+    </summary>
+    
+      <category term="NLP(自然语言处理)" scheme="http://yoursite.com/categories/NLP-%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/"/>
+    
+    
+      <category term="NLP(自然语言处理)" scheme="http://yoursite.com/tags/NLP-%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>util.md</title>
@@ -485,31 +510,6 @@
     
     
       <category term="PyTorch" scheme="http://yoursite.com/tags/PyTorch/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android 四大组件之 Service</title>
-    <link href="http://yoursite.com/2017/12/16/Android-Service/"/>
-    <id>http://yoursite.com/2017/12/16/Android-Service/</id>
-    <published>2017-12-16T05:20:33.000Z</published>
-    <updated>2018-03-20T14:02:04.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><code>Service</code> 是 Android 应用的四大组件之一(其余的为<code>Activity</code>, <code>Broadcatst Receiver</code>, <code>Content Provider</code>),它不同于 <code>Activity</code>, 它有两个特点:</p><ol><li><strong>在后台执行长时间运行的操作</strong></li><li><strong>没有用户界面</strong></li></ol><p>Android 应用中的任何组件都可以启动和绑定 <code>Service</code>,有2种形式的 <code>Service</code>:</p><ol><li>启动式(Started)</li></ol><blockquote><p>当一个组件(比如 <code>Activity</code>)通过调用<code>startService()</code>时,就会启动一个 <code>Service</code>。一旦启动,这个 <code>service</code> 就会在后台无限执行下去,即使创建这个 <code>Service</code> 的组件已经销毁。通常启动式(started)的 <code>Service</code> 执行单一操作切不给调用者返回结果。比如,通过网络下载文件。<strong>注意</strong>,当操作执行完后,应该手动停止 <code>Service</code>。</p></blockquote><ol><li>绑定式(Bound)</li></ol><blockquote><p>当一个组件通过调用 <code>bindService()</code> 时,就会绑定到一个 <code>Service</code>。一个绑定的 <code>Service</code> 类似于”客户端-服务器”的结构,它允许组件与它进行交互,还可以进行跨进程交互(IPC)。它不同于启动式的 <code>Service</code> 会在后台无限执行知道手动被停止,绑定式的 <code>Service</code>只要有组件与之绑定,该 <code>Service</code> 就会运行,反之,则会被自动销毁。</p></blockquote><p>任何一个 <code>Service</code> 都可以同时以这两种方式运行，关键在于你是否实现了以下两个方法：</p><ol><li><code>onStartCommand()</code>: 允许组件启动该 ’Service‘；</li><li><code>onBind()</code>： 允许组件与之绑定；</li></ol><p><strong>注意</strong>：<code>Service</code> 和 <code>Activity</code> 一样，运行在主线程（UI线程）中， 它不会创建独立的线程，因此，当在 <code>Service</code> 中执行 CPU 密集操作或者阻塞操作时（比如网络或MP3播放），应该在 <code>service</code> 中创建一个新的线程，来避免出现 “Application Not Responding（ANR）”。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;code&gt;Service&lt;/code&gt; 是 Android 应用的四大组件之一(其余的为&lt;code&gt;Activity&lt;/code&gt;, &lt;code&gt;Broadcatst Receiver&lt;/code&gt;, &lt;code&gt;Content Provider&lt;/code&gt;),它不同于
-      
-    
-    </summary>
-    
-      <category term="Android" scheme="http://yoursite.com/categories/Android/"/>
-    
-    
-      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
     
   </entry>
   

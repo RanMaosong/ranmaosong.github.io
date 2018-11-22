@@ -39,7 +39,7 @@
     
     <title>
         
-            分类: Algorithm(4th) | 
+            GloVe:Global Vectors for Word Representation | 
         
         技术闲谈
     </title>
@@ -51,7 +51,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="茂松">
     <meta name="description" itemprop="description" content="Through studying you will gain success and fortunes will follow. ,">
-    <meta name="keywords" content="">
+    <meta name="keywords" content=",NLP(自然语言处理)">
 
     <!-- Import lsloader -->
     <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(window.oldVersion){var remove=window.oldVersion.reduce(function(p,c){return p||data.indexOf("/*"+c+"*/")!==-1},false);if(remove){lsloader.removeLS(key)}}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload,isJs){if(typeof cssonload==="boolean"){isJs=cssonload;cssonload=undefined}isJs=isJs||false;cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}code=code.split(versionString)[1];if(isJs){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload,isJs)}};lsloader.requestResource=function(name,path,cssonload,isJs){var that=this;if(isJs){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else{this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
@@ -268,15 +268,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://yoursite.com">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="分类: Algorithm(4th) | 技术闲谈">
+    <meta property="og:title" content="GloVe:Global Vectors for Word Representation | 技术闲谈">
     <meta property="og:image" content="http://yoursite.com/img/favicon.png" />
     <meta property="og:description" content="Through studying you will gain success and fortunes will follow. ,">
-    
+    <meta property="og:article:tag" content="NLP(自然语言处理)"> 
 
+    
+        <meta property="article:published_time" content="Wed Nov 21 2018 22:33:10 GMT+0800" />
+        <meta property="article:modified_time" content="Thu Nov 22 2018 15:14:58 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="分类: Algorithm(4th) | 技术闲谈">
+    <meta name="twitter:title" content="GloVe:Global Vectors for Word Representation | 技术闲谈">
     <meta name="twitter:description" content="Through studying you will gain success and fortunes will follow. ,">
     <meta name="twitter:image" content="http://yoursite.com/img/favicon.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -284,13 +287,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/categories/Algorithm-4th/index.html" />
+        <link rel="canonical" href="http://yoursite.com/2018/11/21/nlp-glove/index.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://yoursite.com/2018/11/21/nlp-glove/index.html",
+    "headline": "GloVe:Global Vectors for Word Representation",
+    "datePublished": "Wed Nov 21 2018 22:33:10 GMT+0800",
+    "dateModified": "Thu Nov 22 2018 15:14:58 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "茂松",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar.png"
+        },
+        "description": "吾生也有涯，而知也无涯."
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "技术闲谈",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",NLP(自然语言处理)",
+    "description": "Through studying you will gain success and fortunes will follow. ,",
+}
+</script>
 
 
     
@@ -326,98 +359,333 @@
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">1. 前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-Glove"><span class="post-toc-number">2.</span> <span class="post-toc-text">2.Glove</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3-和Skip-gram的联系"><span class="post-toc-number">3.</span> <span class="post-toc-text">3. 和Skip-gram的联系</span></a></li></ol>
+    </ul>
     
 
-    <!-- Normal Post -->
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
     
         
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/08/14/Algorithm-sorting/">排序算法</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            排序就是将一组无序的元素通过某种规则将他们按照某种主键来进行升序或者降序排列，比如，我们考试成绩，按照总分进行降序...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/08/14/Algorithm-sorting/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="茂松's avatar">
-            </div>
-            <div>
-                <strong>茂松</strong>
-                <span>8月 14, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/Algorithm-4th/">Algorithm(4th)</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
 </script>
 
+        
+    
+            <p class="article-headline-p">
+                GloVe:Global Vectors for Word Representation
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>茂松</strong>
+        <span>11月 21, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/NLP-自然语言处理/">NLP(自然语言处理)</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=GloVe:Global Vectors for Word Representation&url=http://yoursite.com/2018/11/21/nlp-glove/index.html&pic=http://yoursite.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=GloVe:Global Vectors for Word Representation&url=http://yoursite.com/2018/11/21/nlp-glove/index.html&via=茂松" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/11/21/nlp-glove/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2018/11/21/nlp-glove/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+        <a class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com/2018/11/21/nlp-glove/index.html&title=GloVe:Global Vectors for Word Representation" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 LinkedIn
+            </li>
+        </a>
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=技术闲谈&title=GloVe:Global Vectors for Word Representation&summary=Through studying you will gain success and fortunes will follow. ,&pics=http://yoursite.com/img/favicon.png&url=http://yoursite.com/2018/11/21/nlp-glove/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+        <a class="post_share-link" href="https://telegram.me/share/url?url=http://yoursite.com/2018/11/21/nlp-glove/index.html&text=GloVe:Global Vectors for Word Representation" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Telegram
+            </li>
+        </a>
+    
+</ul>
+
+
+    
+    <!-- Busuanzi Views -->
+        <span id="busuanzi_container_page_pv">
+            阅读 <span id="busuanzi_value_page_pv"></span>&nbsp;
+            
+    </a>
+    
+
+
+    
+
     
 </div>
+
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p><a href="https://ranmaosong.github.io/2018/11/21/nlp-glove/" target="_blank" rel="noopener">Github</a><br><a href="https://www.jianshu.com/p/a6fb7e3530a0" target="_blank" rel="noopener">简书</a><br><a href="https://blog.csdn.net/u014630987/article/details/84339695" target="_blank" rel="noopener">CSDN</a></p>
+<p>词作为自然语言处理中的一个基本单元，如何表示一个词对于后续的处理任务至关重要，最简单的表示方式是 One-hot，但是该方法表示的词之间是相互独立的，因此局限性很大，需要采用一种更合理的表示方法。</p>
+<h1 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h1><p>目前，学习词向量的方法主流的有两种：</p>
+<ol>
+<li><p>全局矩阵分解的方法，比如LSA，HAL，这类方法首先统计语料库中的“词-文档”或者“词-词”共现矩阵，然后通过矩阵分解的方法来获得一个低维词向量。“词-文档”矩阵是指矩阵的行表示词，列表示文档，矩阵的元素是改词在文档中出现的次数。“词-词”共现矩阵的行和列都表示一个矩阵，</p>
+</li>
+<li><p>局部上下文窗口的方法， 比如skip-gram，通过神经网络的方法使语料库中给定上下文中共同出现的单词对的概率更大</p>
+</li>
+</ol>
+<p>但是这两种方法都有一个缺点全局矩阵分解的方法虽然利用了全局统计信息，但是他会过度重视共现词频高的单词对，然而这些词并没有多大的语义联系，局部上下文窗口的方法虽然在词类比方面的任务表现的很好，但是没有充分利用全局统计信息。</p>
+<p>该篇文章的主要思想就是两者取其长，结合各自的优点进行词向量学习。</p>
+<h1 id="2-Glove"><a href="#2-Glove" class="headerlink" title="2.Glove"></a>2.Glove</h1><p>首先我们先定义一些符号</p>
+<p>$X$ : 表示“词-词”共现矩阵，是一个对阵矩阵</p>
+<p>$X_{ij}$: 表示词 j 出现在中心词 i 的上下文（基于窗口）的次数。</p>
+<p>$X_i$: 表示任何词出现在词 i 上下文的总的次数。</p>
+<p>$P_{ij}=\frac{X_{ij}}{X_i}$: 表示单词 j 出现在 单词 i 的上下文的概率。</p>
+<p>假设我们有一个检测词 k，则存在如下关系</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>$ratio=\frac{P_{ik}}{P_{jk}}$</th>
+<th style="text-align:right">j,k 相关</th>
+<th style="text-align:center">j,k不相</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>i,k相关</td>
+<td style="text-align:right">1</td>
+<td style="text-align:center">非常大</td>
+</tr>
+<tr>
+<td>i,k不相关</td>
+<td style="text-align:right">非常小</td>
+<td style="text-align:center">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>上面表格的意思就是当词 i，k相关时，如果j，k相关，则$ratio=\frac{P_{ik}}{P_{jk}}$接近于1，如果j，k不想管，此时$P_{jk}$非常小，则$ratio=\frac{P_{ik}}{P_{jk}}$的值会很大，如果i，k不相关，我们可以依次类推出上面的结果。</p>
+<p>如果我们单纯地预测$P_{ij}$，此时就变回skip-gram，我们如何利用全局统计信息呢，此时我们可以利用上面表格思想，我们预测概率的比率，即：</p>
+<script type="math/tex; mode=display">F(w_i, w_j, \hat w_k)=\frac{P_{ik}}{P_{ij}} \tag{1}</script><p>其中，$w$表示一个d维的词向量，$\hat w$ 表示上下文检测词。这里的F存在很多解，但是我们可以一步步地添加约束来得到最后的一个解</p>
+<p>因为向量空间具有线性结构，因此我们只考虑函数 $F$ 在目标词的差异上进行运算（这个原因个人觉得理由有点牵强）</p>
+<script type="math/tex; mode=display">F(w_i-w_j, \hat w_k)=\frac{P_{ik}}{P_{ij}} \tag{2}</script><p><strong>这句话是个人的理解</strong>：个人感觉这一部还有个原因是为了减少计算量。</p>
+<p>从上面公式我们可以看到公式左边是个向量，右边是一个标量，因此我们可以使用向量的点乘来解决这个问题。</p>
+<script type="math/tex; mode=display">F((w_i-w_j)^T\hat w_k)=\frac{P_{ik}}{P_{ij}}  \tag{3}</script><p>即</p>
+<script type="math/tex; mode=display">F(w_i^T\hat w_k-w_j^T\hat w_k)=\frac{P_{ik}}{P_{ij}}  \tag{4}</script><p>在这里我们需要寻找一个在 + 和 × 之间的同态函数，比如：</p>
+<script type="math/tex; mode=display">F(w_i^T\hat w_k-w_j^T\hat w_k)=\frac{F(w_i^T\hat w_k)}{F(w_j^T\hat w_k)} \tag{5}</script><p>该式在结合上面地公式(4)：即</p>
+<script type="math/tex; mode=display">\frac{F(w_i^T\hat w_k)}{F(w_i^T\hat w_k)}=\frac{P_{ik}}{P_{ij}} \tag{6}</script><p>因此：</p>
+<script type="math/tex; mode=display">F(w_i^T\hat w_k)=P_{ik}=\frac{X_{ik}}{X_i} \tag{7}</script><p>对于满足公式(5)的函数，我们可以想到有指数函数 exp，即：</p>
+<script type="math/tex; mode=display">\exp(w_i^T\hat w_k-w_j^T\hat w_k)=\frac{\exp(w_i^T\hat w_k)}{\exp(w_j^T\hat w_k)} \tag{8}</script><p>结合公式(7)和(8)我们可以得到</p>
+<script type="math/tex; mode=display">exp(w_i^T\hat w_k)=P_{ik}=\frac{X_{ik}}{X_i} \tag{9}</script><p>我们对其取对数可以得到：</p>
+<script type="math/tex; mode=display">w_i^T\hat w_k=\log(P_{ik})=\log(X_{ik}) - \log(X_i) \tag{10}</script><p>由于上面左边具有交换性，而右边不具有，同时$X_i$和k无关因此可以作为一个偏织项，因此公式(10)可以演变为</p>
+<script type="math/tex; mode=display">w_i^T\hat w_k + b_i + \hat b_k=log(X_{ik}) \tag{11}</script><p>其中$\hat b_k$ 作为 k 的偏置项来保持公式的对称性。</p>
+<p>同事为了防止$X_{ik}$接近0时，log 趋向于负无穷大，因此我们对右式加上一个平滑项，即$\log(X_{ik}) \to log(1+X_{ik})$</p>
+<p>因此该模型的损失函数为：</p>
+<script type="math/tex; mode=display">J = \sum _{i,j}^{V} (w_i^T\hat w_k + b_i + \hat b_k-log(X_{ik}) )^2 \tag{12}</script><p>在这里有个问题就是他对每个单词对平等对待，但是这是不合理的，应该对 $X_{ij}$值较大的，权重应该更大，同时，我们又不应该过度重视高频词，该论文选取的权重函数如下：</p>
+<script type="math/tex; mode=display">
+f(x)=\begin{cases}
+-(x/x_{max})^\alpha,\quad if x<x_{max} \\
+1, otherwise
+\end{cases}
+\tag{13}</script><p>最终该损失函数如下：</p>
+<script type="math/tex; mode=display">J = \sum _{i,j}^{V} f(X_{ij})(w_i^T\hat w_k + b_i + \hat b_k-log(X_{ik}) )^2 \tag{14}</script><p>论文中$\alpha$ 和 $x_{max}$分别取值$3/4$ 和 100.</p>
+<h1 id="3-和Skip-gram的联系"><a href="#3-和Skip-gram的联系" class="headerlink" title="3. 和Skip-gram的联系"></a>3. 和Skip-gram的联系</h1><p>前面提过，Glove 结合了之前两种方法的优点，但是他是如何结合或者如何从Skip-gram演变而来的呢？</p>
+<p>总所周知，Skip-gram模型可以通过如下一个公式来表达，即Softmax：</p>
+<script type="math/tex; mode=display">
+Q_{ij}=\frac{exp(w_i^T\hat w_j)}{\sum_{k=1}^V exp(w_i^T\hat w_k)} \tag{15}</script><p>则该模型的损失函数为：</p>
+<script type="math/tex; mode=display">
+J =-\sum_{i \in corpus, j \in context(i)} \log Q_{ij} \tag{16}</script><p>由于我们需要利用全局统计信息，因此一个单词对可能出现很多次，因此，我们首先把所有相同的单词对先进行计算，即</p>
+<script type="math/tex; mode=display">
+\begin{align}
+J &= -\sum_{i=1}^V\sum_{j=1}^V X_{ij} \log Q_{ij}\\
+&=-\sum_{i=1}^V X_i \sum_{j=1}^V P_{ij} \log Q_{ij}\\
+&=\sum_{i=1}^V X_iH(P_i, Q_i)
+\end{align}
+\tag {17}</script><p>由于交叉熵具有某些缺点，交叉熵具有长尾效应，当过分重视不太可能的事件时建模效果不是很好，而且交叉熵需要Q归一化，这样计算很大，因此使用这样一个未归一化的最小二成损失来替代 </p>
+<script type="math/tex; mode=display">
+\hat J = \sum_{i,j} X_i (X_{ij} - \exp(w_i^T \hat w _j))^2
+\tag{18}</script><p>这里是因为18式中当$X_{ij}$变得很大时，训练变得复杂，于是使用对数可以缓解或补交这个问题,即：</p>
+<script type="math/tex; mode=display">
+\hat J = \sum_{i,j} X_i (w_i^T \hat w _j- \log X_{ij} )^2
+\tag{19}</script><p>这里$X_i$可以视为一个权重项，我们通过调整这个权重和添加权重项公式19就演变为公式14.</p>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/11/05/util-md/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     
