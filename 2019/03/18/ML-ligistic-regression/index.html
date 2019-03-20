@@ -275,7 +275,7 @@
 
     
         <meta property="article:published_time" content="Mon Mar 18 2019 14:14:13 GMT+0800" />
-        <meta property="article:modified_time" content="Mon Mar 18 2019 21:45:06 GMT+0800" />
+        <meta property="article:modified_time" content="Wed Mar 20 2019 14:24:33 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
@@ -302,7 +302,7 @@
     "mainEntityOfPage": "http://yoursite.com/2019/03/18/ML-ligistic-regression/index.html",
     "headline": "逻辑(斯谛)回归",
     "datePublished": "Mon Mar 18 2019 14:14:13 GMT+0800",
-    "dateModified": "Mon Mar 18 2019 21:45:06 GMT+0800",
+    "dateModified": "Wed Mar 20 2019 14:24:33 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "茂松",
@@ -388,7 +388,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-逻辑斯谛分布"><span class="post-toc-number">1.</span> <span class="post-toc-text">1. 逻辑斯谛分布</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-二元逻辑斯谛回归"><span class="post-toc-number">2.</span> <span class="post-toc-text">2 二元逻辑斯谛回归</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3-模型参数估计"><span class="post-toc-number">3.</span> <span class="post-toc-text">3 模型参数估计</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-逻辑斯谛分布"><span class="post-toc-number">1.</span> <span class="post-toc-text">1. 逻辑斯谛分布</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-二元逻辑斯谛回归"><span class="post-toc-number">2.</span> <span class="post-toc-text">2 二元逻辑斯谛回归</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3-模型参数估计"><span class="post-toc-number">3.</span> <span class="post-toc-text">3 模型参数估计</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#源码"><span class="post-toc-number">4.</span> <span class="post-toc-text">源码</span></a></li></ol>
     </ul>
     
 
@@ -563,7 +563,8 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <p>在我们学习机器学习的过程中，我们所需解决的问题，大致可以分为两部分：分类和回归.其中,分类是指模型用来预测一个有限的离散值集合中的一个，比如猫狗分类，肿瘤的恶性或良性; 回归是指模型的输出是一个连续变量，比如预测房价、身高等.本篇内容讲解的是机器学习中经典的逻辑(斯谛)回归（Logistic Regression)，从名字上看，大家误以为该方法是一种回归方法，其实不然，它是分类方法的一种，常用于二元分类，但是为什么会取名回归，我个人理解大致有如下几点原因：</p>
+        <p><a href="https://ranmaosong.github.io/2019/03/18/ML-ligistic-regression/" target="_blank" rel="noopener">GitHub</a><br><a href="https://www.jianshu.com/p/9f723c2ac52e" target="_blank" rel="noopener">简书</a><br><a href="https://blog.csdn.net/u014630987/article/details/88687924" target="_blank" rel="noopener">CSDN</a></p>
+<p>在我们学习机器学习的过程中，我们所需解决的问题，大致可以分为两部分：分类和回归.其中,分类是指模型用来预测一个有限的离散值集合中的一个，比如猫狗分类，肿瘤的恶性或良性; 回归是指模型的输出是一个连续变量，比如预测房价、身高等.本篇内容讲解的是机器学习中经典的逻辑(斯谛)回归（Logistic Regression)，从名字上看，大家误以为该方法是一种回归方法，其实不然，它是分类方法的一种，常用于二元分类，但是为什么会取名回归，我个人理解大致有如下几点原因：</p>
 <pre><code>1. 利用回归的思想来解决分类问题;
 2. 它的输出也是一个连续值，通过设定阈值来实现分类 
 </code></pre><h1 id="1-逻辑斯谛分布"><a href="#1-逻辑斯谛分布" class="headerlink" title="1. 逻辑斯谛分布"></a>1. 逻辑斯谛分布</h1><p><strong>定义</strong>：设X是连续随机变量，X服从逻辑斯谛分布是指X具有下列分布函数和密度函数：</p>
@@ -575,8 +576,8 @@
 \begin{aligned}
 F(-x+\mu) &= 1 - F(x+\mu)\\
 F(-x+\mu)-\frac{1}{2} &=  F(x + \mu) + \frac{1}{2}
-\tag{3}
-\end{aligned}</script><p>形状参数$\gamma$的值越小，曲线在中心附近增长的越快.该函数的图形如下图所示：</p>
+\end{aligned}
+\tag{3}</script><p>形状参数$\gamma$的值越小，曲线在中心附近增长的越快.该函数的图形如下图所示：</p>
 <p><img src="/images/logistic_regression_sigmoid.png" alt="Sigmoid"><br>图一 逻辑斯谛分布的分布函数和密度函数</p>
 <h1 id="2-二元逻辑斯谛回归"><a href="#2-二元逻辑斯谛回归" class="headerlink" title="2 二元逻辑斯谛回归"></a>2 二元逻辑斯谛回归</h1><p>二元逻辑斯谛回归模型是一种分类模型，有条件概率分布$P(Y|X)$表示，X取值为实数，随机变量 Y 取值为 1或0；</p>
 <p><strong>逻辑斯谛回归模型</strong>的条件概率如下：</p>
@@ -584,8 +585,9 @@ F(-x+\mu)-\frac{1}{2} &=  F(x + \mu) + \frac{1}{2}
 \begin{aligned}
     p(Y=1|x)&=\frac{exp(w\cdot x+b)}{1+exp(w\cdot x+b)}=\frac{1}{1+exp(-(w\cdot x+b))} \\
     P(Y=0|x)&=\frac{1}{1+exp((w\cdot x+b))}
-    \tag{4}
-\end{aligned}</script><p>这里, $ x \in R^n $表示样本的特征向量，$Y \in {0, 1}$是输出表示样本的类别, $w \in R^n$ 和 $ b \in R$是模型的参数，其中，$w$ 表示权重向量,$b$表示偏置。$w \cdot x$表示$w$和$x$的内积.通常为了方便，我们将样本和权重向量进行扩充，仍记作$w$和$b$：</p>
+
+\end{aligned}
+    \tag{4}</script><p>这里, $ x \in R^n $表示样本的特征向量，$Y \in {0, 1}$是输出表示样本的类别, $w \in R^n$ 和 $ b \in R$是模型的参数，其中，$w$ 表示权重向量,$b$表示偏置。$w \cdot x$表示$w$和$x$的内积.通常为了方便，我们将样本和权重向量进行扩充，仍记作$w$和$b$：</p>
 <script type="math/tex; mode=display">
 w = (w^1, w^2... w^n, b)</script><script type="math/tex; mode=display">
 x = (x^1, x^2...x^n, 1)</script><p>此时逻辑斯蒂回归模型记作:</p>
@@ -593,16 +595,18 @@ x = (x^1, x^2...x^n, 1)</script><p>此时逻辑斯蒂回归模型记作:</p>
 \begin{aligned}
     p(Y=1|x)&=\frac{exp(w\cdot x)}{1+exp(w\cdot x)} \\
     P(Y=0|x)&=\frac{1}{1+exp((w\cdot x))}
-    \tag{5}
-\end{aligned}</script><p><strong>几率</strong>是指一个事件发生与不发生的概率比值,即<br>$<br>\frac{p}{1-p}<br>$<br>则它的对数几率为$lnit(p)=log \frac{p}{1-p}$,对于逻辑斯蒂回归回归而言，其对数几率为</p>
+
+\end{aligned}
+\tag{5}</script><p><strong>几率</strong>是指一个事件发生与不发生的概率比值,即<br>$<br>\frac{p}{1-p}<br>$<br>则它的对数几率为$lnit(p)=log \frac{p}{1-p}$,对于逻辑斯蒂回归回归而言，其对数几率为</p>
 <script type="math/tex; mode=display">
 logit(\frac{P(Y=1|x)}{1-P(Y=1|x)})=w \cdot x \tag{6}</script><h1 id="3-模型参数估计"><a href="#3-模型参数估计" class="headerlink" title="3 模型参数估计"></a>3 模型参数估计</h1><p>对于给定的训练数据集$T=\{(x_1, y_1), (x_2, y_2)…(x_n, y_x)\}$,可以应用极大似然估计(使模型预测的标签为真是标签的值最大化)模型参数，从而得到最优的逻辑斯蒂回归模型。</p>
 <p>首先，设$P(Y=1|x)=\pi(x), P(Y=0|x)=1-\pi(x)$,则似然函数为:</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
 \prod_{i=1}^n[\pi(x)]^{y_i}[1-\pi(x)]^{1-y_i}=\prod_{i=1}^n{y_i\pi(x_i)+(1-y_i)(i-\pi(x_i))}
-\tag{7}
-\end{aligned}</script><p>极大似然函数和交叉熵的树学公式形式时一摸一样的，但是他们背后的数学原理略有不同。<br>通常在处理优化问题时，我们都利用对数函数来把连乘变成求和来简化问题，因此公式七的对数似然函数为：</p>
+
+\end{aligned}
+\tag{7}</script><p>极大似然函数和交叉熵的树学公式形式时一摸一样的，但是他们背后的数学原理略有不同。<br>通常在处理优化问题时，我们都利用对数函数来把连乘变成求和来简化问题，因此公式七的对数似然函数为：</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
 L(w) &= \sum_{i=1}^{n}[y_i ln \pi(x_i)+(1-y_i)ln(1-\pi(x_i))]\\
@@ -610,14 +614,17 @@ L(w) &= \sum_{i=1}^{n}[y_i ln \pi(x_i)+(1-y_i)ln(1-\pi(x_i))]\\
     &=\sum_{i=1}^{n}[y_iln\frac{\pi(x_i)}{1-\pi(x_i)}(注：这就是对数几率值）+ln(1-\pi(x_i))] \\
     &=\sum_{i=1}^{n}[y_i(w*x_i)+ln(\frac{1}{1+exp((w\cdot x))})] \\
     &=\sum_{i=1}^{n}[y_i(w*x_i)-ln(1+exp(w\cdot x_1))]
-    \tag{8}
-\end{aligned}</script><p>通过梯度下降和拟牛顿法即可求的该函数，我们求$L(w)$对$w$的倒数:</p>
+
+\end{aligned}
+\tag{8}</script><p>通过梯度下降和拟牛顿法即可求的该函数，我们求$L(w)$对$w$的倒数:</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
-    \frac{\partial L(W)}{\partial w}&=\sum_{i=1}^{n}[y_ix_i-(\frac{1}{1+exp(w\cdot x_1)}*exp(w \cdot x_i)) * x_i]\\
+    \frac{\partial L(w)}{\partial w}&=\sum_{i=1}^{n}[y_ix_i-(\frac{1}{1+exp(w\cdot x_1)}*exp(w \cdot x_i)) * x_i]\\
         &=\sum_{i=1}^{n}[y_ix_i-\pi(x_i)*x_i]
-    \tag{9}
-\end{aligned}</script><p><strong>问题</strong>:在机器学习或深度学习中,我们通常以$L_2$作为损失函数，但是为什么这里是用了极大似然估计？</p>
+
+\end{aligned}
+\tag{9}</script><p>通常我们在实际优化的时候，都是求取最小值，因此通常使用$-L(w)$作为损失函数.</p>
+<p><strong>问题</strong>:在机器学习或深度学习中,我们通常以$L_2$作为损失函数，但是为什么这里是用了极大似然估计？</p>
 <p>我们先观察一下使用$L_2$范数作为损失函数时，对$w$的求导公式:</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
@@ -628,6 +635,10 @@ L(w) &= \sum_{i=1}^{n}[y_i ln \pi(x_i)+(1-y_i)ln(1-\pi(x_i))]\\
 \tag{10}</script><p>其中, $z=w \cdot x$, 则$\pi (x) = \frac{exp(x)}{1+exp(x)}$,其导数为$\pi^{‘} (x)=\pi(x)(1-\pi(x))$</p>
 <p>这里主要考虑的是优化问题,极大似然估计函数是一个凸函数,这是优化问题再最容易优化的模型，我们可以得到全局最优解，而对于$L_2$，由于Sigmoig函数导数的特性，当$\pi (x)$接近0或者1时，此时的倒数就接近0，从而容易使函数陷入局部最优.</p>
 <p>下图是两个损失函数以w为参数的简化图<br><img src="/images/logistic_regression_l2.png" alt="L2"><br><img src="/images/logistic_regression_cross_entropy.png" alt="likelihood"></p>
+<h1 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h1><p><a href="https://github.com/RanMaosong/Machine-Learning-LiHang/blob/master/code/%E7%AC%AC%E5%85%AD%E7%AB%A0%20%E9%80%BB%E8%BE%91%E6%96%AF%E8%92%82%E5%9B%9E%E5%BD%92%E4%B8%8E%E6%9C%80%E5%A4%A7%E7%86%B5%E6%A8%A1%E5%9E%8B/plot.ipynb" target="_blank" rel="noopener">绘图源码</a></p>
+<p>逻辑斯蒂回归实现源码: </p>
+<p><a href="https://github.com/RanMaosong/Machine-Learning-LiHang/blob/master/code/%E7%AC%AC%E5%85%AD%E7%AB%A0%20%E9%80%BB%E8%BE%91%E6%96%AF%E8%92%82%E5%9B%9E%E5%BD%92%E4%B8%8E%E6%9C%80%E5%A4%A7%E7%86%B5%E6%A8%A1%E5%9E%8B/LogisticRegression.py" target="_blank" rel="noopener">Python</a></p>
+<p><a href="https://github.com/RanMaosong/Machine-Learning-LiHang/blob/master/code/%E7%AC%AC%E5%85%AD%E7%AB%A0%20%E9%80%BB%E8%BE%91%E6%96%AF%E8%92%82%E5%9B%9E%E5%BD%92%E4%B8%8E%E6%9C%80%E5%A4%A7%E7%86%B5%E6%A8%A1%E5%9E%8B/LogisticRegression.ipynb" target="_blank" rel="noopener">Jupyter</a></p>
 
         
     
