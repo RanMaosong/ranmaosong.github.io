@@ -275,7 +275,7 @@
 
     
         <meta property="article:published_time" content="Sat Mar 23 2019 21:44:38 GMT+0800" />
-        <meta property="article:modified_time" content="Sat Mar 23 2019 23:48:52 GMT+0800" />
+        <meta property="article:modified_time" content="Tue Mar 26 2019 22:05:51 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
@@ -302,7 +302,7 @@
     "mainEntityOfPage": "http://yoursite.com/2019/03/23/ML-MaxEntropy/index.html",
     "headline": "最大熵模型",
     "datePublished": "Sat Mar 23 2019 21:44:38 GMT+0800",
-    "dateModified": "Sat Mar 23 2019 23:48:52 GMT+0800",
+    "dateModified": "Tue Mar 26 2019 22:05:51 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "茂松",
@@ -388,7 +388,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-最大熵原理"><span class="post-toc-number">1.</span> <span class="post-toc-text">1. 最大熵原理</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-最大熵模型"><span class="post-toc-number">2.</span> <span class="post-toc-text">2. 最大熵模型</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3-最大熵模型的学习"><span class="post-toc-number">3.</span> <span class="post-toc-text">3. 最大熵模型的学习</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-最大熵原理"><span class="post-toc-number">1.</span> <span class="post-toc-text">1. 最大熵原理</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-最大熵模型"><span class="post-toc-number">2.</span> <span class="post-toc-text">2. 最大熵模型</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3-最大熵模型的学习"><span class="post-toc-number">3.</span> <span class="post-toc-text">3. 最大熵模型的学习</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#4-极大似然估计"><span class="post-toc-number">4.</span> <span class="post-toc-text">4 极大似然估计</span></a></li></ol>
     </ul>
     
 
@@ -563,7 +563,8 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <h1 id="1-最大熵原理"><a href="#1-最大熵原理" class="headerlink" title="1. 最大熵原理"></a>1. 最大熵原理</h1><p>最大熵模型（Maximum Entropy Model)是通过最大熵原理推导实现,那什么是最大熵原理？</p>
+        <p><a href="">GitHub</a><br><a href="https://www.jianshu.com/p/b5c57b80ee5f" target="_blank" rel="noopener">简书</a><br><a href="https://blog.csdn.net/u014630987/article/details/88831663" target="_blank" rel="noopener">CSDN</a></p>
+<h1 id="1-最大熵原理"><a href="#1-最大熵原理" class="headerlink" title="1. 最大熵原理"></a>1. 最大熵原理</h1><p>最大熵模型（Maximum Entropy Model)是通过最大熵原理推导实现,那什么是最大熵原理？</p>
 <p>熵是随机变量不确定性大的度量，不确定性越大，熵值越大；若随机变量变为定值，即某个值发生的概率为1，而其它事件都为0， 此时熵值为0，均匀分布是熵值最大的分布，也即“最不确定的分布”。</p>
 <p>假设离散随机变量 $X$ 的概率分布是 $P(X)$,则其熵为:</p>
 <script type="math/tex; mode=display">
@@ -631,7 +632,7 @@ s.t. \quad E_{\tilde p}(f_i) = E_{p}(f_i), \quad i=1, 2...,n \\
     \begin{aligned}
         L(P, w) &=-H(P) + w_0(1-\sum_yP(y|x))+\sum_{i=1}^{n}w_i(E_{\tilde p}(f_i) - E_{p}(f_i)) \\
         &=\sum_{x,y}\tilde P(x)P(y|x)\log P(y|x) + w_0(1-\sum_yP(y|x)) \\
-        &+\sum_{i=1}^{n}w_i(\tilde P(x,y)f(x, y) - \sum_{x, y} \tilde P(x)P(y|x)f(x, y))
+        &+\sum_{i=1}^{n}w_i(\sum_{x,y}\tilde P(x,y)f(x, y) - \sum_{x, y} \tilde P(x)P(y|x)f(x, y))
     \end{aligned}
     \tag{11}</script><p>因此，最优化问题的原始问题为</p>
 <script type="math/tex; mode=display">
@@ -646,14 +647,86 @@ s.t. \quad E_{\tilde p}(f_i) = E_{p}(f_i), \quad i=1, 2...,n \\
 \tag{14}</script><p>$\psi (w)$ 称为对偶函数，同时其解记为:</p>
 <script type="math/tex; mode=display">
 P_w = \arg \min_{p}L(P,w) = P_w(y|x)
-\tag{15}</script><p>由于 $L(P,w)$是凸函数，我们可以利用偏导数来求解公式15，即</p>
+\tag{15}</script><p>我们可以利用偏导数来求解公式15，即</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
 \frac{\partial L(P,w)}{\partial P(y|x)} &= \sum_{x,y}(\tilde P(x) \log P(y|x) + \tilde{P}(x)) -\sum_{y}w_o+\sum_{i=1}^{n}w_i(-\sum_{x,y}\tilde{P}(x)f_{i}(x,y)) \\
 &= \sum_{x,y}\tilde{P}(x)(\log P(y|x) + 1) - \sum_{y}w_0-\sum_{x,y}{\tilde{P}(x)\sum_{i=1}^nw_if_i(x,y)} \\
-&=
+&=\sum_{x,y}\tilde{P}(x)(\log P(y|x) + 1) - \sum_x \tilde{P}(x)\sum_{y}w_0-\sum_{x,y}{\tilde{P}(x)\sum_{i=1}^nw_if_i(x,y)} \\
+&= \sum_{x,y}\tilde{P}(x)(\log P(y|x) + 1-w_0-\sum_{i=1}^nw_if_i(x,y))
 \end{aligned}
-\tag{16}</script>
+\tag{16}</script><p>由于 $L(P,w)$是凸函数，我们我可令上式偏导数为0，在$\tilde P(x)&gt;0$的情况下，即可求出$P(y|x)$, 即：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+    P(y|x) &=\exp(\sum_{i=1}^{n}w_if_i(x,y)+w_0-1)\\
+        &=\frac{\exp{\sum_{i=1}^{n}w_if_i(x,y)}}{\exp(1-w_0)}
+\end{aligned}
+\tag{17}</script><p>由于在概率论中，$\sum_{y}P(y|x)=1$,因此需对公式17进行归一化，又$\exp(1-w_0)$为常数,因此：</p>
+<script type="math/tex; mode=display">
+P_w(y|x)=\frac{1}{Z_w(x)}\exp(\sum_{i=1}^{n}w_if_i(x,y))
+\tag{18}</script><p>其中</p>
+<script type="math/tex; mode=display">
+Z_w(x)=\sum_{y}\exp(\sum_{i=1}^nw_if_i(x,y))
+\tag{19}</script><p>公式18、19表示的模型就是最大熵模型$P_w=p_w(y|x)$.然后求解对偶函数的极大化问题</p>
+<script type="math/tex; mode=display">
+\max_{w} \psi (w) 
+\tag{20}</script><p>求得$w^*$,得到最终模型。</p>
+<h1 id="4-极大似然估计"><a href="#4-极大似然估计" class="headerlink" title="4 极大似然估计"></a>4 极大似然估计</h1><p>通过上面一小节的计算，我们已经求出最大熵模型，但是此时该模型还是一个关于 $w$ 的函数，我们如何求出 $w$ 来求得最终的模型呢。</p>
+<p>我们先来描述对数似然函数，通过前面一章的逻辑回归模型中的<a href="https://ranmaosong.github.io/2019/03/18/ML-ligistic-regression/" target="_blank" rel="noopener">最大似然估计</a>，我们可知对数似然函数和熵在值上互为相反数，又通过公式8得知条件概率的熵形式，因此我们可以得知，条件概率分布$P(Y|X)$的对数似然函数</p>
+<script type="math/tex; mode=display">
+    L_{\tilde P}(P_w) = \sum_{x,y}\tilde{P}(x,y)\log P(y|x)
+    \tag{21}</script><p>我们再冲似然函数的定义方面证明上述公司的正确性。</p>
+<p>在给定数据集$\{(x_1,y_1),(x_2,y_2)…(x_n,y_n)\}$,我们可求得当前模型的似然函数为:</p>
+<script type="math/tex; mode=display">
+L(\theta)=\prod_{i=1}^n P(x_i, \theta)
+\tag{22}</script><p>我们假设$X_i$在训练集中出现了$C(x_i)$,因此公式22可以转化为:</p>
+<script type="math/tex; mode=display">
+L(\theta)=\prod_{i=1}^k P(x_i, \theta)^{C(x_i)}
+\tag{23}</script><p>$k$ 表示训练数据集中总共有 k 种不同的输入特征，我们对上市求其 $\frac{1}{n}$次方，得：</p>
+<script type="math/tex; mode=display">
+L(\theta)^{\frac{1}{n}}=\prod_{i=1}^k P(x_i, \theta)^{\frac{C(x_i)}{n}}
+\tag{24}</script><p>对公式24求对数的:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+  \log L(\theta)^{\frac{1}{n}} &=\log \prod_{i=1}^k P(x_i, \theta)^{\frac{C(x_i)}{n}}  \\
+  &= \sum_{i=1}^k \frac{C(x_i)}{n} \log P(x_i, \theta)\\
+\end{aligned}
+\tag{25}</script><p>因此对于$\log L(\theta)^{\frac{1}{n}}$ 和 $\log L(\theta)$是等价的，</p>
+<p>因此对于条件概率分布$P(Y|X)$的对数似然函数</p>
+<script type="math/tex; mode=display">
+    L_{\tilde P}(P_w) = \sum_{x,y}\tilde{P}(x,y)\log P(y|x)
+    \tag{26}</script><p>对于公式21-26的推导，不具有严格的树学理论，只是为了理解下面公式27做铺垫。</p>
+<p>一直训练数据的经验概率分布$\tilde P(X,Y),$条件概率分布$P(Y|X)$的对数似然函数表示为</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+    L_{\tilde P}(P_w) &=\log \prod_{xy}P(y|x)^{\tilde P(x,y)} = \sum_{x,y}\tilde{P}(x,y)\log P(y|x)
+\end{aligned}
+\tag{27}</script><p>将公式18和19带入公式27可得:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+    L_{\tilde P}(P_w) &=\sum_{x,y}\tilde{P}(x,y)(\sum_{i=1}^{n}w_if_i(x,y)-\log Z_w(x) \\
+    &=\sum_{x,y}\tilde{P}(x,y)\sum_{i=1}^{n}w_if_i(x,y)-\sum_{x,y}\tilde{P}(x,y)\log Z_w(x) \\
+    &=\sum_{x,y}\tilde{P}(x,y)\sum_{i=1}^{n}w_if_i(x,y)-\sum_{x}\tilde {P}(x)\log Z_w(x)
+\end{aligned}
+\tag{28}</script><p>公式28就是极大似然函数。上式最后两步最后一项的转化是因为 $Z_w(x)$ 是关于 x 的函数，所以可以对 $\tilde{P}(x,y)$ 对 $x$ 进行累加得到 $\tilde {P}(x)$.</p>
+<p>我们再看看对偶函数 $\psi (w)$,我们将 $P_w(y|x)$ 带入公式11得:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+    \psi (w) =& \sum_{x,y}\tilde P(x)P_w(y|x)\log P_w(y|x) + w_0(1-\sum_yP(y|x)) \\
+        &+\sum_{i=1}^{n}w_i(\sum_{x,y}\tilde P(x,y)f(x, y) - \sum_{x, y} \tilde P(x)P_w(y|x)f(x, y)) \\
+        =&\sum_{x,y}\tilde P(x)P_w(y|x)\log P_w(y|x)  \\
+        &+\sum_{i=1}^{n}w_i(\sum_{x,y}\tilde P(x,y)f(x, y) - \sum_{x, y} \tilde P(x)P_w(y|x)f(x, y)) \\
+        =& \sum_{x,y}\tilde P(x,y)\sum_{i=1}^{n}w_if(x, y)+\sum_{x,y}\tilde{P}(x)P_w(y|x)(\log P_w(y|x)-\sum_{i=1}^{n}w_if_i{(x,y)}) \\
+        =& \sum_{x,y}\tilde P(x,y)\sum_{i=1}^{n}w_if(x, y)-\sum_{x,y}\tilde{P}(x)P_w(y|x)\log Z_w(x) \\
+        =& \sum_{x,y}\tilde P(x,y)\sum_{i=1}^{n}w_if(x, y)-\sum_{x,y}\tilde{P}(x)\log Z_w(x)
+\end{aligned}
+\tag{29}</script><p>公式29第三步到第四步用到下面公式进行推导:</p>
+<script type="math/tex; mode=display">
+ P_w(y|x)=\frac{1}{Z_w(x)}\exp(\sum_{i=1}^{n}w_if_i(x,y)) \Rightarrow \log P_w(y|x)=\sum_{i=1}^{n}w_if_i(x,y)-\log Z_w(x)</script><p>倒数第二步到最后一步的推导用到了 $\sum_{y}P(y|x)=1$.</p>
+<p>比较公式公式28和公式29，可得:</p>
+<script type="math/tex; mode=display">
+\psi (w) = L_{\tilde P}(P_w)</script><p>因此，可以证明，最大熵模型学习中的对偶函数极大化等价于最大熵模型的极大似然估计。</p>
+
         
     
 
