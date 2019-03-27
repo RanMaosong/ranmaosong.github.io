@@ -39,7 +39,7 @@
     
     <title>
         
-            归档 | 
+            支持向量机——线性可分支持向量机 | 
         
         技术闲谈
     </title>
@@ -51,7 +51,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="茂松">
     <meta name="description" itemprop="description" content="Through studying you will gain success and fortunes will follow. ,">
-    <meta name="keywords" content="">
+    <meta name="keywords" content=",机器学习">
 
     <!-- Import lsloader -->
     <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(window.oldVersion){var remove=window.oldVersion.reduce(function(p,c){return p||data.indexOf("/*"+c+"*/")!==-1},false);if(remove){lsloader.removeLS(key)}}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload,isJs){if(typeof cssonload==="boolean"){isJs=cssonload;cssonload=undefined}isJs=isJs||false;cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}code=code.split(versionString)[1];if(isJs){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload,isJs)}};lsloader.requestResource=function(name,path,cssonload,isJs){var that=this;if(isJs){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else{this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
@@ -268,15 +268,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://yoursite.com">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="归档 | 技术闲谈">
+    <meta property="og:title" content="支持向量机——线性可分支持向量机 | 技术闲谈">
     <meta property="og:image" content="http://yoursite.com/img/favicon.png" />
     <meta property="og:description" content="Through studying you will gain success and fortunes will follow. ,">
-    
+    <meta property="og:article:tag" content="机器学习"> 
 
+    
+        <meta property="article:published_time" content="Tue Mar 26 2019 22:21:04 GMT+0800" />
+        <meta property="article:modified_time" content="Wed Mar 27 2019 15:05:56 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="归档 | 技术闲谈">
+    <meta name="twitter:title" content="支持向量机——线性可分支持向量机 | 技术闲谈">
     <meta name="twitter:description" content="Through studying you will gain success and fortunes will follow. ,">
     <meta name="twitter:image" content="http://yoursite.com/img/favicon.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -284,13 +287,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/archives/index.html" />
+        <link rel="canonical" href="http://yoursite.com/2019/03/26/ML-hard-margin-svm/index.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://yoursite.com/2019/03/26/ML-hard-margin-svm/index.html",
+    "headline": "支持向量机——线性可分支持向量机",
+    "datePublished": "Tue Mar 26 2019 22:21:04 GMT+0800",
+    "dateModified": "Wed Mar 27 2019 15:05:56 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "茂松",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar.png"
+        },
+        "description": "吾生也有涯，而知也无涯."
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "技术闲谈",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",机器学习",
+    "description": "Through studying you will gain success and fortunes will follow. ,",
+}
+</script>
 
 
     
@@ -326,649 +359,406 @@
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-线性可分支持向量机"><span class="post-toc-number">1.</span> <span class="post-toc-text">1 线性可分支持向量机</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-函数间隔和几何间隔"><span class="post-toc-number">2.</span> <span class="post-toc-text">2 函数间隔和几何间隔</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3-间隔最大化"><span class="post-toc-number">3.</span> <span class="post-toc-text">3 间隔最大化</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#4-学习的对偶算法"><span class="post-toc-number">4.</span> <span class="post-toc-text">4 学习的对偶算法</span></a></li></ol>
+    </ul>
     
 
-    <!-- Normal Post -->
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
     
         
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2019/03/26/ML-hard-margin-svm/">支持向量机——线性可分支持向量机</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2019/03/26/ML-hard-margin-svm/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="茂松's avatar">
-            </div>
-            <div>
-                <strong>茂松</strong>
-                <span>3月 26, 2019</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/机器学习/">机器学习</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2019/03/23/ML-MaxEntropy/">最大熵模型</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2019/03/23/ML-MaxEntropy/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="茂松's avatar">
-            </div>
-            <div>
-                <strong>茂松</strong>
-                <span>3月 23, 2019</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/机器学习/">机器学习</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2019/03/18/ML-ligistic-regression/">逻辑(斯谛)回归(Logistic Regression)</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2019/03/18/ML-ligistic-regression/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="茂松's avatar">
-            </div>
-            <div>
-                <strong>茂松</strong>
-                <span>3月 18, 2019</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/机器学习/">机器学习</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/11/21/nlp-glove/">GloVe:Global Vectors for Word Representation</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/11/21/nlp-glove/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="茂松's avatar">
-            </div>
-            <div>
-                <strong>茂松</strong>
-                <span>11月 21, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/NLP-自然语言处理/">NLP(自然语言处理)</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/11/05/util-md/">util.md</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            收集一些常用的工具包教程链接：
-
-[Visdom]:      
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/11/05/util-md/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="茂松's avatar">
-            </div>
-            <div>
-                <strong>茂松</strong>
-                <span>11月 05, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/Util/">Util</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/10/07/LeetCode-172-FactorialTrailingZeroes/">LeetCode 172.FactorialTrailingZeroes(阶乘后的零)</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/10/07/LeetCode-172-FactorialTrailingZeroes/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="茂松's avatar">
-            </div>
-            <div>
-                <strong>茂松</strong>
-                <span>10月 07, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/10/06/LeetCode-169-MajorityElement/">169. Majority Element(求众数)</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/10/06/LeetCode-169-MajorityElement/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="茂松's avatar">
-            </div>
-            <div>
-                <strong>茂松</strong>
-                <span>10月 06, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/Weekly-Algorithm/">Weekly Algorithm</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/10/06/LeetCode-136-SingleNumber/">LeetCode 136.Single Number(只出现一次的数字)</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/10/06/LeetCode-136-SingleNumber/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="茂松's avatar">
-            </div>
-            <div>
-                <strong>茂松</strong>
-                <span>10月 06, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/Weekly-Algorithm/">Weekly Algorithm</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/09/17/ta-work-02/">数据结构第二次作业</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/09/17/ta-work-02/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="茂松's avatar">
-            </div>
-            <div>
-                <strong>茂松</strong>
-                <span>9月 17, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/Teaching-Assistant/">Teaching Assistant</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/09/17/ta-work-01/">数据结构第一次作业</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/09/17/ta-work-01/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="茂松's avatar">
-            </div>
-            <div>
-                <strong>茂松</strong>
-                <span>9月 17, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/Teaching-Assistant/">Teaching Assistant</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-    <!-- Index nav -->
-        <nav class="material-nav mdl-cell mdl-cell--12-col">
-            <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/2/"><button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"><i class="material-icons" role="presentation">arrow_forward</i></button></a>
-        </nav>
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
 </script>
 
+        
+    
+            <p class="article-headline-p">
+                支持向量机——线性可分支持向量机
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>茂松</strong>
+        <span>3月 26, 2019</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/机器学习/">机器学习</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=支持向量机——线性可分支持向量机&url=http://yoursite.com/2019/03/26/ML-hard-margin-svm/index.html&pic=http://yoursite.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=支持向量机——线性可分支持向量机&url=http://yoursite.com/2019/03/26/ML-hard-margin-svm/index.html&via=茂松" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/03/26/ML-hard-margin-svm/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2019/03/26/ML-hard-margin-svm/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+        <a class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com/2019/03/26/ML-hard-margin-svm/index.html&title=支持向量机——线性可分支持向量机" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 LinkedIn
+            </li>
+        </a>
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=技术闲谈&title=支持向量机——线性可分支持向量机&summary=Through studying you will gain success and fortunes will follow. ,&pics=http://yoursite.com/img/favicon.png&url=http://yoursite.com/2019/03/26/ML-hard-margin-svm/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+        <a class="post_share-link" href="https://telegram.me/share/url?url=http://yoursite.com/2019/03/26/ML-hard-margin-svm/index.html&text=支持向量机——线性可分支持向量机" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Telegram
+            </li>
+        </a>
+    
+</ul>
+
+
+    
+    <!-- Busuanzi Views -->
+        <span id="busuanzi_container_page_pv">
+            阅读 <span id="busuanzi_value_page_pv"></span>&nbsp;
+            
+    </a>
+    
+
+
+    
+
     
 </div>
+
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p><a href="https://ranmaosong.github.io/2019/03/26/ML-hard-margin-svm/" target="_blank" rel="noopener">GitHub</a><br><a href="https://www.jianshu.com/p/3938e0f22692" target="_blank" rel="noopener">简书</a><br><a href="https://blog.csdn.net/u014630987/article/details/88845317" target="_blank" rel="noopener">CSDN</a></p>
+<h1 id="1-线性可分支持向量机"><a href="#1-线性可分支持向量机" class="headerlink" title="1 线性可分支持向量机"></a>1 线性可分支持向量机</h1><p>支持向量机(Support vector machines, SVM)是一种<strong>二分类模型</strong>，它的基本模型是定义在特征空间上的间隔最大的线性分类器，他的学习策略就是间隔最大化，同时该方法可以形式化为一个求解图二次规划。</p>
+<p>支持向量机可分为三类:</p>
+<ol>
+<li>线性可分支持向量机、硬间隔（hard-margin svm)</li>
+<li>线性支持向量机、软间隔(soft-margin svm)</li>
+<li>非线性支持向量机、Kernel SVM</li>
+</ol>
+<p>支持向量机模型中存在三宝:</p>
+<ol>
+<li>间隔</li>
+<li>对偶</li>
+<li>核技巧</li>
+</ol>
+<p>支持向量机和感知机在某些方面很相似，其相同点:</p>
+<ol>
+<li>都是二分类模型</li>
+<li>都是通过一个分离超平面对特征进行分类</li>
+</ol>
+<p>不同点：</p>
+<ol>
+<li>SVM 是特殊的感知机</li>
+<li>感知机是用误分类最小的策略，求得分离超平面，这时存在无穷个解，感知机利用间隔最大化求得最优分离超平面。如下图所示</li>
+</ol>
+<p><img src="/images/mlp_svm.png" alt="SVM与感知机区别"><br>图1 感知机与支持向量机区别</p>
+<p>图中的蓝色和黄色圆点分别表示正负样本，对于这个二分类，从图中我们可知，在最上面的黄线和最下面的绿线之间的线条都是可以把训练样本集完全分开的，这就是感知机的原理，通过这些分离超平面把训练集分开，这样的分离超平面存在很多条，比如图中的虚线，从视觉上中间那条实线应该是众多线条中最优的一条，感知机对于学习的分离超平面由于优化算法、学习率等不同因素，会随机地学习到这众多分离超平面中的一条，当学习到的是靠近上下边缘的分离超平面是，对于一个未知样本，当这个样本稍微浮动一下，模型就很可能对他进行误分类了，因此鲁棒性很低，而支持向量机的目标是找到图中中间那条最优的分离超平面。</p>
+<p><strong>定义(线性可分支持向量机)</strong>:给定线性可分训练数据集，通过间隔最大化或等价地求解相应的凸二次规划问题学习得到一个分离超平面:</p>
+<script type="math/tex; mode=display">
+ w^* \cdot x + b^* =0
+\tag{1}</script><p>即相应的决策模型:</p>
+<script type="math/tex; mode=display">
+    f(x)=sign(w^* \cdot x + b^*)
+    \tag{2}</script><p>此模型就为线性可分支持向量机。其中 $ w^<em>$ 表示分离超平面的法向量， $b^</em>$ 表示截距，位于分离超平面之上的样本为正样本，之下的为负样本。</p>
+<h1 id="2-函数间隔和几何间隔"><a href="#2-函数间隔和几何间隔" class="headerlink" title="2 函数间隔和几何间隔"></a>2 函数间隔和几何间隔</h1><p>一般来说，一个点到分离超平面的远近可以表示分类预测的确信程度，在给定分离超平面$w \cdot x + b = 0$的情况下， $|w \cdot x + b|$能够相对地表示点 $x$ 到分离超平面的远近。同时 $w \cdot x + b$的符号与类别标记 $y$ 是否保持一致来表示分类是否正确，所以，可以用$y(w \cdot x + b)$ 来表示分类的正确性及确信度，这就是函数间隔（functional margin)的概念。</p>
+<p><strong>定义(函数间隔)</strong>:对于给定训练数据集 $T$ 和超平面 $(w, b)$,定义超平面 $(w, b)$ 关于样本点 $(x_i,y_i)$ 的函数间隔为:</p>
+<script type="math/tex; mode=display">
+\hat \gamma_i = y_i(w \cdot x_i + b)
+\tag{3}</script><p>分离超平面关于训练数据集 $T$ 的函数间隔为超平面关于 $T$ 中所有样本点 $(x_i,y_i)$ 的函数间隔最小值:</p>
+<script type="math/tex; mode=display">
+\hat \gamma = \min_{i=1...N}y_i(w \cdot x_i + b)
+\tag{4}</script><p>上述定义是在给定超平面 $(w,b)$ 的时候计算，然而在实际支持向量机的学习过程中，只有函数间隔是不够的，因为当 $w$ 和 $b$ 按比例同时扩大 $n$ 倍，此时函数间隔也扩大 $n$ 倍，而超平面并没有改变。因此我们需要对分离超平面加以约束，如规范化，$||w||=1$,使得间隔不随 $w$ 和 $b$ 成比例扩大而改变。这时函数间隔就成为了几何间隔（geometric margin)</p>
+<p><strong>定义(几何间隔)</strong>:对于给定训练数据集 $T$ 和超平面 $(w, b)$,定义超平面 $(w, b)$ 关于样本点 $(x_i,y_i)$ 的几何间隔为:</p>
+<script type="math/tex; mode=display">
+ \gamma_i = y_i(\frac{w}{||w||} \cdot x_i + \frac{b}{||w||})
+\tag{5}</script><p>分离超平面关于训练数据集 $T$ 的函数间隔为超平面关于 $T$ 中所有样本点 $(x_i,y_i)$ 的函数间隔最小值:</p>
+<script type="math/tex; mode=display">
+\gamma = \min_{i=1...N} \gamma_i
+\tag{6}</script><p>$||w||$ 为 $w$ 的 $L_2$ 范数。其实上述公式就是我们中学时候学习的点到直线的距离公式的推广，或者说点到直线的距离公式是该公式在二位平面下的表示。</p>
+<p>通过公式4和公式6的比较，我们可以得出函数间隔和几何间隔有如下关系:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+    \gamma_i =& \frac{\hat \gamma_i}{||w||} \\
+    \gamma =& \frac{\hat \gamma}{||w||}
+\end{aligned}
+\tag{7}</script><h1 id="3-间隔最大化"><a href="#3-间隔最大化" class="headerlink" title="3 间隔最大化"></a>3 间隔最大化</h1><p>支持向量机学习的基本思想是求解能够<strong>正确划分训练数据集</strong>且<strong>几何间隔最大</strong>的分离超平面。间隔最大化的直观解释是：使分类决策模型以较大的确信度来对数据集分类，同时对离超平面较近的点也有很大的确信度。</p>
+<p>因此，最大间隔支持向量机形式化为:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+    &\max_{w,b}\quad\gamma \\
+    &s.t. \quad y_i(\frac{w}{||w||} \cdot x_i + \frac{b}{||w||}) \geq\gamma, i=1,2,...,N
+\end{aligned}
+\tag{8}</script><p>也即:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+    &\max_{w,b}\quad \frac{\hat \gamma}{||w||} \\
+    &s.t. \quad y_i(\frac{w}{||w||} \cdot x_i + \frac{b}{||w||}) \geq \hat \gamma, i=1,2,...,N
+\end{aligned}
+\tag{9}</script><p>我们得知函数间隔$\hat \gamma$的取值并不影响模型的最优化问题，将 $w$ 和 $b$ 成比例的改变 $\lambda$ 倍，函数间隔也变成 $\lambda \hat \gamma$,这一改变对上面最优化的不等式约束并没有印象，因此，我们可以令 $\hat \gamma=1$,于是上述公式就等价于:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+    & \min_{w,b} \quad \frac{1}{2}||w||^2 \Rightarrow \frac{1}{2}w^T    w\\
+    & s.t. \quad y_i(w \cdot x_i + b)-1 \geq 0, i=1,2,...,N
+\end{aligned}
+\tag{10}</script><p>此时，SVM优化问题变为一个凸二次规划问题，利用拉格朗日乘子法即可求出最优的 $(w^<em>,b^</em>)$</p>
+<h1 id="4-学习的对偶算法"><a href="#4-学习的对偶算法" class="headerlink" title="4 学习的对偶算法"></a>4 学习的对偶算法</h1><p>为求解支持向量机的最优化问题，我们将公式10作为原始问题，应用拉格朗日对偶性，通过求解对偶问题(dual problem)得到原始问题(primal problem)的最优解，这就是支持向量机的对偶算法。这样做的<strong>优点</strong>:</p>
+<ol>
+<li>对偶问题往往更容易求解；</li>
+<li>自然引入核函数，进而推广到非线性可分分类问题；</li>
+</ol>
+<p>通过对公式10的约束条件引入拉格朗日乘子$\alpha_i\geq 0,i=1,2,…,N$,构建出拉格朗日函数：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+    L(w, b, \alpha)=&\frac{1}{2}w^Tw+\sum_{i=1}^{N}\alpha_i(1-y_i(w^T x_i + b)) \\
+    =& \frac{1}{2}w^Tw-\sum_{i=1}^{N}\alpha_i y_i(w^T x_i + b) +\sum_{i=1}^{N}\alpha_i
+\end{aligned}
+\tag{11}</script><p>我们称公式10为带约束的原始问题，根据拉格朗日对偶性，原始问题的对偶问题是极大极小问题</p>
+<script type="math/tex; mode=display">
+\max_{\alpha}\min_{w,b}L(w, b, \alpha)
+\tag{12}</script><p>公式12和原始公式存在一种弱对偶关系，当等号成立时为强对偶关系:</p>
+<script type="math/tex; mode=display">
+\min_{w,b}\max_{\alpha} L(w, b, \alpha) \geq \max_{\alpha}\min_{w,b} L(w, b, \alpha)
+\tag{13}</script><p>此时我们就可以按照利用拉格朗日对偶性求解问题的标准模型，求解出$w, b, \alpha$.</p>
+<ol>
+<li><p><strong>求 $\min_{w,b}L(w, b, \alpha)$</strong></p>
+<p>将拉格朗日函数 $L(w, b, \alpha)$ 分别对 $w,b$求偏导，并令其值为0.</p>
+</li>
+</ol>
+<script type="math/tex; mode=display">
+\begin{aligned}
+    & \frac{\partial L}{\partial w} = w - \sum_{i=1}^{N}\alpha_i y_i x_i =0 \\
+    & \Rightarrow w = \sum_{i=1}^{N}\alpha_i y_i x_i
+\end{aligned}
+\tag{14}</script><script type="math/tex; mode=display">
+\begin{aligned}
+    & \frac{\partial L}{b}=-\sum_{i=1}^{N}\alpha_iy_i=0 \\
+    & \Rightarrow \sum_{i=1}^{N}\alpha_iy_i=0
+\end{aligned}
+\tag{15}</script><p>将公式14和15带入公式11得:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+    \min_{w,b} L(w, b,\alpha)=&\frac{1}{2} (\sum_{i=1}^{N}\alpha_i y_i x_i)^T \sum_{i=1}^{N}\alpha_i y_i x_i-\sum_{i=1}^{N}\alpha_i y_i((\sum_{i=1}^{N}\alpha_i y_i x_i)^T x_i + b) +\sum_{i=1}^{N}\alpha_i \\
+    =&\frac{1}{2}\sum_{i=1}^{N}\sum_{j=1}^{N}\alpha_i y_i\alpha_j y_jx_i^Tx_j-\sum_{i=1}^{N}\sum_{j=1}^{N}\alpha_i y_i\alpha_j y_jx_j^Tx_i+\sum_{i=1}^{N}\alpha_i \\
+    =& -\frac{1}{2}\sum_{i=1}^{N}\sum_{j=1}^{N}\alpha_i y_i\alpha_j y_jx_i^Tx_j+\sum_{i=1}^{N}\alpha_i
+\end{aligned}
+\tag{16}</script><ol>
+<li><strong>求 $\min_{w,b}L(w, b,\alpha)$</strong>对 $\alpha$ 的极大值，即对偶问题:</li>
+</ol>
+<script type="math/tex; mode=display">
+\begin{aligned}
+    & \max_{\alpha} -\frac{1}{2}\sum_{i=1}^{N}\sum_{j=1}^{N}\alpha_i y_i\alpha_j y_jx_i^Tx_j+\sum_{i=1}^{N}\alpha_i \\
+    & s.t. \quad \sum_{i=1}^{N}\alpha_iy_i=0 \\
+    & \quad \quad \alpha_i \geq 0,i=1, 2...N
+\end{aligned}
+\tag{17}</script><p>将上式转化为求极小值</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+    & \min_{\alpha} \frac{1}{2}\sum_{i=1}^{N}\sum_{j=1}^{N}\alpha_i y_i\alpha_j y_jx_i^Tx_j-\sum_{i=1}^{N}\alpha_i \\
+    & s.t. \quad \sum_{i=1}^{N}\alpha_iy_i=0 \\
+    & \quad \quad \alpha_i \geq 0,i=1, 2...N
+\end{aligned}
+\tag{18}</script><p>上式可以继续利用凸二次规划来求解 $\alpha^<em>=(\alpha_1^</em>,\alpha_2^<em>,…,\alpha_N^</em>)$,然后可由$\alpha^<em>$求得原始问题对 $(w,b)$ 的解 $w^</em>,b^*$。</p>
+<p><strong>定理</strong> 设 $\alpha^<em>=(\alpha_1^</em>,\alpha_2^<em>,…,\alpha_N^</em>)$ 是对偶问题（即公式18）的解，则存在下标 $j$,使得 $\alpha_j &gt; 0$,并按如下公式求得$w^<em>,b^</em>$</p>
+<script type="math/tex; mode=display">
+    w^*=\sum_{i=1}^{N} \alpha_i^*y_ix_i
+    \tag{19}</script><script type="math/tex; mode=display">
+    b^*=y_j-\sum_{i=1}^{N} \alpha_i^*y_i(x_i^Tx_j)
+    \tag{19}</script><p><strong>证明</strong><br>根据拉格朗日某定理，KKT条件成立，即:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+    & \frac{\partial L(w^*,b^*,\alpha ^*)}{\partial w} = w^*-\sum_{i=1}^{N}\alpha_i^* y_i x_i=0 \\
+    & \frac{\partial L(w^*,b^*,\alpha ^*)}{\partial b} = -\sum_{i=1}^{N}\alpha_i^*y_i=0 \\
+    & \frac{\partial L(w^*,b^*,\alpha ^*)}{\partial \alpha} = 0 \\
+    & \alpha_i(1-y_i(w^Tx_i+b)) =0  \\
+    & \alpha_i \geq 0 , i=1,2,...,N \\
+    & 1-y_i(w^Tx_i+b) \leq 0 , i=1,2,...,N
+\end{aligned}
+\tag{20}</script><p>此时，公式13具有强对偶关系，即等号成立。根据支持向量机的特点，至少存在一个 $\alpha_j &gt;0$,即对于支持向量（后面讲解），对此j有</p>
+<script type="math/tex; mode=display">
+1-y_j(w^Tx_j+b) = 0 \Rightarrow y_j(w^{*^T}x_j+b) = 1
+\tag{21}</script><p>由于 $y_j$ 为1或-1，上式两边同乘以一个 $y_i$ 得：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+    b^* =& y_j - w^{*^T}x_j \\
+        =& y_j - \sum_{i=1}^{N} \alpha_i^*y_i(x_i^Tx_j)
+\end{aligned}
+\tag{22}</script><p>从上面的推导我们可以看出，$w^<em>$ 和 $b^</em>$只依赖于训练数据中对应于 $\alpha_i^<em> &gt; 0$的样本点 $(x_i, y_i)$,而其他样本点对 $w^</em>$ 和 $b^<em>$ 没有印象，我们把这些$\alpha_i^</em> &gt; 0$ 的样本点称为支持向量。这些样本点一定位于间隔边界上。</p>
+<p><a href="https://github.com/RanMaosong/Machine-Learning-LiHang/blob/master/code/%E7%AC%AC%E4%B8%83%E7%AB%A0%20%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/Plot.ipynb" target="_blank" rel="noopener">文中绘图源码</a></p>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2019/03/23/ML-MaxEntropy/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     
