@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-03-27T07:05:56.548Z</updated>
+  <updated>2019-03-30T14:22:21.851Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>期望最大算法(EM算法)</title>
+    <link href="http://yoursite.com/2019/03/30/ML-EM/"/>
+    <id>http://yoursite.com/2019/03/30/ML-EM/</id>
+    <published>2019-03-30T04:25:08.000Z</published>
+    <updated>2019-03-30T14:22:21.851Z</updated>
+    
+    <content type="html"><![CDATA[<p>最大期望算法（Expectation-Maximization algorithm, EM）是一类通过迭代进行极大似然估计（Maximum Likelihood Estimation, MLE）的优化算法。用于含有隐变量（Latent Variable) 的概率模型参数的极大似然估计或极大后验概率估计。Em算法的每次迭代包含两个步骤：1. E步： 求期望；2. M步：求极大，因此该算法被称作EM算法。</p><h1 id="1-极大似然估计"><a href="#1-极大似然估计" class="headerlink" title="1 极大似然估计"></a>1 极大似然估计</h1><p>极大似然估计是一种利用极大似然函数来求解模型参数 $\theta$ 的一种估计方法。 在数理统计学中，<strong>似然函数</strong>是一种关于统计模型的参数的函数。在给定一个样本 $x$ 时，关于参数 $\theta$ 的似然函数 $L(\theta|x)$ (在数值上)等于给定参数 $\theta$ 后变量 $x$ 的概率(似然函数与概率的一种关系):</p><script type="math/tex; mode=display">L(\theta|x) = P(x=x|\theta)\tag{1}</script><p>在给定样本集 $\bar x=\{x_1,x_2,…,x_N\}$, 在这个样本集上的似然函数为:</p><script type="math/tex; mode=display">L(\theta|\bar x) = P(\bar x|\theta) = \prod_{i=1}^{N}P(x_i|\theta)\tag{2}</script><p>由于公式2中含有连乘运算，因此不方便计算，通常我们利用对数的特性，来对公式2取对数来得到<strong>对数似然函数</strong>，为了方便，我们还是将 $\log L(\theta|\bar x)$ 记作 $L(\theta|\bar x)$:</p><script type="math/tex; mode=display">L(\theta|\bar x) = \log P(\bar x|\theta) = \log \prod_{i=1}^{N}P(x_i|\theta) = \sum_{i=1}^{N} \log P(x_i|\theta)\tag{3}</script><p>通过 $L(\theta|\bar x)$ 对 $\theta$ 求导，并取倒数为0，此时得到最优的 $\theta$.</p><p>下面以高斯模型为例来简单说明极大似然估计，并引导出EM算法。</p><p><strong>示例一</strong></p><p>如下图，我们采集到一些数据(黄色的+)服从单个高斯分布，由于高斯分布中有两个参数，均值和方差,我们将其表示为 $\theta =\{\mu,\sigma\}$,通过极大似然估计方法我们来求得最优的 $\theta^<em> =\{\mu^</em>,\sigma^*\}$，如下图我们就是从 $\theta_1,\theta_2,\theta_3$ 中求得 $\theta_1$</p><p><img src="/images/ML_single_Gaussia.png" alt="单一高斯极大似然估计"><br>图1 单一高斯模型</p><p>大致思路就是利用公式3求得对数似然函数，然后对其求最大值，即求得 $\theta^*$,该过程通过如两个公式来分别求出 $\mu$ 和 $\sigma$:</p><script type="math/tex; mode=display">L(\theta|\bar x) = \sum_{i=1}^{N}\log N(x_i|\mu, \sigma)\tag{4}</script><script type="math/tex; mode=display">\frac{\partial L(\theta|\bar x)}{\mu} =0\tag{5}</script><script type="math/tex; mode=display">\frac{\partial L(\theta|\bar x)}{\sigma} =0\tag{6}</script><p>我们通过上式可以求得</p><script type="math/tex; mode=display">\begin{aligned}    \mu_{MLE}=&\frac{1}{N}\sum_{i=1}^Nx_i \\    \sigma_{MLE}=&\frac{\sum_{i=1}^N(x_i-\mu_{MLE})^2}{N}\end{aligned}\tag{7}</script><p><strong>示例二</strong></p><p>如图二所示的样本，从图中我们可以明显看出，黄色和黑色样本分别位于两个类中，此时如果我们还是用单一的高斯模型来为该样本集建模，是行不通的，主要有两个原因：</p><ol><li>高斯分布的特点是在 $\mu$ 附近的概率很大，而从徒儿看出，在 $\mu$ 附近没有样本，样本基本位于两端，距离 $\mu$ 很远，这不符合高斯分布特点；</li><li>黄色的样本比黑色的样本更密集，也就是他的概率更大，因此我们不应该同等对待。</li></ol><p><img src="/images/ML_EM_pic2.png" alt="混合样本单一模型"></p><p>既然单一高斯模型已经无法适用于该样本集，那我们用多个高斯模型呢，再此示例中，我们可以看出样本集分布在两个分布中较为合理，其结果如图 3所示.通过比较图2和图3，可以得出，图3时更合理的分布，此时得到高斯混合模型，其混合模型如图4所示。</p><p><img src="/images/ML_EM_pic3.png" alt="图3 双高斯模型"><br><img src="/images/ML_EM_pic4.png" alt="图4 混合高斯模型"></p><p>根据上面的描述，我们对每个高斯叠加起来，即:</p><script type="math/tex; mode=display">    P(x_i|\theta) = \sum_{l=1}^kN(x_i|\mu_l,\sigma_l)    \tag{8}</script><p>但是，我们把公式8对变量 $x$ 进行积分，按照概率，该积分应该为1，事实上，该积分不为一，而为2.为了解决这个问题，我们可以平均每个高斯，即给一个权重 $\frac{1}{2}$, 但是这部理想，有时样本在不同分布中权重不一致，因此我们可以给每个分布一个权重比例，且比例之和为1，我们将其推广到一般形式，即：</p><script type="math/tex; mode=display">\begin{aligned}    & P(x|\bar \theta) = \sum_{i=1}^{k}\alpha_i N(x_i|\mu_l,\sigma_l) \\    & s.t. \sum_{i=1}^k \alpha_i = 1\end{aligned}\tag{9}</script><p>该公式的参数变为 $\theta=\{\mu_1,\mu_2,…\mu_k, \sigma_1,\sigma_2,…,\sigma_k, \alpha_1, \alpha_2,…,\alpha_k-1\}$<br>此时，我们将上式代入公式3得到该样本集的似然函数为:</p><script type="math/tex; mode=display">L(\theta|\bar x) = \sum_{i=1}^{N}\log P(x_i|\theta)=\sum_{i=1}^{N}\log\sum_{l=1}^{k}\alpha_l N(x_i|\mu_l,\sigma_l)\tag{10}</script><script type="math/tex; mode=display">\begin{aligned}    \bar \theta_{MLE}=&\arg \max_{\theta}L(\theta|\bar x) \\            =&\arg \max_{\theta}\sum_{i=1}^{N}\log P(x_i|\theta)\\            =&\arg \max_{\theta} \sum_{i=1}^{N}\log\sum_{l=1}^{k}\alpha_l N(x_i|\mu_l,\sigma_l)\end{aligned}\tag{11}</script><p>由于 $\log$ 函数里面存在一个求和公式，如果我们再用极大似然估计法来求解上式的解，将变得很复杂，甚至求不出来，因此极大似然估计发在这里已行不通。</p><p>以上就是期望最大算法被提出的一个简单原因。</p><h1 id="2-期望最大算法"><a href="#2-期望最大算法" class="headerlink" title="2 期望最大算法"></a>2 期望最大算法</h1><p>期望最大算法通过迭代求解来求得最后的一个近似最优的 $\theta$ 值，由“迭代”二字可以看出，当前步的 $\theta$肯定与上一步的 $\theta$ 有关，即存在一种关系:</p><script type="math/tex; mode=display">\theta ^{(g+1)}=f(\theta ^{(g)})\tag{12}</script><p>EM算法对函数 $f$ 的定义为:</p><script type="math/tex; mode=display">\theta ^{(g+1)}=\arg \max_{\theta}\int_{z}\log P(x, z|\theta)P(z|x,\theta^{(g)})dz\tag{13}</script><p>其中 $z$ 是为了简化计算，而引入的一个隐变量（Latent Variable), $x$ 为观测变量(Observable Variable).这两个变量对应到高斯混合模型中，分别为: 我们收集到的样本集和隐藏的模型，每个样本 $x_i$ 对应一个 $z_i$,来表示该样本来自哪个分布。因此 $x_i$ 的概率分可表示为:</p><script type="math/tex; mode=display">P(x_i)=\int_{z_l}P_{\bar \theta}(x|z_i)P(z_l)dz_l\tag{14}</script><p>将上式右边分开描述，$P_{\bar \theta}(x|z_i)$ 表示 $x_i$ 在 $l$ 个高斯分布下的分布，$P(z_l)$ 表示分布为第 $l$ 个高斯分布的概率，即 $\alpha_l$,因此上式为:</p><script type="math/tex; mode=display">P(x_i)=\sum_{z_l=1}^{k}\alpha_{z_l}N(x_i|\mu_{z_i}, \sigma_{z_i})\tag{15}</script><p>该式和公式9保持一致，因此隐变量的引入，并没有改变函数的意义。</p><p>一般地，我们将 $x$ 和 $z$ 连在一起成为完全数据(complete-data),观测数据 $x$ 称为不完全数据。</p><h1 id="3-EM算法的收敛性"><a href="#3-EM算法的收敛性" class="headerlink" title="3 EM算法的收敛性"></a>3 EM算法的收敛性</h1><p>前一节讲解了通过引入隐变量并没有改变 $P(x)$ 的表示，同事给出了 EM 算法的公式，但是EM算法的收敛性如何呢？下面我们就讲解EM算法的收敛性，要使EM算法收敛同时满足公式11的极大似然函数。在迭代过程中，要使 $\theta$ 逐渐收敛，同时满足公式11，则必存在:</p><script type="math/tex; mode=display">\log P(x|\theta^{(g+1)}) \geq \log P(x|\theta^{(g)})\tag{16}</script><p>根据对数函数和条件概率一个特征 $\log \frac{A}{B}=\log A - \log B$ 和 $P(x)=\frac{P(x, z)}{P(z|x)}$可得：</p><script type="math/tex; mode=display">\log P(x|\theta)= \log (x,z|\theta) - \log(z|x,\theta)\tag{17}</script><p>我们对公式两边分别对分布 $P(z|x, \theta^{(g)})$ 求期望，左边为:</p><script type="math/tex; mode=display">\begin{aligned}   \int _z \log P(x|\theta) P(z|x, \theta^{(g)}) dz=& \log P(x|\theta) \int _z P(z|x, \theta^{(g)}) dz \\   =& \log P(x|\theta)\end{aligned}\tag{18}</script><p>右边为:</p><script type="math/tex; mode=display">    \int _zlogp(x,z|\theta)P(z|x, \theta^{(g)}) dz-\int_z\log(z|x,\theta)P(z|x, \theta^{(g)}) dz =Q(\theta, \theta^{(g)}) -H(\theta, \theta^{(g)})\tag{19}</script><p>我们通常称 $Q(\theta, \theta^{(g)})$ 为 <strong>Q函数</strong>：完全数据的对数似然函数$\log P(x, z|\theta)$关于给定观测数据和当前参数 $\theta^{(g)}$下对隐藏数据 $z$ 的条件概率的期望称为Q函数。</p><p>根据公式17、18和19我们可以得出:</p><script type="math/tex; mode=display">\begin{aligned}    \log P(x|\theta)=&\int _z \log P(x,z|\theta)P(z|x, \theta^{(g)}) dz-\int_z\log P(z|x,\theta)P(z|x, \theta^{(g)}) dz\\    =& Q(\theta, \theta^{(g)}) -H(\theta, \theta^{(g)})\end{aligned}\tag{20}</script><p>极大似然估计就是对 $\log P(x|\theta)$ 进行极大化，对上面的右边公式进行极大化，可不可以呢？不可以，如果这样做就又回到最大似然函数了，因此得不了解，EM算法只是对 $Q(\theta, \theta^{(g)})$ 进行极大化，因此很容易得出:</p><script type="math/tex; mode=display">Q(\theta^{(g+1)}, \theta^{(g)}) \geq Q(\theta^{(g)}, \theta^{(g)})\tag{21}</script><p>我们要想通过优化$Q(\theta, \theta^{(g)})$ 使 $\log P(x|\theta)$ 逐渐增大，则存在:</p><script type="math/tex; mode=display">Q(\theta^{(g+1)}, \theta^{(g)}) - Q(\theta^{(g)}, \theta^{(g)})\geq H(\theta^{(g+1)}, \theta^{(g)}) - H(\theta^{(g)}, \theta^{(g)})\tag{22}</script><p>如果，我们假设，$\forall\theta,H(\theta^{(g)}, \theta^{(g)}) - H(\theta, \theta^{(g)}) \geq 0 \Rightarrow H(\theta^{(g)}, \theta^{(g)}) \geq H(\theta^{(g+1)}, \theta^{(g)})$</p><p>下面，就对这个假设进行证明:</p><script type="math/tex; mode=display">\begin{aligned}    & H(\theta^{(g)}, \theta^{(g)}) - H(\theta, \theta^{(g)}) \\    & =\int_z\log P(z|x,\theta^{(g)})P(z|x, \theta^{(g)})dz - \int_z\log p(z|x,\theta)P(z|x, \theta^{(g)})dz \\    & = \int_z\log [\frac{P(z|x,\theta^{(g)})}{p(z|x,\theta)}]P(z|x, \theta^{(g)})dz \\    & = \int_z -\log [\frac{p(z|x,\theta)}{P(z|x,\theta^{(g)})]}P(z|x, \theta^{(g)})dz \\    & \geq -\log [\int_z\frac{p(z|x,\theta)}{P(z|x,\theta^{(g)})]}P(z|x, \theta^{(g)})dz] \\    & = -log \int_z p(z|x,\theta) dz \\    & =-\log1=0 \\    & \Rightarrow H(\theta^{(g)}, \theta^{(g)}) - H(\theta, \theta^{(g)}) \geq 0\end{aligned}\tag{23}</script><p>$\geq$ 那一步利用了 Jensen 不等式（Jensen Inequality),这其实是凸函数的一个特点，如图5所示。我们求两个点的函数值的期望，即为直线上的黑点，如果我们先对自变量 x 求期望，则 $-\log(Ex)$ 为log函数曲线上的黑点，根据曲线图，我们可以得出</p><script type="math/tex; mode=display">\begin{aligned}    pf(x_1)+(1-p)f(x_2) \geq & f(px_1+(1-p)x_2) \\    E[f(x)] \geq & f[E(x)]\end{aligned}\tag{24}</script><p>即，函数的均值大于等于均值的函数。</p><p><img src="/images/ML_EM_pic5.png" alt="Jensen 不等式"></p><p>通过以上证明可以得出，EM算法通过迭代最大化 $\int _z \log P(x,z|\theta)P(z|x, \theta^{(g)}) dz$，从而使 $P(x|\theta)$ 逐渐增大。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;最大期望算法（Expectation-Maximization algorithm, EM）是一类通过迭代进行极大似然估计（Maximum Likelihood Estimation, MLE）的优化算法。用于含有隐变量（Latent Variable) 的概率模型参数的极
+      
+    
+    </summary>
+    
+      <category term="机器学习" scheme="http://yoursite.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>支持向量机——线性可分支持向量机</title>
@@ -484,32 +509,6 @@
     
     
       <category term="Spring" scheme="http://yoursite.com/tags/Spring/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PyTorch Deep Learning for NLP with Pytorch</title>
-    <link href="http://yoursite.com/2018/01/20/PyTorch-Deep-Learning-for-NLP-with-Pytorch/"/>
-    <id>http://yoursite.com/2018/01/20/PyTorch-Deep-Learning-for-NLP-with-Pytorch/</id>
-    <published>2018-01-20T14:04:52.000Z</published>
-    <updated>2018-03-20T14:03:28.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>此教程翻译自<a href="http://pytorch.org/tutorials/beginner/deep_learning_nlp_tutorial.html" target="_blank" rel="noopener">官方教程</a></p><p><strong>作者:</strong><a href="https://github.com/rguthrie3/DeepLearningForNLPInPytorch" target="_blank" rel="noopener">Robert Guthrie</a></p><p>本教程将引导您学习在使用 Pytorch 进行深度学习编程中的一些主要思想。许多概念（概念图抽象和autograd）并不是 Pytorch 所特有的，而是与任何深度学习工具有关。</p><p>我写这个教程，专门针对自然语言处理和那些从未用过任何深度学习框架（比如Tensorflow,Theano,Keras, Dynet)的写过自然语言处理的人。该教程假定你知道自然语言处理的核心知识： 词性标注、语言建模等。也假定你熟悉神经网络基础（例如来自 Russel 和 Norvig书）。通常，这些书籍涵盖基础的前馈神经网络的反向传播算法，并指出他们是线性和非线性组合的链。<br>本教程旨在让您开始编写深度学习的代码和让你知道这些必备知识。</p><p>请注意，这是关于模型而不是数据。对于所有的模型，我们只创建一个小维度的小的测试样例，以便您可以看到权重在它训练时是如何变化的。如果有一些真实数据你想去尝试，你应该能够撕掉这个笔记上的任何模型，并使用他们。</p><h1 id="介绍-PyTorch"><a href="#介绍-PyTorch" class="headerlink" title="介绍 PyTorch"></a>介绍 PyTorch</h1><h2 id="介绍-Torch-的张量库"><a href="#介绍-Torch-的张量库" class="headerlink" title="介绍 Torch 的张量库"></a>介绍 Torch 的张量库</h2><p>所有深度学习都是基于张量计算，这是矩阵的推广，它的维度可以超过两维。我们将在后面深入地看到这究竟意味着什么。首先，让我们看看我们可以使用张量做什么。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;此教程翻译自&lt;a href=&quot;http://pytorch.org/tutorials/beginner/deep_learning_nlp_tutorial.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;官方教程&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;str
-      
-    
-    </summary>
-    
-      <category term="PyTorch" scheme="http://yoursite.com/categories/PyTorch/"/>
-    
-    
-      <category term="PyTorch" scheme="http://yoursite.com/tags/PyTorch/"/>
     
   </entry>
   
