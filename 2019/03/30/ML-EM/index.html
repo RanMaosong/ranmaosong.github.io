@@ -275,7 +275,7 @@
 
     
         <meta property="article:published_time" content="Sat Mar 30 2019 12:25:08 GMT+0800" />
-        <meta property="article:modified_time" content="Sat Mar 30 2019 22:22:21 GMT+0800" />
+        <meta property="article:modified_time" content="Mon Apr 01 2019 15:39:24 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
@@ -302,7 +302,7 @@
     "mainEntityOfPage": "http://yoursite.com/2019/03/30/ML-EM/index.html",
     "headline": "期望最大算法(EM算法)",
     "datePublished": "Sat Mar 30 2019 12:25:08 GMT+0800",
-    "dateModified": "Sat Mar 30 2019 22:22:21 GMT+0800",
+    "dateModified": "Mon Apr 01 2019 15:39:24 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "茂松",
@@ -566,7 +566,7 @@
         <p>最大期望算法（Expectation-Maximization algorithm, EM）是一类通过迭代进行极大似然估计（Maximum Likelihood Estimation, MLE）的优化算法。用于含有隐变量（Latent Variable) 的概率模型参数的极大似然估计或极大后验概率估计。Em算法的每次迭代包含两个步骤：1. E步： 求期望；2. M步：求极大，因此该算法被称作EM算法。</p>
 <h1 id="1-极大似然估计"><a href="#1-极大似然估计" class="headerlink" title="1 极大似然估计"></a>1 极大似然估计</h1><p>极大似然估计是一种利用极大似然函数来求解模型参数 $\theta$ 的一种估计方法。 在数理统计学中，<strong>似然函数</strong>是一种关于统计模型的参数的函数。在给定一个样本 $x$ 时，关于参数 $\theta$ 的似然函数 $L(\theta|x)$ (在数值上)等于给定参数 $\theta$ 后变量 $x$ 的概率(似然函数与概率的一种关系):</p>
 <script type="math/tex; mode=display">
-L(\theta|x) = P(x=x|\theta)
+L(\theta|x) = P(X=x|\theta)
 \tag{1}</script><p>在给定样本集 $\bar x=\{x_1,x_2,…,x_N\}$, 在这个样本集上的似然函数为:</p>
 <script type="math/tex; mode=display">
 L(\theta|\bar x) = P(\bar x|\theta) = \prod_{i=1}^{N}P(x_i|\theta)
@@ -576,15 +576,15 @@ L(\theta|\bar x) = \log P(\bar x|\theta) = \log \prod_{i=1}^{N}P(x_i|\theta) = \
 \tag{3}</script><p>通过 $L(\theta|\bar x)$ 对 $\theta$ 求导，并取倒数为0，此时得到最优的 $\theta$.</p>
 <p>下面以高斯模型为例来简单说明极大似然估计，并引导出EM算法。</p>
 <p><strong>示例一</strong></p>
-<p>如下图，我们采集到一些数据(黄色的+)服从单个高斯分布，由于高斯分布中有两个参数，均值和方差,我们将其表示为 $\theta =\{\mu,\sigma\}$,通过极大似然估计方法我们来求得最优的 $\theta^<em> =\{\mu^</em>,\sigma^*\}$，如下图我们就是从 $\theta_1,\theta_2,\theta_3$ 中求得 $\theta_1$</p>
+<p>如下图，我们采集到一些数据(黄色的+)服从单个高斯分布，由于高斯分布中有两个参数，均值和方差,我们将其表示为 $\theta =\{\mu,\sigma\}$,通过极大似然估计方法我们来求得最优的$\theta^{*} =\{\mu^{*},\sigma^{*}\}$,如下图我们就是从$\theta_1,\theta_2,\theta_3$中求得 $\theta_1$</p>
 <p><img src="/images/ML_single_Gaussia.png" alt="单一高斯极大似然估计"><br>图1 单一高斯模型</p>
 <p>大致思路就是利用公式3求得对数似然函数，然后对其求最大值，即求得 $\theta^*$,该过程通过如两个公式来分别求出 $\mu$ 和 $\sigma$:</p>
 <script type="math/tex; mode=display">
 L(\theta|\bar x) = \sum_{i=1}^{N}\log N(x_i|\mu, \sigma)
 \tag{4}</script><script type="math/tex; mode=display">
-\frac{\partial L(\theta|\bar x)}{\mu} =0
+\frac{\partial L(\theta|\bar x)}{\partial \mu} =0
 \tag{5}</script><script type="math/tex; mode=display">
-\frac{\partial L(\theta|\bar x)}{\sigma} =0
+\frac{\partial L(\theta|\bar x)}{\partial \sigma} =0
 \tag{6}</script><p>我们通过上式可以求得</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
@@ -628,7 +628,7 @@ L(\theta|\bar x) = \sum_{i=1}^{N}\log P(x_i|\theta)=\sum_{i=1}^{N}\log\sum_{l=1}
 \theta ^{(g+1)}=\arg \max_{\theta}\int_{z}\log P(x, z|\theta)P(z|x,\theta^{(g)})dz
 \tag{13}</script><p>其中 $z$ 是为了简化计算，而引入的一个隐变量（Latent Variable), $x$ 为观测变量(Observable Variable).这两个变量对应到高斯混合模型中，分别为: 我们收集到的样本集和隐藏的模型，每个样本 $x_i$ 对应一个 $z_i$,来表示该样本来自哪个分布。因此 $x_i$ 的概率分可表示为:</p>
 <script type="math/tex; mode=display">
-P(x_i)=\int_{z_l}P_{\bar \theta}(x|z_i)P(z_l)dz_l
+P(x_i)=\int_{z_l}P_{\bar \theta}(x|z_l)P(z_l)dz_l
 \tag{14}</script><p>将上式右边分开描述，$P_{\bar \theta}(x|z_i)$ 表示 $x_i$ 在 $l$ 个高斯分布下的分布，$P(z_l)$ 表示分布为第 $l$ 个高斯分布的概率，即 $\alpha_l$,因此上式为:</p>
 <script type="math/tex; mode=display">
 P(x_i)=\sum_{z_l=1}^{k}\alpha_{z_l}N(x_i|\mu_{z_i}, \sigma_{z_i})
@@ -648,7 +648,7 @@ P(x_i)=\sum_{z_l=1}^{k}\alpha_{z_l}N(x_i|\mu_{z_i}, \sigma_{z_i})
 \end{aligned}
 \tag{18}</script><p>右边为:</p>
 <script type="math/tex; mode=display">
-    \int _zlogp(x,z|\theta)P(z|x, \theta^{(g)}) dz-\int_z\log(z|x,\theta)P(z|x, \theta^{(g)}) dz =Q(\theta, \theta^{(g)}) -H(\theta, \theta^{(g)})
+    \int _zlogP(x,z|\theta)P(z|x, \theta^{(g)}) dz-\int_z\log P(z|x,\theta)P(z|x, \theta^{(g)}) dz =Q(\theta, \theta^{(g)}) -H(\theta, \theta^{(g)})
 \tag{19}</script><p>我们通常称 $Q(\theta, \theta^{(g)})$ 为 <strong>Q函数</strong>：完全数据的对数似然函数$\log P(x, z|\theta)$关于给定观测数据和当前参数 $\theta^{(g)}$下对隐藏数据 $z$ 的条件概率的期望称为Q函数。</p>
 <p>根据公式17、18和19我们可以得出:</p>
 <script type="math/tex; mode=display">
@@ -685,7 +685,14 @@ Q(\theta^{(g+1)}, \theta^{(g)}) - Q(\theta^{(g)}, \theta^{(g)})
 \tag{24}</script><p>即，函数的均值大于等于均值的函数。</p>
 <p><img src="/images/ML_EM_pic5.png" alt="Jensen 不等式"></p>
 <p>通过以上证明可以得出，EM算法通过迭代最大化 $\int _z \log P(x,z|\theta)P(z|x, \theta^{(g)}) dz$，从而使 $P(x|\theta)$ 逐渐增大。</p>
-
+<script type="math/tex; mode=display">
+\begin{aligned}
+    &\log P(x|\theta^{(t+1)}) - \log P(x|\theta^{(t+1)}) \\
+     &= Q(\theta^{(t+1)}, \theta^{(t)})-H(\theta^{(t+1)},\theta^{(t)}) - [Q(\theta^{(t)}, \theta^{(t)})-H(\theta^{(t)},\theta^{(t)})] \\
+    &= [Q(\theta^{(t+1)}, Q(\theta^{(t)})-Q(\theta^{(t)}, \theta^{(t)})]-[H(\theta^{(t+1)},\theta^{(t)})-H(\theta^{(t)},\theta^{(t)})] \\
+    & \geq 0
+\end{aligned}
+\tag{25}</script>
         
     
 
@@ -704,6 +711,14 @@ Q(\theta^{(g+1)}, \theta^{(g)}) - Q(\theta^{(g)}, \theta^{(g)})
             <!-- Post Prev & Next Nav -->
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
+    
+        <a href="/2019/04/16/machine-learning-question/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
     
 
     <!-- Section Spacer -->
@@ -803,7 +818,7 @@ Q(\theta^{(g+1)}, \theta^{(g)}) - Q(\theta^{(g)}, \theta^{(g)})
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2019/03/">三月 2019<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/11/">十一月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/10/">十月 2018<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/09/">九月 2018<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/08/">八月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/03/">三月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/12/">十二月 2017<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">3</span></a>
+                <a class="sidebar_archives-link" href="/archives/2019/04/">四月 2019<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/03/">三月 2019<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/11/">十一月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/10/">十月 2018<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/09/">九月 2018<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/08/">八月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/03/">三月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/12/">十二月 2017<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">3</span></a>
             </ul>
         </li>
         
@@ -821,7 +836,7 @@ Q(\theta^{(g+1)}, \theta^{(g)}) - Q(\theta^{(g)}, \theta^{(g)})
             </a>
             <ul class="dropdown-menu">
                 <li>
-                <a class="sidebar_archives-link" href="/categories/Algorithm-4th/">Algorithm(4th)<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Android/">Android<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/NLP-自然语言处理/">NLP(自然语言处理)<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/PyTorch/">PyTorch<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/categories/Spring/">Spring<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/Teaching-Assistant/">Teaching Assistant<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/Tutorial/">Tutorial<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Util/">Util<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/Weekly-Algorithm/">Weekly Algorithm<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/机器学习/">机器学习<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/categories/机器学习100天/">机器学习100天<span class="sidebar_archives-count">4</span></a>
+                <a class="sidebar_archives-link" href="/categories/Algorithm-4th/">Algorithm(4th)<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Android/">Android<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/NLP-自然语言处理/">NLP(自然语言处理)<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/PyTorch/">PyTorch<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/categories/Spring/">Spring<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/Teaching-Assistant/">Teaching Assistant<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/Tutorial/">Tutorial<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Util/">Util<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/Weekly-Algorithm/">Weekly Algorithm<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/机器学习/">机器学习<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/categories/机器学习100天/">机器学习100天<span class="sidebar_archives-count">4</span></a>
             </ul>
         </li>
         
@@ -879,7 +894,7 @@ Q(\theta^{(g+1)}, \theta^{(g)}) - Q(\theta^{(g)}, \theta^{(g)})
         <li>
             <a href="/archives">
                 文章总数
-                <span class="sidebar-badge">29</span>
+                <span class="sidebar-badge">31</span>
             </a>
         </li>
         
