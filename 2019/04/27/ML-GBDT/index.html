@@ -275,7 +275,7 @@
 
     
         <meta property="article:published_time" content="Sat Apr 27 2019 13:54:40 GMT+0800" />
-        <meta property="article:modified_time" content="Sat Apr 27 2019 15:08:05 GMT+0800" />
+        <meta property="article:modified_time" content="Sat Apr 27 2019 15:30:59 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
@@ -302,7 +302,7 @@
     "mainEntityOfPage": "http://yoursite.com/2019/04/27/ML-GBDT/index.html",
     "headline": "GBDT算法原理以及实例理解",
     "datePublished": "Sat Apr 27 2019 13:54:40 GMT+0800",
-    "dateModified": "Sat Apr 27 2019 15:08:05 GMT+0800",
+    "dateModified": "Sat Apr 27 2019 15:30:59 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "茂松",
@@ -388,7 +388,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-Decision-Tree：CART回归树"><span class="post-toc-number">1.</span> <span class="post-toc-text">1. Decision Tree：CART回归树</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-Gradient-Boosting：拟合负梯度"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">2. Gradient Boosting：拟合负梯度</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3-GBDT算法原理"><span class="post-toc-number">2.</span> <span class="post-toc-text">3. GBDT算法原理</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#实例详解"><span class="post-toc-number">3.</span> <span class="post-toc-text">实例详解</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-Decision-Tree：CART回归树"><span class="post-toc-text">1. Decision Tree：CART回归树</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-Gradient-Boosting：拟合负梯度"><span class="post-toc-text">2. Gradient Boosting：拟合负梯度</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3-GBDT算法原理"><span class="post-toc-text">3. GBDT算法原理</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#4-实例详解"><span class="post-toc-text">4. 实例详解</span></a></li></ol>
     </ul>
     
 
@@ -563,10 +563,12 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <p>该完全内容转载字<a href="http://blog.csdn.net/zpalyq110/article/details/79527653" target="_blank" rel="noopener">同名CSDN博客</a>(<a href="http://blog.csdn.net/zpalyq110/article/details/79527653" target="_blank" rel="noopener">http://blog.csdn.net/zpalyq110/article/details/79527653</a>)</p>
+        <p>该内容完全转载自<a href="http://blog.csdn.net/zpalyq110/article/details/79527653" target="_blank" rel="noopener">同名CSDN博客</a>(<a href="http://blog.csdn.net/zpalyq110/article/details/79527653" target="_blank" rel="noopener">http://blog.csdn.net/zpalyq110/article/details/79527653</a>)</p>
+<p><a href="https://ranmaosong.github.io/2019/04/27/ML-GBDT/" target="_blank" rel="noopener">GitHub</a></p>
+<p><a href="https://www.jianshu.com/p/dcc5124fa35a" target="_blank" rel="noopener">简书</a></p>
+<p><a href="https://blog.csdn.net/u014630987/article/details/89602217" target="_blank" rel="noopener">CSDN</a></p>
 <p><strong>写在前面：</strong> 去年学习GBDT之初，为了加强对算法的理解，整理了一篇笔记形式的文章，发出去之后发现阅读量越来越多，渐渐也有了评论，评论中大多指出来了笔者理解或者编辑的错误，故重新编辑一版文章，内容更加翔实，并且在GitHub上实现了和本文一致的GBDT简易版（包括回归、二分类、多分类以及可视化），供大家交流探讨。感谢各位的点赞和评论，希望继续指出错误</p>
-<p><strong>Github：</strong></p>
-<p><strong><a href="https://github.com/Freemanzxp/GBDT_Simple_Tutorial" target="_blank" rel="noopener">https://github.com/Freemanzxp/GBDT_Simple_Tutorial</a> </strong></p>
+<p><strong>Github：</strong><br><strong><a href="https://github.com/Freemanzxp/GBDT_Simple_Tutorial" target="_blank" rel="noopener">https://github.com/Freemanzxp/GBDT_Simple_Tutorial</a></strong></p>
 <p><strong>简介：</strong><br>GBDT 的全称是 Gradient Boosting Decision Tree，梯度提升树，在传统机器学习算法中，GBDT算的上TOP3的算法。想要理解GBDT的真正意义，那就必须理解GBDT中的Gradient Boosting 和Decision Tree分别是什么？</p>
 <h1 id="1-Decision-Tree：CART回归树"><a href="#1-Decision-Tree：CART回归树" class="headerlink" title="1. Decision Tree：CART回归树"></a>1. Decision Tree：CART回归树</h1><p>首先，GBDT使用的决策树是CART回归树，无论是处理回归问题还是二分类以及多分类，GBDT使用的决策树通通都是都是CART回归树。为什么不用CART分类树呢？因为GBDT每次迭代要拟合的是<strong>梯度值</strong>，是连续值所以要用回归树。</p>
 <p>  对于回归树算法来说最重要的是寻找最佳的划分点，那么回归树中的可划分点包含了所有特征的所有可取的值。在分类树中最佳划分点的判别标准是熵或者基尼系数，都是用纯度来衡量的，但是在回归树中的样本标签是连续数值，所以再使用熵之类的指标不再合适，取而代之的是平方误差，它能很好的评判拟合程度。</p>
@@ -581,7 +583,7 @@ R_1(j, s)=\{x|x^{(j)}\leq s\},R_2(j, s)=\{x|x^{(j)} > s\}</script><script type="
 <p>(3)继续对两个子区域调用步骤（1）和（2），直至满足停止条件。</p>
 <p>(4)将输入空间划分为M个区域$R_1, R_2…R_M$，得到决策树</p>
 <script type="math/tex; mode=display">
-f(x)=\sum_{m=1}^M \hat{c_m}I(x \in R_m)</script><h2 id="2-Gradient-Boosting：拟合负梯度"><a href="#2-Gradient-Boosting：拟合负梯度" class="headerlink" title="2. Gradient Boosting：拟合负梯度"></a>2. Gradient Boosting：拟合负梯度</h2><p>梯度提升树（Grandient Boosting）是提升树（Boosting Tree）的一种改进算法，所以在讲梯度提升树之前先来说一下提升树。</p>
+f(x)=\sum_{m=1}^M \hat{c_m}I(x \in R_m)</script><h1 id="2-Gradient-Boosting：拟合负梯度"><a href="#2-Gradient-Boosting：拟合负梯度" class="headerlink" title="2. Gradient Boosting：拟合负梯度"></a>2. Gradient Boosting：拟合负梯度</h1><p>梯度提升树（Grandient Boosting）是提升树（Boosting Tree）的一种改进算法，所以在讲梯度提升树之前先来说一下提升树。</p>
 <p>先来个通俗理解：假如有个人30岁，我们首先用20岁去拟合，发现损失有10岁，这时我们用6岁去拟合剩下的损失，发现差距还有4岁，第三轮我们用3岁拟合剩下的差距，差距就只有一岁了。如果我们的迭代轮数还没有完，可以继续迭代下面，每一轮迭代，拟合的岁数误差都会减小。最后将每次拟合的岁数加起来便是模型输出的结果。</p>
 <p><strong>提升树算法:</strong></p>
 <p>(1) 初始化 $f_0(x)=0$</p>
@@ -632,7 +634,7 @@ r_{im}=-[\frac{\partial{L(y_i, f(x_i))}}{\partial f(x_i)}]_{f(x)=f_{m-1}(x)}</sc
 <script type="math/tex; mode=display">
 f_m{x}=f_{m-1}(x)+\sum_{j=1}^{J}\gamma_{jm}I(x \in R_{jm})</script><p>(3)得到最终学习器</p>
 <script type="math/tex; mode=display">
-f(x)=f_M{x}=f_{0}(x)+\sum_{m=1}^{M}\sum_{j=1}^{J}\gamma_{jm}I(x \in R_{jm})</script><h1 id="实例详解"><a href="#实例详解" class="headerlink" title="实例详解"></a>实例详解</h1><p><strong>==本人用python以及pandas库实现GBDT的简易版本，在下面的例子中用到的数据都在github可以找到，大家可以结合代码和下面的例子进行理解，欢迎star~== </strong></p>
+f(x)=f_M{x}=f_{0}(x)+\sum_{m=1}^{M}\sum_{j=1}^{J}\gamma_{jm}I(x \in R_{jm})</script><h1 id="4-实例详解"><a href="#4-实例详解" class="headerlink" title="4. 实例详解"></a>4. 实例详解</h1><p><strong>==本人用python以及pandas库实现GBDT的简易版本，在下面的例子中用到的数据都在github可以找到，大家可以结合代码和下面的例子进行理解，欢迎star~== </strong></p>
 <p><strong>Github：<a href="https://github.com/Freemanzxp/GBDT_Simple_Tutorial" target="_blank" rel="noopener">https://github.com/Freemanzxp/GBDT_Simple_Tutorial</a></strong></p>
 <p><strong>数据介绍：</strong></p>
 <p>如下表所示：一组数据，特征为年龄、体重，身高为标签值。共有5条数据，前四条为训练样本，最后一条为要预测的样本。</p>
@@ -705,7 +707,7 @@ f_0(x)=1.475</script><p>$f_1(x)$在中，样本4的年龄为25，大于划分节
 <p>$f_5(x)$在中，样本4的…此处省略…所以被预测为<strong>0.1476</strong></p>
 <p>最终预测结果：</p>
 <script type="math/tex; mode=display">
-f(x)=1.475+0.1*(0.225+0.2025+0.1823+0.164+0.1476)=1.56714</script><p><strong>4. 总结</strong></p>
+f(x)=1.475+0.1*(0.225+0.2025+0.1823+0.164+0.1476)=1.56714</script><p><strong>5. 总结</strong></p>
 <p>本文章从GBDT算法的原理到实例详解进行了详细描述，但是目前只写了回归问题，GitHub上的代码也是实现了回归、二分类、多分类以及树的可视化，希望大家继续批评指正，感谢各位的关注，如果对你有用欢迎star。</p>
 <p><strong>参考：</strong></p>
 <ol>
