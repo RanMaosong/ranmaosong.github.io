@@ -275,7 +275,7 @@
 
     
         <meta property="article:published_time" content="Sat Apr 27 2019 13:54:40 GMT+0800" />
-        <meta property="article:modified_time" content="Sat Apr 27 2019 15:30:59 GMT+0800" />
+        <meta property="article:modified_time" content="Tue May 28 2019 15:15:49 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
@@ -302,7 +302,7 @@
     "mainEntityOfPage": "http://yoursite.com/2019/04/27/ML-GBDT/index.html",
     "headline": "GBDT算法原理以及实例理解",
     "datePublished": "Sat Apr 27 2019 13:54:40 GMT+0800",
-    "dateModified": "Sat Apr 27 2019 15:30:59 GMT+0800",
+    "dateModified": "Tue May 28 2019 15:15:49 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "茂松",
@@ -630,7 +630,7 @@ f_0(x)=\arg \min_{c}\sum_{i=1}^{N}L(y_i, c)</script><p>后面有证明，党委�
 r_{im}=-[\frac{\partial{L(y_i, f(x_i))}}{\partial f(x_i)}]_{f(x)=f_{m-1}(x)}</script><p>（b）将上步得到的残差作为样本新的真实值，并将数据 $(x_i, x_im), i=1, 2,…,N$ 作为下棵树的训练数据，得到一颗新的回归树 $f_m(x)$，其对应的叶子节点区域为 $R_jm, j=1, 2,…,J$。其中J为回归树t的叶子节点的个数。</p>
 <p>（c）对叶子区域 $j =1,2,..J$ 计算最佳拟合值</p>
 <script type="math/tex; mode=display">
-\gamma_{jm}=\arg \min{\gamma}\sum_{x_i \in R_{jm}}(y_i, f_{m-1}(x_i)+\gamma) (对 \gamma求导并令导数为0即可求得)</script><p>（d）更新强学习器</p>
+\gamma_{jm}=\arg \min_{\gamma}\sum_{x_i \in R_{jm}}L(y_i, f_{m-1}(x_i)+\gamma) (对 \gamma求导并令导数为0即可求得)</script><p>（d）更新强学习器</p>
 <script type="math/tex; mode=display">
 f_m{x}=f_{m-1}(x)+\sum_{j=1}^{J}\gamma_{jm}I(x \in R_{jm})</script><p>(3)得到最终学习器</p>
 <script type="math/tex; mode=display">
@@ -651,7 +651,7 @@ f(x)=f_M{x}=f_{0}(x)+\sum_{m=1}^{M}\sum_{j=1}^{J}\gamma_{jm}I(x \in R_{jm})</scr
 </ul>
 <p><strong>1.初始化弱学习器:</strong></p>
 <script type="math/tex; mode=display">
-f_0{x}=arg min_c\sum_{i=1}^N L(y_i, c)</script><p>损失函数为平方损失，因为平方损失函数是一个凸函数，直接求导，倒数等于零，得到 $c$。</p>
+f_0(x)=arg min_c\sum_{i=1}^N L(y_i, c)</script><p>损失函数为平方损失，因为平方损失函数是一个凸函数，直接求导，倒数等于零，得到 $c$。</p>
 <script type="math/tex; mode=display">
 \sum_{i=1}^N\frac{\partial {L(y_i, c)}}{\partial c}=\sum_{i=1}^N \frac{\partial {\frac{1}{2}(y_i-c)^2}}{\partial c}=\sum_{i=1}^N(c - y_i)</script><p>令导数等于0</p>
 <script type="math/tex; mode=display">
@@ -661,7 +661,7 @@ c = (\sum_{i=1}^N y_i)/N</script><p>所以初始化时，$c$ 取值为所有训�
 f_0(x)=c=1.475</script><p><strong>2.对迭代轮数m=1，2,…,M:</strong><br> <br>由于我们设置了迭代次数：n_trees=5，这里的M=5。</p>
 <p>计算负梯度，根据上文损失函数为平方损失时，负梯度就是残差残差，再直白一点就是 y与上一轮得到的学习器 $f_{m-1}$ 的差值</p>
 <script type="math/tex; mode=display">
-r_{i1}==-[\frac{\partial{L(y_i, f(x_i))}}{\partial f(x_i)}]_{f(x)=f_{0}(x)}</script><p>残差在下表列出</p>
+r_{i1}=-[\frac{\partial{L(y_i, f(x_i))}}{\partial f(x_i)}]_{f(x)=f_{0}(x)}</script><p>残差在下表列出</p>
 <p><img src="\images\ml_gbdt_02.webp" alt=""></p>
 <p>此时将残差作为样本的真实值来训练弱学习器 $f_1(x)$，即下表数据：</p>
 <p><img src="\images\ml_gbdt_03.webp" alt=""></p>
@@ -679,7 +679,7 @@ r_{i1}==-[\frac{\partial{L(y_i, f(x_i))}}{\partial f(x_i)}]_{f(x)=f_{0}(x)}</scr
 <p><img src="\images\ml_gbdt_08.webp" alt=""></p>
 <p>此时我们的树深度满足了设置，还需要做一件事情，给这每个叶子节点分别赋一个参数Υ，来拟合残差。</p>
 <script type="math/tex; mode=display">
-\gamma_{j1}=\arg \min{\gamma}\sum_{x_i \in R_{j1}}(y_i, f_{0}(x_i)+\gamma)</script><p>这里其实和上面初始化学习器是一个道理，平方损失求导，令导数等于零，化简之后得到每个叶子节点的参数 $Υ$，其实就是标签值的均值。这个地方的标签值不是原始的 $y$，而是本轮要拟合的标残差 $y-f_0(x)$。</p>
+\gamma_{j1}=\arg \min_{\gamma}\sum_{x_i \in R_{j1}}L(y_i, f_{0}(x_i)+\gamma)</script><p>这里其实和上面初始化学习器是一个道理，平方损失求导，令导数等于零，化简之后得到每个叶子节点的参数 $Υ$，其实就是标签值的均值。这个地方的标签值不是原始的 $y$，而是本轮要拟合的标残差 $y-f_0(x)$。</p>
 <p>根据上述划分结果，为了方便表示，规定从左到右为第1,2,3,4个叶子结点</p>
 <p><img src="\images\ml_gbdt_09.webp" alt=""></p>
 <p>此时的树长这个样子：</p>
