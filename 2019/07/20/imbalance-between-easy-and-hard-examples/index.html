@@ -275,7 +275,7 @@
 
     
         <meta property="article:published_time" content="Sat Jul 20 2019 14:42:37 GMT+0800" />
-        <meta property="article:modified_time" content="Sat Jul 20 2019 23:28:18 GMT+0800" />
+        <meta property="article:modified_time" content="Sat Jul 20 2019 23:46:00 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
@@ -302,7 +302,7 @@
     "mainEntityOfPage": "http://yoursite.com/2019/07/20/imbalance-between-easy-and-hard-examples/index.html",
     "headline": "目标检测中的样本不平衡处理方法——OHEM, Focal Loss, GHM, PISA",
     "datePublished": "Sat Jul 20 2019 14:42:37 GMT+0800",
-    "dateModified": "Sat Jul 20 2019 23:28:18 GMT+0800",
+    "dateModified": "Sat Jul 20 2019 23:46:00 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "茂松",
@@ -672,7 +672,6 @@ l_{\epsilon}(g) = min(g+\frac{\epsilon}{2}, 1) - max(g-\frac{\epsilon}{2}, 0)
 \tag{公式10}</script><p> 分母是对梯度位于 $g_i$ 范围的部分样本进行归一化，如果所有样本的梯度时均分分布，那么对于任意 $g_i$ 都有 $GD(g_i)=N$.(这里不是很理解为什么N，可以理解它们相等)</p>
 <p>通过将梯度密度协调参数将 GHM 嵌入到损失函数中，则 <strong>GHM-C Loss</strong>  为:</p>
 <script type="math/tex; mode=display">
-
 \begin{aligned}
     L_{GHM-C}&=\frac{1}{N}\sum_{i=1}^{N}\beta_iL_{CE}(p_i, p_i^*) \\
             &=\sum_{i=1}^{N}\frac{L_{CE}(p_i, p_i^*)}{GD(g_i)}
@@ -1260,7 +1259,23 @@ console.log('\n %c © Material Theme | Version: 1.5.0 | https://github.com/viose
 </script>
 
                 </main>
-            </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-        </body>
+            </div>
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
     
 </html>
