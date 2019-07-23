@@ -275,7 +275,7 @@
 
     
         <meta property="article:published_time" content="Sat Jul 20 2019 14:42:37 GMT+0800" />
-        <meta property="article:modified_time" content="Sat Jul 20 2019 23:46:00 GMT+0800" />
+        <meta property="article:modified_time" content="Tue Jul 23 2019 18:37:45 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
@@ -302,7 +302,7 @@
     "mainEntityOfPage": "http://yoursite.com/2019/07/20/imbalance-between-easy-and-hard-examples/index.html",
     "headline": "目标检测中的样本不平衡处理方法——OHEM, Focal Loss, GHM, PISA",
     "datePublished": "Sat Jul 20 2019 14:42:37 GMT+0800",
-    "dateModified": "Sat Jul 20 2019 23:46:00 GMT+0800",
+    "dateModified": "Tue Jul 23 2019 18:37:45 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "茂松",
@@ -701,7 +701,7 @@ _{ind(g)}}{\epsilon}=ind(g)m
     S_{j}^{(t)} &= \alpha S_{j}^{(t-1)} + (1-\alpha) R_J^{(t)} \\
     \hat GD(g) &= \frac{S_{ind(g)}}{\epsilon} = S_{ind(g)}M
 \end{aligned}
-\tag{公式15}</script><h2 id="4-4-GHM-R-Loss"><a href="#4-4-GHM-R-Loss" class="headerlink" title="4.4 GHM-R Loss"></a>4.4 GHM-R Loss</h2><p>将模型鱼的的偏移量定义为 $t=(t_x, t_y, t_w, t_h)$, 将真实的偏移量定义为 $t^<em>=(t_x^</em>, t_y^<em>, t_w^</em>, t_h^*)$,回归loss采用 Smooth L1 loss:</p>
+\tag{公式15}</script><h2 id="4-4-GHM-R-Loss"><a href="#4-4-GHM-R-Loss" class="headerlink" title="4.4 GHM-R Loss"></a>4.4 GHM-R Loss</h2><p>将模型鱼的的偏移量定义为 $t=(t_x, t_y, t_w, t_h)$, 将真实的偏移量定义为 <script type="math/tex">t^*=(t_x^*, t_y^*, t_w^*, t_h^*)</script>,回归loss采用 Smooth L1 loss:</p>
 <script type="math/tex; mode=display">
 L_{reg}=\sum_{i\in{x, y, w, h}}SL_1(t_i-t_i^*)
 \tag{公式16}</script><p>其中 </p>
@@ -716,7 +716,7 @@ SL_1(d)=\begin{cases}
     \frac{d}{\delta} \quad if |d| \le \delta \\
     sgn(d) \quad otherwise
 \end{cases}
-\tag{18}</script><p>从公式可以看出，当样本操作 $|d|$ 时， 所有样本都有相同的梯度 1， 这就使依赖梯度范数来区分不同样本是不可能的， 一种简单的替代方法时直接使用 $|d|$ 作为衡量标准，但是该值理论上无限大，导致 $Unit Region Approximation$ 无法实现，</p>
+\tag{18}</script><p>从公式可以看出，当样本操作 $|d|$ 时， 所有样本都有相同的梯度 1， 这就使依赖梯度范数来区分不同样本是不可能的， 一种简单的替代方法时直接使用 $|d|$ 作为衡量标准，但是该值理论上无限大，导致 Unit Region Approximation 无法实现，</p>
 <p>为了将 GHM 应用到回归损失上，作者修改了原始的 $SL_1$ 损失函数:</p>
 <script type="math/tex; mode=display">
 ASL_1(d) = \sqrt{d_2+u^2}-u
@@ -791,7 +791,7 @@ w_i=((1-\beta)u_i + \beta)^\gamma
     v_i &= ((1-b)p_i +b)^k
 \end{aligned}
 \tag{25}</script><p>$p_i$ 表示相应类别的预测分数， $d_i$ 表示输出的回归偏移量。利用一个指数函数将 $p_i$ 转化为 $v_i$ ，随后根据所有样本的平均值对它进行缩放。为了保持损失规模不变，对具有分类感知的 $c_i$ 进行归一化。 $\mathcal{L}$ 是常用的smooth L1 loss。</p>
-<p>$L_{reg}$ 关于 $c_i^{‘}$ 的梯度与原回归损失 $\mathcal{L}(d_i, \hat d_i)$ 成正比。 $L_{reg} 关于 $p_i$ 的梯度与 $\mathcal{L}(d_i, \hat d_i)$ 正相关。即回归损失越大的样本分类得分的梯度越大，说明对分类得分的抑制作用越强。从另一个角度看， $\mathcal{L}(d_i, \hat d_i)$ 反映了样本i的定位质量，因此可以认为是一个IoU的估计，进一步可以看作是一个IoU-HLR的估计。可以近似认为，排序靠前的样本有较低的回归损失，于是分类得分的梯度较小。对于CARL来说，分类分支受到回归损失的监督。 不重要样本的得分被极大的抑制掉，而对重要样本的关注得到加强。</p>
+<p>$L_{reg}$ 关于 $c_i^{‘}$ 的梯度与原回归损失 $\mathcal{L}(d_i, \hat d_i)$ 成正比。 $L_{reg}$ 关于 $p_i$ 的梯度与 $\mathcal{L}(d_i, \hat d_i)$ 正相关。即回归损失越大的样本分类得分的梯度越大，说明对分类得分的抑制作用越强。从另一个角度看， $\mathcal{L}(d_i, \hat d_i)$ 反映了样本i的定位质量，因此可以认为是一个IoU的估计，进一步可以看作是一个IoU-HLR的估计。可以近似认为，排序靠前的样本有较低的回归损失，于是分类得分的梯度较小。对于CARL来说，分类分支受到回归损失的监督。 不重要样本的得分被极大的抑制掉，而对重要样本的关注得到加强。</p>
 <h1 id="6-AP-Loss"><a href="#6-AP-Loss" class="headerlink" title="6.AP-Loss"></a>6.AP-Loss</h1><p>待续。。。</p>
 <h1 id="7-总结"><a href="#7-总结" class="headerlink" title="7.总结"></a>7.总结</h1><p>上面的方法大致可以分为两种：</p>
 <ol>
@@ -1259,23 +1259,7 @@ console.log('\n %c © Material Theme | Version: 1.5.0 | https://github.com/viose
 </script>
 
                 </main>
-            </div>
-        <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-</body>
+            </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+        </body>
     
 </html>
