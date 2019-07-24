@@ -39,7 +39,7 @@
     
     <title>
         
-            期望最大算法(EM算法) | 
+            目标检测中的样本不平衡处理方法——OHEM, Focal Loss, GHM, PISA | 
         
         技术闲谈
     </title>
@@ -51,7 +51,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="茂松">
     <meta name="description" itemprop="description" content="Through studying you will gain success and fortunes will follow. ,">
-    <meta name="keywords" content=",机器学习">
+    <meta name="keywords" content=",目标检测">
 
     <!-- Import lsloader -->
     <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(window.oldVersion){var remove=window.oldVersion.reduce(function(p,c){return p||data.indexOf("/*"+c+"*/")!==-1},false);if(remove){lsloader.removeLS(key)}}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload,isJs){if(typeof cssonload==="boolean"){isJs=cssonload;cssonload=undefined}isJs=isJs||false;cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}code=code.split(versionString)[1];if(isJs){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload,isJs)}};lsloader.requestResource=function(name,path,cssonload,isJs){var that=this;if(isJs){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else{this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
@@ -268,18 +268,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://yoursite.com">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="期望最大算法(EM算法) | 技术闲谈">
+    <meta property="og:title" content="目标检测中的样本不平衡处理方法——OHEM, Focal Loss, GHM, PISA | 技术闲谈">
     <meta property="og:image" content="http://yoursite.com/img/favicon.png" />
     <meta property="og:description" content="Through studying you will gain success and fortunes will follow. ,">
-    <meta property="og:article:tag" content="机器学习"> 
+    <meta property="og:article:tag" content="目标检测"> 
 
     
-        <meta property="article:published_time" content="Sat Mar 30 2019 12:25:08 GMT+0800" />
-        <meta property="article:modified_time" content="Mon Apr 01 2019 15:39:24 GMT+0800" />
+        <meta property="article:published_time" content="Sat Jul 20 2019 14:42:37 GMT+0800" />
+        <meta property="article:modified_time" content="Wed Jul 24 2019 16:52:09 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="期望最大算法(EM算法) | 技术闲谈">
+    <meta name="twitter:title" content="目标检测中的样本不平衡处理方法——OHEM, Focal Loss, GHM, PISA | 技术闲谈">
     <meta name="twitter:description" content="Through studying you will gain success and fortunes will follow. ,">
     <meta name="twitter:image" content="http://yoursite.com/img/favicon.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -287,7 +287,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/2019/03/30/ML-EM/index.html" />
+        <link rel="canonical" href="http://yoursite.com/2019/07/20/cv-imbalance-between-easy-and-hard-examples/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -299,10 +299,10 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "http://yoursite.com/2019/03/30/ML-EM/index.html",
-    "headline": "期望最大算法(EM算法)",
-    "datePublished": "Sat Mar 30 2019 12:25:08 GMT+0800",
-    "dateModified": "Mon Apr 01 2019 15:39:24 GMT+0800",
+    "mainEntityOfPage": "http://yoursite.com/2019/07/20/cv-imbalance-between-easy-and-hard-examples/index.html",
+    "headline": "目标检测中的样本不平衡处理方法——OHEM, Focal Loss, GHM, PISA",
+    "datePublished": "Sat Jul 20 2019 14:42:37 GMT+0800",
+    "dateModified": "Wed Jul 24 2019 16:52:09 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "茂松",
@@ -320,7 +320,7 @@
             "url": "/img/favicon.png"
         }
     },
-    "keywords": ",机器学习",
+    "keywords": ",目标检测",
     "description": "Through studying you will gain success and fortunes will follow. ,",
 }
 </script>
@@ -388,7 +388,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-极大似然估计"><span class="post-toc-text">1 极大似然估计</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-期望最大算法"><span class="post-toc-text">2 期望最大算法</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3-EM算法的收敛性"><span class="post-toc-text">3 EM算法的收敛性</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-前言"><span class="post-toc-text">1. 前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-OHEM"><span class="post-toc-text">2. OHEM</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3-Focal-Loss"><span class="post-toc-text">3. Focal Loss</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-1-Cross-Entropy"><span class="post-toc-text">3.1 Cross Entropy</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-2-Balanced-Cross-Entropy"><span class="post-toc-text">3.2 Balanced Cross Entropy</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-3-Focal-Loss"><span class="post-toc-text">3.3 Focal Loss</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-4-模型初始化"><span class="post-toc-text">3.4 模型初始化</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#4-GHM-Gradient-Harmonizing-Mechanism"><span class="post-toc-text">4.GHM(Gradient Harmonizing Mechanism)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-1-Cross-Entropy"><span class="post-toc-text">4.1 Cross Entropy</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-2-梯度密度-Gradient-Density"><span class="post-toc-text">4.2 梯度密度(Gradient Density)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-3-Unit-Region-Approximation"><span class="post-toc-text">4.3 Unit Region Approximation</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-4-GHM-R-Loss"><span class="post-toc-text">4.4 GHM-R Loss</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#5-PISA"><span class="post-toc-text">5.PISA</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-1-Prime-Samples"><span class="post-toc-text">5.1 Prime Samples</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-2-IoU-Hierarchical-Local-Rank-IoU-HLR"><span class="post-toc-text">5.2 IoU Hierarchical Local Rank (IoU-HLR)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-3-Learn-Detectors-via-Prime-Sample-Attention"><span class="post-toc-text">5.3 Learn Detectors via Prime Sample Attention</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-3-1-Importance-based-Sample-Reweighting"><span class="post-toc-text">5.3.1 Importance-based Sample Reweighting</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-3-2-Classification-Aware-Regression-Loss"><span class="post-toc-text">5.3.2 Classification-Aware Regression Loss</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#6-AP-Loss"><span class="post-toc-text">6.AP-Loss</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#7-总结"><span class="post-toc-text">7.总结</span></a></li></ol>
     </ul>
     
 
@@ -420,7 +420,7 @@
         
     
             <p class="article-headline-p">
-                期望最大算法(EM算法)
+                目标检测中的样本不平衡处理方法——OHEM, Focal Loss, GHM, PISA
             </p>
         </div>
 
@@ -439,7 +439,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>茂松</strong>
-        <span>3月 30, 2019</span>
+        <span>7月 20, 2019</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -463,7 +463,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/机器学习/">机器学习</a>
+        <a class="post_tag-link" href="/tags/目标检测/">目标检测</a>
     </ul>
     
 
@@ -480,7 +480,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=期望最大算法(EM算法)&url=http://yoursite.com/2019/03/30/ML-EM/index.html&pic=http://yoursite.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=目标检测中的样本不平衡处理方法——OHEM, Focal Loss, GHM, PISA&url=http://yoursite.com/2019/07/20/cv-imbalance-between-easy-and-hard-examples/index.html&pic=http://yoursite.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -489,7 +489,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=期望最大算法(EM算法)&url=http://yoursite.com/2019/03/30/ML-EM/index.html&via=茂松" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=目标检测中的样本不平衡处理方法——OHEM, Focal Loss, GHM, PISA&url=http://yoursite.com/2019/07/20/cv-imbalance-between-easy-and-hard-examples/index.html&via=茂松" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -498,7 +498,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/03/30/ML-EM/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/07/20/cv-imbalance-between-easy-and-hard-examples/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -507,7 +507,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2019/03/30/ML-EM/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2019/07/20/cv-imbalance-between-easy-and-hard-examples/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -516,7 +516,7 @@
 
     <!-- Share LinkedIn -->
     
-        <a class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com/2019/03/30/ML-EM/index.html&title=期望最大算法(EM算法)" target="_blank">
+        <a class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com/2019/07/20/cv-imbalance-between-easy-and-hard-examples/index.html&title=目标检测中的样本不平衡处理方法——OHEM, Focal Loss, GHM, PISA" target="_blank">
             <li class="mdl-menu__item">
                 分享到 LinkedIn
             </li>
@@ -525,7 +525,7 @@
 
     <!-- Share QQ -->
     
-        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=技术闲谈&title=期望最大算法(EM算法)&summary=Through studying you will gain success and fortunes will follow. ,&pics=http://yoursite.com/img/favicon.png&url=http://yoursite.com/2019/03/30/ML-EM/index.html" target="_blank">
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=技术闲谈&title=目标检测中的样本不平衡处理方法——OHEM, Focal Loss, GHM, PISA&summary=Through studying you will gain success and fortunes will follow. ,&pics=http://yoursite.com/img/favicon.png&url=http://yoursite.com/2019/07/20/cv-imbalance-between-easy-and-hard-examples/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 QQ
             </li>
@@ -534,7 +534,7 @@
 
     <!-- Share Telegram -->
     
-        <a class="post_share-link" href="https://telegram.me/share/url?url=http://yoursite.com/2019/03/30/ML-EM/index.html&text=期望最大算法(EM算法)" target="_blank">
+        <a class="post_share-link" href="https://telegram.me/share/url?url=http://yoursite.com/2019/07/20/cv-imbalance-between-easy-and-hard-examples/index.html&text=目标检测中的样本不平衡处理方法——OHEM, Focal Loss, GHM, PISA" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Telegram
             </li>
@@ -563,136 +563,243 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <p>最大期望算法（Expectation-Maximization algorithm, EM）是一类通过迭代进行极大似然估计（Maximum Likelihood Estimation, MLE）的优化算法。用于含有隐变量（Latent Variable) 的概率模型参数的极大似然估计或极大后验概率估计。Em算法的每次迭代包含两个步骤：1. E步： 求期望；2. M步：求极大，因此该算法被称作EM算法。</p>
-<h1 id="1-极大似然估计"><a href="#1-极大似然估计" class="headerlink" title="1 极大似然估计"></a>1 极大似然估计</h1><p>极大似然估计是一种利用极大似然函数来求解模型参数 $\theta$ 的一种估计方法。 在数理统计学中，<strong>似然函数</strong>是一种关于统计模型的参数的函数。在给定一个样本 $x$ 时，关于参数 $\theta$ 的似然函数 $L(\theta|x)$ (在数值上)等于给定参数 $\theta$ 后变量 $x$ 的概率(似然函数与概率的一种关系):</p>
-<script type="math/tex; mode=display">
-L(\theta|x) = P(X=x|\theta)
-\tag{1}</script><p>在给定样本集 $\bar x=\{x_1,x_2,…,x_N\}$, 在这个样本集上的似然函数为:</p>
-<script type="math/tex; mode=display">
-L(\theta|\bar x) = P(\bar x|\theta) = \prod_{i=1}^{N}P(x_i|\theta)
-\tag{2}</script><p>由于公式2中含有连乘运算，因此不方便计算，通常我们利用对数的特性，来对公式2取对数来得到<strong>对数似然函数</strong>，为了方便，我们还是将 $\log L(\theta|\bar x)$ 记作 $L(\theta|\bar x)$:</p>
-<script type="math/tex; mode=display">
-L(\theta|\bar x) = \log P(\bar x|\theta) = \log \prod_{i=1}^{N}P(x_i|\theta) = \sum_{i=1}^{N} \log P(x_i|\theta)
-\tag{3}</script><p>通过 $L(\theta|\bar x)$ 对 $\theta$ 求导，并取倒数为0，此时得到最优的 $\theta$.</p>
-<p>下面以高斯模型为例来简单说明极大似然估计，并引导出EM算法。</p>
-<p><strong>示例一</strong></p>
-<p>如下图，我们采集到一些数据(黄色的+)服从单个高斯分布，由于高斯分布中有两个参数，均值和方差,我们将其表示为 $\theta =\{\mu,\sigma\}$,通过极大似然估计方法我们来求得最优的$\theta^{*} =\{\mu^{*},\sigma^{*}\}$,如下图我们就是从$\theta_1,\theta_2,\theta_3$中求得 $\theta_1$</p>
-<p><img src="/images/ML_single_Gaussia.png" alt="单一高斯极大似然估计"><br>图1 单一高斯模型</p>
-<p>大致思路就是利用公式3求得对数似然函数，然后对其求最大值，即求得 $\theta^*$,该过程通过如两个公式来分别求出 $\mu$ 和 $\sigma$:</p>
-<script type="math/tex; mode=display">
-L(\theta|\bar x) = \sum_{i=1}^{N}\log N(x_i|\mu, \sigma)
-\tag{4}</script><script type="math/tex; mode=display">
-\frac{\partial L(\theta|\bar x)}{\partial \mu} =0
-\tag{5}</script><script type="math/tex; mode=display">
-\frac{\partial L(\theta|\bar x)}{\partial \sigma} =0
-\tag{6}</script><p>我们通过上式可以求得</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-    \mu_{MLE}=&\frac{1}{N}\sum_{i=1}^Nx_i \\
-    \sigma_{MLE}=&\frac{\sum_{i=1}^N(x_i-\mu_{MLE})^2}{N}
-\end{aligned}
-\tag{7}</script><p><strong>示例二</strong></p>
-<p>如图二所示的样本，从图中我们可以明显看出，黄色和黑色样本分别位于两个类中，此时如果我们还是用单一的高斯模型来为该样本集建模，是行不通的，主要有两个原因：</p>
+        <p><a href="https://ranmaosong.github.io/2019/07/20/imbalance-between-easy-and-hard-examples/" target="_blank" rel="noopener">GitHub</a><br><a href="https://www.jianshu.com/p/f305b573df8f" target="_blank" rel="noopener">简书</a><br><a href="https://blog.csdn.net/u014630987/article/details/96646662" target="_blank" rel="noopener">CSDN</a></p>
+<h1 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h1><p>目前。计算机视觉中的性能最好的目标检测方法主要分为两种: one-stage 和two-stage 方法。two-stage方法分为两步，第一步为候选区域生成阶段(Proposal stage),通过如Selective Search、EdgeBoxes等方法可以生成数量相对较小候选目标检测框；第二步为分类与回归阶段，对第一阶段生成的 Candiate Proposal 进行分类和位置回归。one-stage 代表性的方法是R-CNN系列，如 R-CNN， Fast R-CNN, Faster R-CNN。 而one-stage 方法直接对图像的大量 Candiate Proposals 进行分类与回归。</p>
+<p>这两类方法中均存在类别不平衡问题，two-stage 方法通过第一步已经将当量的候选区域降低到一个数量较小的范围，同时又在第二步通过一些启发式原则，将正负样本的比例降低到一定程度。而 one-stage 优于没有这降低候选框的步骤，因此，候选区域的数量大大超过 two-stage 方法，因此，在精度上，two-stage 仍然优于 one-stage 方法，但是在速度和模型复杂度上， one-stage 占优势。</p>
+<p>类别不平衡会使检测器评估 $10^4-10^6$ 的候选位置，但是通常只有少量的位置存在目标，这回导致两个问题:</p>
 <ol>
-<li>高斯分布的特点是在 $\mu$ 附近的概率很大，而从徒儿看出，在 $\mu$ 附近没有样本，样本基本位于两端，距离 $\mu$ 很远，这不符合高斯分布特点；</li>
-<li>黄色的样本比黑色的样本更密集，也就是他的概率更大，因此我们不应该同等对待。</li>
+<li>由于大量的 easy negative 对模型的训练没有提供很大的作用，因此训练很低效；</li>
+<li>由于在训练中 easy negatives 在数据中占主导，因此这些样本会覆盖少量的正样本的损失（即负样本的损失梯度占主导），从而导致模型退化。</li>
 </ol>
-<p><img src="/images/ML_EM_pic2.png" alt="混合样本单一模型"></p>
-<p>既然单一高斯模型已经无法适用于该样本集，那我们用多个高斯模型呢，再此示例中，我们可以看出样本集分布在两个分布中较为合理，其结果如图 3所示.通过比较图2和图3，可以得出，图3时更合理的分布，此时得到高斯混合模型，其混合模型如图4所示。</p>
-<p><img src="/images/ML_EM_pic3.png" alt="图3 双高斯模型"><br><img src="/images/ML_EM_pic4.png" alt="图4 混合高斯模型"></p>
-<p>根据上面的描述，我们对每个高斯叠加起来，即:</p>
+<p>因此，解决样本不平衡问题是提高目标检测精度的一个关键技术之一。</p>
+<h1 id="2-OHEM"><a href="#2-OHEM" class="headerlink" title="2. OHEM"></a>2. OHEM</h1><p>论文题目：<a href="https://arxiv.org/pdf/1604.03540.pdf" target="_blank" rel="noopener">Training Region-based Object Detectors with Online Hard Example Mining</a></p>
+<p>OHEM 是通过改进 Hard Example Mining 方法，使其适应online learning算法特别是基于SGD的神经网络方法。Hard Example Mining 通过交替地用当前样本集训练模型，然后将模型固定，选择 False Positive 样本来重新组建用于下一次模型训练的样本集。但是因为训练神经网络本事就是一个耗时的操作，这样在训练中固定模型，这样会急剧降低模型的训练进程。</p>
+<p>Hard Examples Mining通常有两种方法：</p>
+<ol>
+<li><p><strong>用于优化 SVM 的方法</strong>： 该方法首先需要一个工作的样本集，用来训练 SVM， 使其在该样本集上收敛，然后通过某些原则来添加或删除某些样本以更新该样本集。该原则是：删除那些简单样本(Easy Examples), 即分类正确的概率高与某个阈值(个人理解，原话The rule removes examples that are “easy” in the sense that they are correctly classified beyond the current model’s margin. Conversely)， 添加那些困难那样本，即分类正确的概率低于某个阈值(the rule adds new examples that are hard in the sense that they violate the current model’s margin)</p>
+</li>
+<li><p><strong>用于非SVM的方法</strong>：该方法首先用完整的数据集中的正样本和一个随机的负样本及来构成开始的训练样本集，然后训练模型使其在该训练集上收敛，然后完整的数据集中选择 False Positive 添加到训练样本集中。</p>
+</li>
+</ol>
+<p>OHEM算法的大致流程是: 首先计算出每个ROI的loss， 然后按loss从高到低来排列每个 ROI， 然后为每张图片选择 $B/N$ 个损失最高的 ROI 作为Hard Examples，其中 B 表示总的 ROI 数量， $N$ 表示batch-size 的大小，在 Fast R-CNN 中， N=2， B=128时，效果很好。</p>
+<p>但是如果直接按照 loss 对所有的 ROI 进行选择，会有一个缺点，由于 ROI 很多，这样 很多 ROI 的位置就会相关并重叠，如果和某个高 Loss 的 ROI 重合度很高的其它 ROI很多， 这样， 这些 ROI 的 Loss 通常也会很多，这样这些样本都会被选择，但是它们可以近似认为时同一个，这样就会给其它较低 Loss 的 ROI 更少的选择余地，这样就会存在冗余。为了消除这种冗余，作者提出先使用 NMS (non-maximum suppression) 删除部分重合度很高的 ROI， 在使用上述方法进行 选择 Hard Example。</p>
+<p><strong>实现技巧:</strong></p>
+<p>论文，作者将该方法是现在 Fsat R-CNN 目标检测方法中。最简单做法是更改损失函数层，损失函数层首先计算所有 ROI 的 loss， 然后根据 loss 对 ROI 进行排序，并选择 hard RoIs， 让 那些 non-RoIs的损失变为0. 这种方法虽然很简单，但是非常不高效，因为还需要为所有的 RoIs 分配进行反向传播时需要的内存空间。</p>
+<p>为了克服这个缺点，作者对下面的 Figure 1 进行改进， 如下面的 Figure 2.该改进时使用两份同样的 RoI network。 其中一个是只读的(readonly), 即只进行前向计算，不进行反向传播优化，所以只需要为前向传播分配内存，它的参数实时保持和另一个 RoI network（regular RoI network)保持一样。在每次迭代时，首先使用 readonly RoI network 对每个 ROI 计算起 loss，然后用上面描述的选择 hard RoIs 的方法选择 hard RoIs. 然后利用 regular RoI network来对选择的 hard RoIs 进行前向和后向计算来优化网络。</p>
+<p><img src="\images\imbalance_01.png" alt=""><br><img src="\images\imbalance_02.png" alt=""></p>
+<h1 id="3-Focal-Loss"><a href="#3-Focal-Loss" class="headerlink" title="3. Focal Loss"></a>3. Focal Loss</h1><p>论文题目 <a href="https://arxiv.org/pdf/1708.02002.pdf" target="_blank" rel="noopener">Focal Loss for Dense Object Detection</a></p>
+<h2 id="3-1-Cross-Entropy"><a href="#3-1-Cross-Entropy" class="headerlink" title="3.1 Cross Entropy"></a>3.1 Cross Entropy</h2><p>在改论文中，作者认为样本类别的不平衡可以归结为难易样本的不平衡，从而更改交叉熵损失函数，重新对样本赋予不同的权值，之前的模型这些样本都是同等重要的，从而使模型训练更加关注 hard examples。</p>
+<p>首先引入交叉熵的公式:</p>
 <script type="math/tex; mode=display">
-    P(x_i|\theta) = \sum_{l=1}^kN(x_i|\mu_l,\sigma_l)
-    \tag{8}</script><p>但是，我们把公式8对变量 $x$ 进行积分，按照概率，该积分应该为1，事实上，该积分不为一，而为2.为了解决这个问题，我们可以平均每个高斯，即给一个权重 $\frac{1}{2}$, 但是这部理想，有时样本在不同分布中权重不一致，因此我们可以给每个分布一个权重比例，且比例之和为1，我们将其推广到一般形式，即：</p>
+CE(p, y)=\begin{cases}
+    -\log (p), \quad if  \quad y == 1 \\
+    -\log(1-p), \quad otherwise
+\end{cases}
+\tag{公式1}</script><p>其中，$y\in\{-1, 1\}$,表示真实类别， $p\in[0,1]$表示我们预测的概率，为了方便，我们定义:</p>
 <script type="math/tex; mode=display">
-\begin{aligned}
-    & P(x|\bar \theta) = \sum_{i=1}^{k}\alpha_i N(x_i|\mu_l,\sigma_l) \\
-    & s.t. \sum_{i=1}^k \alpha_i = 1
-\end{aligned}
-\tag{9}</script><p>该公式的参数变为 $\theta=\{\mu_1,\mu_2,…\mu_k, \sigma_1,\sigma_2,…,\sigma_k, \alpha_1, \alpha_2,…,\alpha_k-1\}$<br>此时，我们将上式代入公式3得到该样本集的似然函数为:</p>
+p_t=\begin{cases}
+    p, \quad if  \quad y == 1 \\
+    1-p, \quad otherwise
+\end{cases}
+\tag{公式2}</script><p>因此， $CE(p,y)=CE(p_t)=-\log(p_t)$,该方法在 $p_t$ 较大时，该loss是一个较小的量级， 如下图的连线所示所示，因为存在大量的易分类样本，相加后会淹没正样本的loss。</p>
+<p><img src="\images\imbalance_03.png" alt=""></p>
+<h2 id="3-2-Balanced-Cross-Entropy"><a href="#3-2-Balanced-Cross-Entropy" class="headerlink" title="3.2 Balanced Cross Entropy"></a>3.2 Balanced Cross Entropy</h2><p>一个常见的解决类别不平衡的方式是引入一个加权因子 $\alpha \in [0,1]$ 来表示正样本的权重， $1-\alpha$表示负样本的权重。我们按照定义 $p_t$ 的方法重新定义$\alpha$为 $\alpha_t$,$\alpha-balance\quad CE \quad loss$ 定义如下:</p>
 <script type="math/tex; mode=display">
-L(\theta|\bar x) = \sum_{i=1}^{N}\log P(x_i|\theta)=\sum_{i=1}^{N}\log\sum_{l=1}^{k}\alpha_l N(x_i|\mu_l,\sigma_l)
-\tag{10}</script><script type="math/tex; mode=display">
-\begin{aligned}
-    \bar \theta_{MLE}=&\arg \max_{\theta}L(\theta|\bar x) \\
-            =&\arg \max_{\theta}\sum_{i=1}^{N}\log P(x_i|\theta)\\
-            =&\arg \max_{\theta} \sum_{i=1}^{N}\log\sum_{l=1}^{k}\alpha_l N(x_i|\mu_l,\sigma_l)
-\end{aligned}
-\tag{11}</script><p>由于 $\log$ 函数里面存在一个求和公式，如果我们再用极大似然估计法来求解上式的解，将变得很复杂，甚至求不出来，因此极大似然估计发在这里已行不通。</p>
-<p>以上就是期望最大算法被提出的一个简单原因。</p>
-<h1 id="2-期望最大算法"><a href="#2-期望最大算法" class="headerlink" title="2 期望最大算法"></a>2 期望最大算法</h1><p>期望最大算法通过迭代求解来求得最后的一个近似最优的 $\theta$ 值，由“迭代”二字可以看出，当前步的 $\theta$肯定与上一步的 $\theta$ 有关，即存在一种关系:</p>
+CE(p,y)=CE(p_t)=-\alpha_t\log(p_t)
+\tag{公式3}</script><h2 id="3-3-Focal-Loss"><a href="#3-3-Focal-Loss" class="headerlink" title="3.3 Focal Loss"></a>3.3 Focal Loss</h2><p>$\alpha-balance\quad CE \quad loss$ 虽然可以平衡 positive和negative的重要性，但是对 easy/hard 样本还是无法区分， Focal loss 通过更 Cross loss来达到区分easy/hard的目的:</p>
 <script type="math/tex; mode=display">
-\theta ^{(g+1)}=f(\theta ^{(g)})
-\tag{12}</script><p>EM算法对函数 $f$ 的定义为:</p>
+FL(p_t)=-(1-p_t)^\gamma\log(p_t)
+\tag{公式4}</script><p>上图展示了不同 $\gamma$ 取值对应的 loss，通过分析上述公式，我们发现，当 $p_t$ 非常小时，即样本被分类错误，此时 $(1-p_t)^\gamma$ 接近1， loss几乎不受影响，当 $p_t$ 接近于1时，即样本被分类正确，此时 $(1-p_t)^\gamma$ 接近0，此时降低了该样本的权重，比如，取 $\gamma=2$, 当时 $p_t==0.9$时，该样本的 loss 会降低100倍，</p>
+<p>在实际应用中，作者使用了该 Focal loss的变体，即加入了 $\alpha$ 平衡因子:</p>
 <script type="math/tex; mode=display">
-\theta ^{(g+1)}=\arg \max_{\theta}\int_{z}\log P(x, z|\theta)P(z|x,\theta^{(g)})dz
-\tag{13}</script><p>其中 $z$ 是为了简化计算，而引入的一个隐变量（Latent Variable), $x$ 为观测变量(Observable Variable).这两个变量对应到高斯混合模型中，分别为: 我们收集到的样本集和隐藏的模型，每个样本 $x_i$ 对应一个 $z_i$,来表示该样本来自哪个分布。因此 $x_i$ 的概率分可表示为:</p>
-<script type="math/tex; mode=display">
-P(x_i)=\int_{z_l}P_{\bar \theta}(x|z_l)P(z_l)dz_l
-\tag{14}</script><p>将上式右边分开描述，$P_{\bar \theta}(x|z_i)$ 表示 $x_i$ 在 $l$ 个高斯分布下的分布，$P(z_l)$ 表示分布为第 $l$ 个高斯分布的概率，即 $\alpha_l$,因此上式为:</p>
-<script type="math/tex; mode=display">
-P(x_i)=\sum_{z_l=1}^{k}\alpha_{z_l}N(x_i|\mu_{z_i}, \sigma_{z_i})
-\tag{15}</script><p>该式和公式9保持一致，因此隐变量的引入，并没有改变函数的意义。</p>
-<p>一般地，我们将 $x$ 和 $z$ 连在一起成为完全数据(complete-data),观测数据 $x$ 称为不完全数据。</p>
-<h1 id="3-EM算法的收敛性"><a href="#3-EM算法的收敛性" class="headerlink" title="3 EM算法的收敛性"></a>3 EM算法的收敛性</h1><p>前一节讲解了通过引入隐变量并没有改变 $P(x)$ 的表示，同事给出了 EM 算法的公式，但是EM算法的收敛性如何呢？下面我们就讲解EM算法的收敛性，要使EM算法收敛同时满足公式11的极大似然函数。在迭代过程中，要使 $\theta$ 逐渐收敛，同时满足公式11，则必存在:</p>
-<script type="math/tex; mode=display">
-\log P(x|\theta^{(g+1)}) \geq \log P(x|\theta^{(g)})
-\tag{16}</script><p>根据对数函数和条件概率一个特征 $\log \frac{A}{B}=\log A - \log B$ 和 $P(x)=\frac{P(x, z)}{P(z|x)}$可得：</p>
-<script type="math/tex; mode=display">
-\log P(x|\theta)= \log (x,z|\theta) - \log(z|x,\theta)
-\tag{17}</script><p>我们对公式两边分别对分布 $P(z|x, \theta^{(g)})$ 求期望，左边为:</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-   \int _z \log P(x|\theta) P(z|x, \theta^{(g)}) dz=& \log P(x|\theta) \int _z P(z|x, \theta^{(g)}) dz \\
-   =& \log P(x|\theta)
-\end{aligned}
-\tag{18}</script><p>右边为:</p>
-<script type="math/tex; mode=display">
-    \int _zlogP(x,z|\theta)P(z|x, \theta^{(g)}) dz-\int_z\log P(z|x,\theta)P(z|x, \theta^{(g)}) dz =Q(\theta, \theta^{(g)}) -H(\theta, \theta^{(g)})
-\tag{19}</script><p>我们通常称 $Q(\theta, \theta^{(g)})$ 为 <strong>Q函数</strong>：完全数据的对数似然函数$\log P(x, z|\theta)$关于给定观测数据和当前参数 $\theta^{(g)}$下对隐藏数据 $z$ 的条件概率的期望称为Q函数。</p>
-<p>根据公式17、18和19我们可以得出:</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-    \log P(x|\theta)=&\int _z \log P(x,z|\theta)P(z|x, \theta^{(g)}) dz-\int_z\log P(z|x,\theta)P(z|x, \theta^{(g)}) dz\\
-    =& Q(\theta, \theta^{(g)}) -H(\theta, \theta^{(g)})
-\end{aligned}
-\tag{20}</script><p>极大似然估计就是对 $\log P(x|\theta)$ 进行极大化，对上面的右边公式进行极大化，可不可以呢？不可以，如果这样做就又回到最大似然函数了，因此得不了解，EM算法只是对 $Q(\theta, \theta^{(g)})$ 进行极大化，因此很容易得出:</p>
-<script type="math/tex; mode=display">
-Q(\theta^{(g+1)}, \theta^{(g)}) \geq Q(\theta^{(g)}, \theta^{(g)})
-\tag{21}</script><p>我们要想通过优化$Q(\theta, \theta^{(g)})$ 使 $\log P(x|\theta)$ 逐渐增大，则存在:</p>
-<script type="math/tex; mode=display">
-Q(\theta^{(g+1)}, \theta^{(g)}) - Q(\theta^{(g)}, \theta^{(g)})
-\geq H(\theta^{(g+1)}, \theta^{(g)}) - H(\theta^{(g)}, \theta^{(g)})
-\tag{22}</script><p>如果，我们假设，$\forall\theta,H(\theta^{(g)}, \theta^{(g)}) - H(\theta, \theta^{(g)}) \geq 0 \Rightarrow H(\theta^{(g)}, \theta^{(g)}) \geq H(\theta^{(g+1)}, \theta^{(g)})$</p>
-<p>下面，就对这个假设进行证明:</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-    & H(\theta^{(g)}, \theta^{(g)}) - H(\theta, \theta^{(g)}) \\
-    & =\int_z\log P(z|x,\theta^{(g)})P(z|x, \theta^{(g)})dz - \int_z\log p(z|x,\theta)P(z|x, \theta^{(g)})dz \\
-    & = \int_z\log [\frac{P(z|x,\theta^{(g)})}{p(z|x,\theta)}]P(z|x, \theta^{(g)})dz \\
-    & = \int_z -\log [\frac{p(z|x,\theta)}{P(z|x,\theta^{(g)})]}P(z|x, \theta^{(g)})dz \\
-    & \geq -\log [\int_z\frac{p(z|x,\theta)}{P(z|x,\theta^{(g)})]}P(z|x, \theta^{(g)})dz] \\
-    & = -log \int_z p(z|x,\theta) dz \\
-    & =-\log1=0 \\
-    & \Rightarrow H(\theta^{(g)}, \theta^{(g)}) - H(\theta, \theta^{(g)}) \geq 0
-\end{aligned}
-\tag{23}</script><p>$\geq$ 那一步利用了 Jensen 不等式（Jensen Inequality),这其实是凸函数的一个特点，如图5所示。我们求两个点的函数值的期望，即为直线上的黑点，如果我们先对自变量 x 求期望，则 $-\log(Ex)$ 为log函数曲线上的黑点，根据曲线图，我们可以得出</p>
+FL(p_t)=-\alpha_t(1-p_t)^\gamma\log(p_t)
+\tag{公式5}</script><h2 id="3-4-模型初始化"><a href="#3-4-模型初始化" class="headerlink" title="3.4 模型初始化"></a>3.4 模型初始化</h2><p>作者提出，对于二分类，一般模型的模型初始化会同概率的对待正负样本，由于类别不平衡，负样本的 loss 会占主导，作者提出在训练初始阶段对正样本的概率估计“prior”的概念，用 $\pi$ 表示， 通过设置它来达到正样本的输出概率低的效果，比如为0.01，从而使模型更加关注正样本。实际操作中，出了最后一个用于分类的卷积层，其余卷积层的参数初始化为bias $b=0$ ，而最后一层 $b=-\log((1-\pi)/\pi)$, 实验中设置为 0.01.</p>
+<p><strong>两个实现细节</strong></p>
+<ol>
+<li><p>计算 total loss 时，是对一张图片上所有的 ~100k 的anchors 的 focal loss求和，而并不像使用启发式的 RPN 和 OHEM 使用部分小的anchors来计算 loss。 然后通过拥有 gt box 的anchors的数量来进行归一化，不适用所有 anchors 的数量进行归一化的原因是: 由于anchors 存在大量的 easy examples， 因此得到的 Focal loss非常小，如果使用所有 anchors 的数量进行归一化，回导致归一化后的 loss 非常小。</p>
+</li>
+<li><p>当只使用$\alpha$ 时， 将 $\alpha$ 偏向样本少的类别，当同时使用 $\alpha 和 \gamma$ 时，他们需要向相反方向变化，论文中设置为 $\alpha=0.25，\gamma=2$.</p>
+</li>
+</ol>
+<h1 id="4-GHM-Gradient-Harmonizing-Mechanism"><a href="#4-GHM-Gradient-Harmonizing-Mechanism" class="headerlink" title="4.GHM(Gradient Harmonizing Mechanism)"></a>4.GHM(Gradient Harmonizing Mechanism)</h1><p>论文题目: <a href="https://arxiv.org/pdf/1811.05181.pdf" target="_blank" rel="noopener">Gradient Harmonized Single-stage Detector</a></p>
+<p>改论文提出 Focal Loss 存在两个缺点:</p>
+<ol>
+<li>loss 存在两个超参数，调节该参数是一个费力的操作；</li>
+<li>该 loss 是一个不会随着数据分布变化而变化的静态 loss。</li>
+</ol>
+<p>该论文有一句概括该篇论文的核心思想的一句话: 类别的不平衡可以归结为难易样本的不平衡，难易样本的不平衡可以归结为梯度的不平衡原话如下:</p>
+<blockquote>
+<p>In this work, we first point out that the class imbalance can be summarized to the imbalance in difficulty and the imbalance in difficulty can be summarized to the imbalance in gradient norm distribution.</p>
+</blockquote>
+<p>如下图所示:</p>
+<p><img src="\images\imbalance_04.png" alt=""></p>
+<p>左边是样本数量关于梯度的分布，中间表示各个修正后的函数的梯度（使用了log scale）对原始梯度的，右边表示所有样本集的梯度贡献的分布。</p>
+<h2 id="4-1-Cross-Entropy"><a href="#4-1-Cross-Entropy" class="headerlink" title="4.1 Cross Entropy"></a>4.1 Cross Entropy</h2><script type="math/tex; mode=display">
+L_{CE}(p, p^*)=\begin{cases}
+    -\log (p), \quad if  \quad p^* == 1 \\
+    -\log(1-p), \quad if  \quad p^* == 0
+\end{cases}
+\tag{公式6}</script><p>定义 $x$ 是模型未经过 sigmoid 之前的输出， 则 $p = sigmoid(x)$,得出该损失函数对 $x$ 的梯度为:</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
-    pf(x_1)+(1-p)f(x_2) \geq & f(px_1+(1-p)x_2) \\
-    E[f(x)] \geq & f[E(x)]
+    \frac{\partial L_{CE}(p, p^*)}{\partial x} &=\begin{cases}
+    p - 1, \quad if  \quad p^* == 1 \\
+    p, \quad if  \quad p^* == 0
+    \end{cases} \\
+    &= p - p^*
 \end{aligned}
-\tag{24}</script><p>即，函数的均值大于等于均值的函数。</p>
-<p><img src="/images/ML_EM_pic5.png" alt="Jensen 不等式"></p>
-<p>通过以上证明可以得出，EM算法通过迭代最大化 $\int _z \log P(x,z|\theta)P(z|x, \theta^{(g)}) dz$，从而使 $P(x|\theta)$ 逐渐增大。</p>
+\tag{公式7}</script><p>定义梯度的模长(norm) $g$ 为：</p>
+<script type="math/tex; mode=display">
+g=|p-p^*|=\begin{cases}
+    1-p, \quad if  \quad p^* == 1 \\
+    p, \quad if  \quad p^* == 0
+\end{cases}
+\tag{公式6}</script><h2 id="4-2-梯度密度-Gradient-Density"><a href="#4-2-梯度密度-Gradient-Density" class="headerlink" title="4.2 梯度密度(Gradient Density)"></a>4.2 梯度密度(Gradient Density)</h2><p>训练样本的梯度密度(Gradient Density)定义如下:</p>
+<script type="math/tex; mode=display">
+GD(g)=\frac{1}{l_\epsilon}\sum_{k=1}^{N}\delta_{\epsilon}(g_k, g)
+\tag{公式7}</script><p>其中， $g_k$ 是第 k 个样本的gradient norm， </p>
+<script type="math/tex; mode=display">
+\delta_{\epsilon}(x, y)=\begin{cases}
+    1, \quad if  \quad y-\frac{\epsilon}{2} \le x < y + \frac{\epsilon}{2} \\
+    0, \quad if  \quad otherwise
+\end{cases}
+\tag{公式8}</script><script type="math/tex; mode=display">
+l_{\epsilon}(g) = min(g+\frac{\epsilon}{2}, 1) - max(g-\frac{\epsilon}{2}, 0)
+\tag{公式9}</script><p>这个公式可以理解为，以梯度 $g$ 为中心，宽度为$\epsilon$ 的区域内的样本密度。</p>
+<p>梯度密度协调参数:</p>
+<script type="math/tex; mode=display">
+\beta_i=\frac{N}{GD(g_i)} = \frac{1}{GD(g_1)/N}
+\tag{公式10}</script><p> 分母是对梯度位于 $g_i$ 范围的部分样本进行归一化，如果所有样本的梯度时均分分布，那么对于任意 $g_i$ 都有 $GD(g_i)=N$.(这里不是很理解为什么N，可以理解它们相等)</p>
+<p>通过将梯度密度协调参数将 GHM 嵌入到损失函数中，则 <strong>GHM-C Loss</strong>  为:</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
-    &\log P(x|\theta^{(t+1)}) - \log P(x|\theta^{(t+1)}) \\
-     &= Q(\theta^{(t+1)}, \theta^{(t)})-H(\theta^{(t+1)},\theta^{(t)}) - [Q(\theta^{(t)}, \theta^{(t)})-H(\theta^{(t)},\theta^{(t)})] \\
-    &= [Q(\theta^{(t+1)}, Q(\theta^{(t)})-Q(\theta^{(t)}, \theta^{(t)})]-[H(\theta^{(t+1)},\theta^{(t)})-H(\theta^{(t)},\theta^{(t)})] \\
-    & \geq 0
+    L_{GHM-C}&=\frac{1}{N}\sum_{i=1}^{N}\beta_iL_{CE}(p_i, p_i^*) \\
+            &=\sum_{i=1}^{N}\frac{L_{CE}(p_i, p_i^*)}{GD(g_i)}
 \end{aligned}
-\tag{25}</script>
+\tag{公式11}</script><h2 id="4-3-Unit-Region-Approximation"><a href="#4-3-Unit-Region-Approximation" class="headerlink" title="4.3 Unit Region Approximation"></a>4.3 Unit Region Approximation</h2><p>计算公式11时，求和有一个N，再求 $GD(g_i)$ 时会遍历所有的样本，因此该公式的时间复杂度为 $O(N^2)$.如果并行的化，每个计算单元也有N的计算量。对gradient norm进行排序的最好的算法复杂度为 $O(N\log N)$，然后用一个队列去扫描样本得到梯度密度的时间复杂度为 n 。基于排序的方法即使并行也不能较快的计算，因为N往往是 $10^5$ 甚至 $10^6$ ，仍然是非常耗时的.</p>
+<p>作者提出的近似求解的方法如下:</p>
+<ol>
+<li>将 g 划分为 $M=\frac{1}{\epsilon}$ 个单元</li>
+<li>$r_j=[(j-1)\epsilon, j\epsilon]$ 表示第 j 个单元， $R_j$ 表示 $r_j$ 中的样本数量， $ind(g)=t$ 表示 $g$ 属于第几个 unit。</li>
+</ol>
+<p>根据上述定义，得出近似梯度密度函数为:</p>
+<script type="math/tex; mode=display">
+\hat {GD}(g)=\frac{R
+_{ind(g)}}{\epsilon}=ind(g)m
+\tag{公式12}</script><script type="math/tex; mode=display">
+\hat {\beta_i}=\frac{N}{\hat {GD}(g_i)}
+\tag{公式13}</script><script type="math/tex; mode=display">
+
+\begin{aligned}
+    \hat L_{GHM-C}&=\frac{1}{N}\sum_{i=1}^{N}\hat \beta_iL_{CE}(p_i, p_i^*) \\
+            &=\sum_{i=1}^{N}\frac{L_{CE}(p_i, p_i^*)}{\hat {GD}(g_i)}
+\end{aligned}
+\tag{公式14}</script><p>利用上面的公式，由于我们可以事先求好 $\hat \beta$, 在求和时只需查找$\hat \beta_i$即可，因此时间复杂度为 $O(MN)$.</p>
+<p>因为loss的计算是基于梯度密度函数，而梯度密度函数根据一个batch中的数据得到，一个batch的统计结果是有噪声的。与batch normalization相同，作者用Exponential moving average来解决这个问题，也就是</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+    S_{j}^{(t)} &= \alpha S_{j}^{(t-1)} + (1-\alpha) R_J^{(t)} \\
+    \hat GD(g) &= \frac{S_{ind(g)}}{\epsilon} = S_{ind(g)}M
+\end{aligned}
+\tag{公式15}</script><h2 id="4-4-GHM-R-Loss"><a href="#4-4-GHM-R-Loss" class="headerlink" title="4.4 GHM-R Loss"></a>4.4 GHM-R Loss</h2><p>将模型鱼的的偏移量定义为 $t=(t_x, t_y, t_w, t_h)$, 将真实的偏移量定义为 <script type="math/tex">t^*=(t_x^*, t_y^*, t_w^*, t_h^*)</script>,回归loss采用 Smooth L1 loss:</p>
+<script type="math/tex; mode=display">
+L_{reg}=\sum_{i\in{x, y, w, h}}SL_1(t_i-t_i^*)
+\tag{公式16}</script><p>其中 </p>
+<script type="math/tex; mode=display">
+SL_1(d)=\begin{cases}
+    \frac{d_2}{2\delta} \quad if |d|\le\delta \\
+    |d|-\frac{\delta}{2} \quad otherwise
+\end{cases}
+\tag{公式17}</script><p>则 $L_{reg}$ 关于 $d=t_i-t_i^*$ 的梯度为:</p>
+<script type="math/tex; mode=display">
+\frac{\partial SL_1}{\partial t_i}=\frac{\partial SL_1}{\partial d}\begin{cases}
+    \frac{d}{\delta} \quad if |d| \le \delta \\
+    sgn(d) \quad otherwise
+\end{cases}
+\tag{18}</script><p>从公式可以看出，当样本操作 $|d|$ 时， 所有样本都有相同的梯度 1， 这就使依赖梯度范数来区分不同样本是不可能的， 一种简单的替代方法时直接使用 $|d|$ 作为衡量标准，但是该值理论上无限大，导致 Unit Region Approximation 无法实现，</p>
+<p>为了将 GHM 应用到回归损失上，作者修改了原始的 $SL_1$ 损失函数:</p>
+<script type="math/tex; mode=display">
+ASL_1(d) = \sqrt{d_2+u^2}-u
+\tag{19}</script><p>该函数和 $SL_1$ 具有类似的属性，当d的绝对值很小时，近似 L2 loss， 当d的绝对值比较大时， 近似 L1 loss， $ASL_1$ 关于d的梯度为:</p>
+<script type="math/tex; mode=display">
+\frac{\partial ASL_1}{\partial d} = \frac{d}{\sqrt{d^2+u^2}}
+\tag{20}</script><p>这样就将梯度值限制在 $[0,1)$</p>
+<p>定义 $dr=|\frac{d}{\sqrt{d^2+u^2}}|$, 则 GHM-R Loss 为:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+    L_{GHM-R}&=\frac{1}{N}\sum_{i=1}^N\beta_i ASL_1(d_i) \\
+            &=\sum_{i=1}^N\frac{ASL_1(d_i)}{GD(gr_i)}
+\end{aligned}
+\tag{21}</script><h1 id="5-PISA"><a href="#5-PISA" class="headerlink" title="5.PISA"></a>5.PISA</h1><p>论文题目: <a href="https://arxiv.org/pdf/1904.04821.pdf" target="_blank" rel="noopener">Prime Sample Attention in Object Detection</a></p>
+<p>PISA 方法和 Focal loss 和 GHM 有着不同， Focal loss 和 GHM 是利用 loss 来度量样本的难以程度，而本篇论文作者从 mAP 出法来度量样本的难易程度。</p>
+<p>作者提出提出改论文的方法考虑了两个方面:</p>
+<ol>
+<li><p><strong>样本之间不应该是相互独立的或同等对待</strong>。基于区域的目标检测是从大量候选框中选取一小部分边界框，以覆盖图像中的所有目标。因此，不同样本的选择是相互竞争的，而不是独立的。一般来说，检测器更可取的做法是在确保所有感兴趣的目标都被充分覆盖时，在每个目标周围的边界框产生高分，而不是对所有正样本产生高分。作者研究表明关注那些与gt目标有最高IOU的样本是实现这一目标的有效方法。</p>
+</li>
+<li><p><strong>目标的分类和定位是有联系的</strong>。准确定位目标周围的样本非常重要，这一观察具有深刻的意义，即目标的分类和定位密切相关。具体地，定位好的样本需要具有高置信度好的分类。</p>
+</li>
+</ol>
+<h2 id="5-1-Prime-Samples"><a href="#5-1-Prime-Samples" class="headerlink" title="5.1 Prime Samples"></a>5.1 Prime Samples</h2><p>Prime Samples 是指那些对检测性能有着巨大影响的样本。作者研究表明样本的重要程度依赖于它和ground truth 的 IoU值，因此作者提出了一种 IOU-HLR 排序。</p>
+<p>在目标检测中时如何定义正样本（True Positive)的呢？</p>
+<ol>
+<li>Bouding box 和他最近的 GT 的IoU 大于一个阈值 $\theta$；</li>
+<li>如果该 GT 没有大于阈值的 Bouding Box，则选择最大的 IoU。</li>
+</ol>
+<p>剩余的标注为负样本。</p>
+<p>mAP 的原理揭露了对目标检测器更重要的<strong>两个准则</strong>:</p>
+<ol>
+<li><p>在所有和gt目标重合的边界框中，IoU最高的边界框时最重要的，因为它的IoU值直接影响召回率。</p>
+</li>
+<li><p>所有不同目标的最高IoU边界框中,具有更高的IoU的边界框更加重要,因为它是随着 $\theta$ 增加最后一个低于阈值 $\theta$ 的边界框,从而对整体精度有很大的影响。</p>
+</li>
+</ol>
+<h2 id="5-2-IoU-Hierarchical-Local-Rank-IoU-HLR"><a href="#5-2-IoU-Hierarchical-Local-Rank-IoU-HLR" class="headerlink" title="5.2 IoU Hierarchical Local Rank (IoU-HLR)"></a>5.2 IoU Hierarchical Local Rank (IoU-HLR)</h2><p>基于上述分析，作者提出了一种称为 IoU-HLR 的排序方法，它既反映了局部的IoU关系(每个ground truth目标周围)，也反映了全局的IoU关系(覆盖整个图像或小批图像)。值得注意的是，不同于回归前的边界框坐标，IoU-HLR是根据样本的最终定位位置来计算的，因为mAP是根据回归后的样本位置来计算的。</p>
+<p>该排序方法的大致流程如下图所示，其原理如下:</p>
+<ol>
+<li>首先将所有的样本根据理他最近的 GT ，将他们分到不同的组；</li>
+<li>然后在每个组内，按照 IoU对它们进行降序排列，我们得到 IoU Local Rank（IoU-LR);</li>
+<li>我们对 IoU-LR,进行采样，即将每个组内的TOP1的样本采样出来放在一个组，以此类推对 TOP2, TOP3，一次进行；</li>
+<li>最后对上面采样的样本，在每个组内进行降序排序，就得到最终的 IoU-HLR.</li>
+</ol>
+<p>IoU-HLR遵循上述两个准则。首先，它通过局部排序（即上面的步骤2）将每个单独的 GT 的 对应的样本中 IoU 较高的样本放在前面，其次通过重采样和排序(步骤3， 4)将不同 GT 的 对应的样本中， 将 IoU 较高的放在了前面。<br><img src="\images\imbalance_05.png" alt=""></p>
+<h2 id="5-3-Learn-Detectors-via-Prime-Sample-Attention"><a href="#5-3-Learn-Detectors-via-Prime-Sample-Attention" class="headerlink" title="5.3 Learn Detectors via Prime Sample Attention"></a>5.3 Learn Detectors via Prime Sample Attention</h2><p>作者提出Prime Sample Attention，一种简单且有效的采样策略，该采样策略将更多的注意力集中到 Prime examples 上， PISA 由两部分组成: Importance- based Sample Reweighting(ISR)和Classification Aware Regression Loss(为CARL).</p>
+<p>PISA 的训练过程是基于 prime samples 而不是同等对待所有样本。</p>
+<ol>
+<li>首先 prime samples 的权重要大于其他样本的权重， 所以分类往往在这些样本上预测更高的分数；</li>
+<li>用一个联合目标函数来对分类器和回归其进行学习，因此prime sample的分数相对于不重要样本的分数将会得到提高。</li>
+</ol>
+<h3 id="5-3-1-Importance-based-Sample-Reweighting"><a href="#5-3-1-Importance-based-Sample-Reweighting" class="headerlink" title="5.3.1 Importance-based Sample Reweighting"></a>5.3.1 Importance-based Sample Reweighting</h3><p>作者提出一种基于 soft sampling 的方法: Importance-based Sample Reweighting (ISR), 他给不同样本根据重要性赋予不同的权重。首先它将Iou-HLR排序转化为线性映射的真实值。 IoU-HLR在每个类中分别进行计算。对于类 $j$, 假设总共有 $n_j$ 个样本， 通过 IoU-HLR 表示为 $\{r_1,r_2,\cdots,r_{n_j} \}$. 其中 $0 \le r_i \le n_j -1$,使用一个线性转换函数将 $r_i$ 转换为 $u_i$, 表示第 $j$ 类中的第 $i$ 个样本的重要程度:</p>
+<script type="math/tex; mode=display">
+u_i = \frac{n_j-r_i}{n_j}
+\tag{22}</script><p>采用指数函数的形式来京一部将样本重要性 $u_i$ 转换为 loss 的权值 $w_i$, $\gamma$ 表示对重要样本给予多大的优先权的程度因子， $\beta$ 决定最小样本权值的偏差(感觉就是一个决定最小的权值大小的一个变量)。</p>
+<script type="math/tex; mode=display">
+w_i=((1-\beta)u_i + \beta)^\gamma
+\tag{23}</script><p>根据上面得到的权重值，重写交叉熵:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+    L_{cls} &= \sum_{i=1}^{n}w_i^{'}CE(s_i, s_i^*) + \sum_{i=n+1}^{m}CE(s_i, s_i^*) \\
+    w_i^{'} &= w_i \frac{\sum_{i=1}^{n}CE(s_i, s_i^*)}{\sum_{i=1}^{n}w_iCE(s_i, s_i^*)}
+\end{aligned}
+\tag{24}</script><p>其中 n 和 m 分别表示真样本和负样本的数量，  $s_i$ 和 $s_i^*$ 分别表示预测分数和分类目标，需要注意的是，如果只是简单的添加 loss 权值将会改变 loss 的值，并改变正负样本的比例，因此为了保持正样本的总的 loss 值不变， 作者将 $w_i$ 归一化为 $w_i^{‘}$<br>(这里不是很理解，欢迎大家解惑)</p>
+<h3 id="5-3-2-Classification-Aware-Regression-Loss"><a href="#5-3-2-Classification-Aware-Regression-Loss" class="headerlink" title="5.3.2 Classification-Aware Regression Loss"></a>5.3.2 Classification-Aware Regression Loss</h3><p>5.3.1 已经介绍如何染个分类器知道 prime samples， 那么如何让回归其也知道 prime sample，作者提出了 <strong>Classification-Aware Regression Loss（CARL)</strong> 来联合优化分类器和回归其两个分支。CARL可以提升主要样本的分数，同时抑制其他样本的分数。回归质量决定了样本的重要性，我们期望分类器对重要样本输出更高的分数。两个分支的优化应该是相互关联的，而不是相互独立的。</p>
+<p>作者的方法是让回归器知道分类器的分数，这样梯度就可以从回归器传播到分期其分支。公式如下:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+    L_{reg} &=\sum_{i=1}^n c_i^{'}\mathcal{L}(d_i, \hat d_i) \\
+    c_i^{'} &= c_i \frac{\sum_{i=1}^{n}\mathcal{L}(s_i, s_i^*)}{\sum_{i=1}^{n}c_i\mathcal{L}(s_i, s_i^*)} \\
+    c_i &= \frac{v_i}{\frac{1}{n}\sum_{i=1}^{n}v_i} \\
+    v_i &= ((1-b)p_i +b)^k
+\end{aligned}
+\tag{25}</script><p>$p_i$ 表示相应类别的预测分数， $d_i$ 表示输出的回归偏移量。利用一个指数函数将 $p_i$ 转化为 $v_i$ ，随后根据所有样本的平均值对它进行缩放。为了保持损失规模不变，对具有分类感知的 $c_i$ 进行归一化。 $\mathcal{L}$ 是常用的smooth L1 loss。</p>
+<p>$L_{reg}$ 关于 $c_i^{‘}$ 的梯度与原回归损失 $\mathcal{L}(d_i, \hat d_i)$ 成正比。 $L_{reg}$ 关于 $p_i$ 的梯度与 $\mathcal{L}(d_i, \hat d_i)$ 正相关。即回归损失越大的样本分类得分的梯度越大，说明对分类得分的抑制作用越强。从另一个角度看， $\mathcal{L}(d_i, \hat d_i)$ 反映了样本i的定位质量，因此可以认为是一个IoU的估计，进一步可以看作是一个IoU-HLR的估计。可以近似认为，排序靠前的样本有较低的回归损失，于是分类得分的梯度较小。对于CARL来说，分类分支受到回归损失的监督。 不重要样本的得分被极大的抑制掉，而对重要样本的关注得到加强。</p>
+<h1 id="6-AP-Loss"><a href="#6-AP-Loss" class="headerlink" title="6.AP-Loss"></a>6.AP-Loss</h1><p>待续。。。</p>
+<h1 id="7-总结"><a href="#7-总结" class="headerlink" title="7.总结"></a>7.总结</h1><p>上面的方法大致可以分为两种：</p>
+<ol>
+<li>Hard Sampling: 从所有样本中选择自己来训练模型: hard negative mining, OHEM</li>
+<li>Soft sampling： 为样本赋予不同的权值: Focal Loss, GHM, PISA</li>
+</ol>
+<p>Focal Loss认为正负样本的不平衡，本质上是因为难易样本的不平衡，于是通过修改交叉熵，使得训练过程更加关注那些困难样本，而GHM在Focal Loss的基础上继续研究，发现难易样本的不平衡本质上是因为梯度范数分布的不平衡，和Focal Loss的最大区别是GHM认为最困难的那些样本应当认为是异常样本，让检测器强行去拟合异常样本对训练过程是没有帮助的。PISA则是跳出了Focal Loss的思路，认为采样策略应当从mAP这个指标出发，通过IoU Hierarchical Local Rank (IoU-HLR)，对样本进行排序并权值重标定，从而使得recall和precision都能够提升。</p>
+
         
     
 
@@ -712,7 +819,7 @@ Q(\theta^{(g+1)}, \theta^{(g)}) - Q(\theta^{(g)}, \theta^{(g)})
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2019/04/16/machine-learning-question/" id="post_nav-newer" class="prev-content">
+        <a href="/2019/07/23/cv-R-CNN/" id="post_nav-newer" class="prev-content">
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
                 <i class="material-icons">arrow_back</i>
             </button>
@@ -726,7 +833,7 @@ Q(\theta^{(g+1)}, \theta^{(g)}) - Q(\theta^{(g)}, \theta^{(g)})
 
     <!-- Next Nav -->
     
-        <a href="/2019/03/26/ML-hard-margin-svm/" id="post_nav-older" class="next-content">
+        <a href="/2019/06/04/ML-perceptron/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
@@ -1122,6 +1229,26 @@ It will not impact the appearance and can give developers a lot of support :)
 </script>
 
 <!-- MathJax Load-->
+
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+    <script src="[object Object]?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
 
 
 <!-- Bing Background -->
