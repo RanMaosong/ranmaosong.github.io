@@ -273,7 +273,7 @@
 
     
         <meta property="article:published_time" content="Fri Apr 26 2019 10:47:10 GMT+0800" />
-        <meta property="article:modified_time" content="Sat Apr 27 2019 13:54:28 GMT+0800" />
+        <meta property="article:modified_time" content="Wed Aug 14 2019 14:54:09 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
@@ -300,7 +300,7 @@
     "mainEntityOfPage": "http://yoursite.com/2019/04/26/ML-entropy/index.html",
     "headline": "机器学习中的熵、条件熵、相对熵(KL散度)和交叉熵",
     "datePublished": "Fri Apr 26 2019 10:47:10 GMT+0800",
-    "dateModified": "Sat Apr 27 2019 13:54:28 GMT+0800",
+    "dateModified": "Wed Aug 14 2019 14:54:09 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "茂松",
@@ -570,20 +570,20 @@
 <p>一条信息的信息量大小和它的不确定性有直接的关系。我们需要搞清楚一件非常非常不确定的事，或者是我们一无所知的事，就需要了解大量的信息。相反，如果我们对某件事已经有了较多的了解，我们就不需要太多的信息就能把它搞清楚。所以，从这个角度，我们可以认为，信息量的度量就等于不确定性的多少。比如，有人说广东下雪了。对于这句话，我们是十分不确定的。因为广东几十年来下雪的次数寥寥无几。为了搞清楚，我们就要去看天气预报，新闻，询问在广东的朋友，而这就需要大量的信息，信息熵很高。再比如，中国男足进军2022年卡塔尔世界杯决赛圈。对于这句话，因为确定性很高，几乎不需要引入信息，信息熵很低。</p>
 <p>考虑一个离散的随机变量 $x$，由上面两个例子可知，信息的量度应该依赖于概率分布$p(x)$ ，因此我们想要寻找一个函数 $I(x)$，它是概率 $p(x)$ 的单调函数，表达了信息的内容。怎么寻找呢？如果我们有两个不相关的事件 $x$ 和 $y$，那么观察两个事件同时发生时获得的信息量应该等于观察到事件各自发生时获得的信息之和，即：</p>
 <script type="math/tex; mode=display">I(x,y)=I(x)+I(y)</script><p>因为两个事件是独立不相关的，因此 $p(x,y)=p(x)p(y)$。根据这两个关系，很容易看出 $I(x)$一定与 $p(x)$ 的对数有关 (因为对数的运算法则是 $log_a(mn)=log_am+log_an$)。因此，我们有</p>
-<script type="math/tex; mode=display">I(x)=−\log_p(x)</script><p>其中负号是用来保证信息量是正数或者零。而 $log$ 函数基的选择是任意的（信息论中基常常选择为2，因此信息的单位为比特bits；而机器学习中基常常选择为自然常数，因此单位常常被称为奈特nats）。$I(x)$ 也被称为随机变量 x 的自信息 (self-information)，描述的是随机变量的某个事件发生所带来的信息量。图像如图：<br><img src="\images\entropy_01.png" alt=""></p>
+<script type="math/tex; mode=display">I(x)=−\log p(x)</script><p>其中负号是用来保证信息量是正数或者零。而 $log$ 函数基的选择是任意的（信息论中基常常选择为2，因此信息的单位为比特bits；而机器学习中基常常选择为自然常数，因此单位常常被称为奈特nats）。$I(x)$ 也被称为随机变量 x 的自信息 (self-information)，描述的是随机变量的某个事件发生所带来的信息量。图像如图：<br><img src="\images\entropy_01.png" alt=""></p>
 <p>最后，我们正式引出信息熵。 现在假设一个发送者想传送一个随机变量的值给接收者。那么在这个过程中，他们传输的平均信息量可以通过求 $I(x)=−logp(x)$ 关于概率分布 $p(x)$ 的期望得到，即：</p>
-<script type="math/tex; mode=display">H(X)=−∑xp(x)logp(x)=−∑i=1np(xi)logp(xi)</script><p>$H(X)$ 就被称为随机变量 $x$ 的<strong>熵,它是表示随机变量不确定的度量，是对所有可能发生的事件产生的信息量的期望。</strong></p>
-<p>从公式可得，随机变量的取值个数越多，状态数也就越多，信息熵就越大，混乱程度就越大。当随机分布为均匀分布时，熵最大，且 $0≤H(X)≤logn$。稍后证明。将一维随机变量分布推广到多维随机变量分布，则其联合熵 (Joint entropy) 为：</p>
-<script type="math/tex; mode=display">H(X,Y)=−∑x,yp(x,y)logp(x,y)=−∑i=1n∑j=1mp(xi,yi)logp(xi,yi)</script><p>注意点：1、熵只依赖于随机变量的分布,与随机变量取值无关，所以也可以将 $X$ 的熵记作 $H(p)$。2、令$0log0=0$(因为某个取值概率可能为0)。</p>
-<p>那么这些定义有着什么样的性质呢？考虑一个随机变量 $x$。这个随机变量有4种可能的状态，每个状态都是等可能的。为了把 x 的值传给接收者，我们需要传输2比特的消息。$H(X)=−4×14log214=2 bits$</p>
-<p>现在考虑一个具有4种可能的状态 {a,b,c,d} 的随机变量，每个状态各自的概率为 (12,14,18,18)</p>
+<script type="math/tex; mode=display">H(X)=−\sum_x p(x)logp(x)=−\sum_{i=1} p(x_i)logp(x_i)</script><p>$H(X)$ 就被称为随机变量 $x$ 的<strong>熵,它是表示随机变量不确定的度量，是对所有可能发生的事件产生的信息量的期望。</strong></p>
+<p>从公式可得，<strong>随机变量的取值个数越多，状态数也就越多，信息熵就越大，混乱程度就越大。当随机分布为均匀分布时</strong>，熵最大，且 $0≤H(X)≤logn$。稍后证明。将一维随机变量分布推广到多维随机变量分布，则其联合熵 (Joint entropy) 为：</p>
+<script type="math/tex; mode=display">H(X,Y)=−\sum_{x,y}p(x,y)\log p(x,y)=−\sum_{i=1}^n\sum_{j=1}^m p(x_i,y_i)\log p(x_i,y_i)</script><p><strong>注意点</strong>：1、熵只依赖于随机变量的分布,与随机变量取值无关，所以也可以将 $X$ 的熵记作 $H(p)$。2、令$0log0=0$(因为某个取值概率可能为0)。</p>
+<p>那么这些定义有着什么样的性质呢？考虑一个随机变量 $x$。这个随机变量有4种可能的状态，每个状态都是等可能的。为了把 x 的值传给接收者，我们需要传输2比特的消息。$H(X)=−4×\frac{1}{4}log_2 \frac{1}{4}=2 bits$</p>
+<p>现在考虑一个具有4种可能的状态 {a,b,c,d} 的随机变量，每个状态各自的概率为 (1/2,1/4,1/8,1/8)</p>
 <p>这种情形下的熵为：</p>
-<script type="math/tex; mode=display">H(X)=−12log212−14log214−18log218−18log218=1.75 bits</script><p>我们可以看到，<strong>非均匀分布比均匀分布的熵要小</strong>。现在让我们考虑如何把变量状态的类别传递给接收者。与之前一样，我们可以使用一个2比特的数字来完成这件事情。然而，我们可以利用非均匀分布这个特点，<strong>使用更短的编码来描述更可能的事件，使用更长的编码来描述不太可能的事件</strong>(这点和Huffman编码的原理一样，不知道Huffman树是不是根据熵的原理发明出来的）。我们希望这样做能够得到一个更短的平均编码长度。我们可以使用下面的编码串（哈夫曼编码）：0、10、110、111来表示状态 {a,b,c,d}。传输的编码的平均长度就是：</p>
-<script type="math/tex; mode=display">average code length = 12×1+14×2+2×18×3=1.75 bits</script><p>这个值与上方的随机变量的熵相等。熵和最短编码长度的这种关系是一种普遍的情形。</p>
+<script type="math/tex; mode=display">H(X)=-\frac{1}{2}\log_2 \frac{1}{2} -\frac{1}{4}\log_2 \frac{1}{4} -\frac{1}{8}\log_2 \frac{1}{8} -\frac{1}{8}\log_2 \frac{1}{8}=1.75 bits</script><p>我们可以看到，<strong>非均匀分布比均匀分布的熵要小</strong>。现在让我们考虑如何把变量状态的类别传递给接收者。与之前一样，我们可以使用一个2比特的数字来完成这件事情。然而，我们可以利用非均匀分布这个特点，<strong>使用更短的编码来描述更可能的事件，使用更长的编码来描述不太可能的事件</strong>(这点和Huffman编码的原理一样，不知道Huffman树是不是根据熵的原理发明出来的）。我们希望这样做能够得到一个更短的平均编码长度。我们可以使用下面的编码串（哈夫曼编码）：0、10、110、111来表示状态 {a,b,c,d}。传输的编码的平均长度就是：</p>
+<script type="math/tex; mode=display">average code length = 1/2×1+1/4×2+2×1/8×3=1.75 bits</script><p>这个值与上方的随机变量的熵相等。熵和最短编码长度的这种关系是一种普遍的情形。</p>
 <p><a href="https://baike.baidu.com/item/Shannon%20%E7%BC%96%E7%A0%81%E5%AE%9A%E7%90%86/15585931?fr=aladdin" target="_blank" rel="noopener">Shannon 编码定理</a> 表明熵是传输一个随机变量状态值所需的比特位下界（最短平均编码长度）。因此，信息熵可以应用在数据压缩方面。这里<a href="http://www.ruanyifeng.com/blog/2014/09/information-entropy.html" target="_blank" rel="noopener">这篇文章</a>讲的很详细了，我就不赘述了。</p>
-<p>证明<script type="math/tex">0≤H(X)≤logn</script></p>
+<p>证明$0≤H(X)≤\log n$</p>
 <p>利用拉格朗日乘子法证明：</p>
-<p>因为 <script type="math/tex">p(1)+p(2)+⋯+p(n)=1</script></p>
+<p>因为 $p(1)+p(2)+⋯+p(n)=1$</p>
 <p>所以有</p>
 <p><strong>目标函数</strong>：$f(p(1),p(2),…,p(n))=−(p(1)logp(1)+p(2)logp(2)+⋯+p(n)logp(n))$</p>
 <p><strong>约束条件</strong>：$g(p(1),p(2),…,p(n),λ)=p(1)+p(2)+⋯+p(n)−1=0$</p>
@@ -591,9 +591,9 @@
 <script type="math/tex; mode=display">
 L(p(1),p(2),…,p(n),λ)=−(p(1)logp(1)+p(2)logp(2)+⋯+p(n)logp(n))+λ(p(1)+p(2)+⋯+p(n)−1)</script><p>　2、$L(p(1),p(2),…,p(n),λ)$分别对 $p(1),p(2),p(n),λ$ 求偏导数，令偏导数为 0：</p>
 <script type="math/tex; mode=display">λ−log(e⋅p(1))=0</script><script type="math/tex; mode=display">λ−log(e⋅p(2))=0</script><script type="math/tex; mode=display">……</script><script type="math/tex; mode=display">λ−log(e⋅p(n))=0</script><script type="math/tex; mode=display">p(1)+p(2)+⋯+p(n)−1=0</script><p>　　3、求出 $p(1),p(2),…,p(n)$ 的值：</p>
-<p>解方程得，$p(1)=p(2)=⋯=p(n)=1n$</p>
+<p>解方程得，$p(1)=p(2)=⋯=p(n)=\frac{1}{n}$</p>
 <p>代入 $f(p(1),p(2),…,p(n))$ 中得到目标函数的极值为 $f(1n,1n,…,1n)=−(1nlog1n+1nlog1n+⋯+1nlog1n)=−log(1n)=logn$</p>
-<p><strong>由此可证 logn 为最大值。</strong></p>
+<p><strong>由此可证 $\log n$ 为最大值。</strong></p>
 <p>个人感觉上述证明不是很严谨的拉格朗日推导，见<a href="https://wanghuaishi.wordpress.com/2017/02/21/%E5%9B%BE%E8%A7%A3%E6%9C%80%E5%A4%A7%E7%86%B5%E5%8E%9F%E7%90%86%EF%BC%88the-maximum-entropy-principle%EF%BC%89/" target="_blank" rel="noopener">另一篇文章</a></p>
 <h1 id="2、条件熵-Conditional-entropy"><a href="#2、条件熵-Conditional-entropy" class="headerlink" title="2、条件熵 (Conditional entropy)"></a>2、条件熵 (Conditional entropy)</h1><p>条件熵 $H(Y|X)$ 表示在已知随机变量 $X$ 的条件下随机变量 $Y$ 的不确定性。条件熵 $H(Y|X)$ 定义为 $X$ 给定条件下 $Y$ 的条件概率分布的熵对  $X$ 的数学期望：</p>
 <p><img src="\images\entropy_03.png" alt=""></p>
@@ -1102,23 +1102,7 @@ console.log('\n %c © Material Theme | Version: 1.5.0 | https://github.com/viose
 </script>
 
                 </main>
-            </div>
-        <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-</body>
+            </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+        </body>
     
 </html>
