@@ -41,6 +41,7 @@ $win.scroll(function () {
 })
 
 
+
 function plotChart(years, paper_nums) {
    $("#myChart").remove();
    $("#container").append('<canvas id="myChart" width="400" height="300"></canvas>');
@@ -51,7 +52,7 @@ function plotChart(years, paper_nums) {
       labels: labels,
 
       datasets: [{
-         label: 'Paper: ',
+         label: '',
          data: paper_nums,
          fill: true,
          pointStyle: 'triangle',
@@ -85,6 +86,15 @@ function plotChart(years, paper_nums) {
          title: {
             display: false
          },
+         scales: {
+            y: {
+              min: 0,
+              max: Math.max(paper_nums),
+              ticks: {
+               stepSize: 1
+             }
+            }
+          }
       }
    };
    const myChart = new Chart(ctx, config);
