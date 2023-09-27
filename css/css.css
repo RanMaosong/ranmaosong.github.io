@@ -254,5 +254,7 @@ nav li ol {
 
 
 #layout-menu a {
-    position: relative
+    position: relative;
+    font-size: 5px,
 }
+

@@ -43,9 +43,9 @@ $win.scroll(function () {
 
 function plotChart(years, paper_nums) {
    $("#myChart").remove();
-   $("#statistics").append('<canvas id="myChart" width="400" height="300"></canvas>');
+   $("#container").append('<canvas id="myChart" width="400" height="300"></canvas>');
    const ctx = document.getElementById('myChart');
-   ctx.height = 400;
+   ctx.height = 300;
    const labels = years;  // 设置 X 轴上对应的标签
    const data = {
       labels: labels,
