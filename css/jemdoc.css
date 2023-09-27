@@ -122,7 +122,7 @@ a, a > tt {
 }
 
 a:hover {
-	border-bottom: 1px gray dotted;
+	/* border-bottom: 1px gray dotted; */
 }
 
 #layout-menu a.current:link, #layout-menu a.current:visited {

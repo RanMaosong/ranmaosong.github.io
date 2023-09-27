@@ -90,6 +90,23 @@ function plotChart(years, paper_nums) {
    const myChart = new Chart(ctx, config);
 }
 
+function sleep(d){
+   for(var t = Date.now();Date.now() - t <= d;);
+ }
 
+
+$("#layout-menu > a").on("click", function(event) {
+   
+   var id = $(event.target).attr("href");
+   if (id != "#") {
+      var targetPosition = $(id).offset();
+      $('html,body').animate({scrollTop: targetPosition.top - 50}, 500);
+   } else {
+      $('html,body').animate({scrollTop: 0}, 500);
+   }
+   
+   return false;
+   
+});
 
 
