@@ -1,0 +1,11 @@
+on:
+  push:
+    branches: [ master ]
+
+job:
+  build:
+    runs-on: ubuntu-latest    
+  steps:
+    - name: Install dependencies
+      run: |
+        python3 spider.py
