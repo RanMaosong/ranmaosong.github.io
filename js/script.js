@@ -228,7 +228,85 @@ function main(data) {
 
 }
 
+
+/*
+   construct paper info from json
+*/
+
+function paper_info(info) {
+   var title = info["title"];
+   var authors = info["authors"];
+   var journal = info["journal"];
+   var journal_abbr = info["journal_abbr"];
+   var year = info["year"];
+   var pic_href = info["pic_href"];
+   var paper_href = info["paper_href"]
+   var code_href = info["code_href"];
+   var bibtex_href = info["bibtex_href"];
+
+   var data = `<tr>
+      <td><img class="proj_thumb" src="${pic_href}" alt="" width="200px" height="120px" />&nbsp;
+      </td>
+      <td>
+         <p class="pub_title"><b>${title}</b></p>
+         <p class="pub_author">${authors}<br>
+            ${journal} `
+   if (journal_abbr == "") {
+      data += `<b></b></i>, ${year}.<br>`;
+   } else {
+      data += `<b>${journal_abbr}</b></i>, ${year}.<br>`
+   }
+
+   data +=  `<span>[<a href="${paper_href}" target="_blank">Paper</a>]</span>`
+   if (code_href != "") {
+      data += `[<a href="${code_href}" target="_blank">Code</a>]`
+   }
+   data += `[<a href="${bibtex_href}">BibTex</a>]
+         </p>
+      </td>
+   </tr>`
+
+
+   return data;
+}
+
+function create_publications(data) {
+   var pre_year = -1;
+
+   var curent_node = "";
+   for(var i=0; i < data.length; ++i) {
+      var item = data[i];
+      if (pre_year == -1 || item["year"] != pre_year) {
+         if (curent_node != "") {
+            curent_node += "</table>";
+            var $newElement = $(curent_node);
+            $("#publications").append($newElement);
+            curent_node = "";
+         }
+
+      curent_node += `<font size="4"><b>${item["year"]}</b></font></br></br>
+         <table class="imgtable">`
+         
+      }
+      curent_node += paper_info(item);
+
+      pre_year = item["year"];
+   }
+
+   curent_node += "</table>";
+   var $newElement = $(curent_node);
+   $("#publications").append($newElement);
+   curent_node = "";
+}
+
+
+
+
 $(function() {
+   $.getJSON("./data/paper_info.json", function (data) {
+      create_publications(infos);
+   });
+
    $.getJSON("./google/data.json", function (data) {
       main(data);
    });
