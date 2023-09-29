@@ -254,7 +254,7 @@ function paper_info(info) {
    if (journal_abbr == "") {
       data += `<b></b></i>, ${year}.<br>`;
    } else {
-      data += `<b>${journal_abbr}</b></i>, ${year}.<br>`
+      data += `<b>(${journal_abbr})</b></i>, ${year}.<br>`
    }
 
    data +=  `<span>[<a href="${paper_href}" target="_blank">Paper</a>]</span>`
