@@ -220,11 +220,12 @@ pre {
 }
 
 div#footer {
-	font-size: small;
+	font-size: larger;
 	border-top: 1px solid #c0c0c0;
-	padding-top: 0.1em;
-	margin-top: 4.0em;
-	color: #c0c0c0;
+	/* padding-top: 0.1em;
+	margin-top: 4.0em; */
+	color:rgb(178 34 34);
+	font-style: oblique;
 }
 
 div#footer a {
@@ -232,8 +233,10 @@ div#footer a {
 }
 
 div#footer-text {
-	float: left;
-	padding-bottom: 8px;
+	/* float: center; */
+	text-align: center;
+	/* padding-bottom: 8px; */
+	padding-top: 1.5em;
 }
 
 ul, ol, dl {
