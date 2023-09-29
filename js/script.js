@@ -304,7 +304,7 @@ function create_publications(data) {
 
 $(function() {
    $.getJSON("./data/paper_info.json", function (data) {
-      create_publications(infos);
+      create_publications(data);
    });
 
    $.getJSON("./google/data.json", function (data) {
