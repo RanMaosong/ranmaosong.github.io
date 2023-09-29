@@ -15,10 +15,6 @@ function main(data) {
       if (citation != 0) {
          $(node).append(' (<span style="color:rgb(178 34 34)" >Google Citation: ' + citation + "</span>)")
       }
-
-
-      var download_name = paper_title.replace(" ", "_");
-      var paper_node = ("p.pub_author > a").eq(0);
       
 
       // setting download name
