@@ -7,14 +7,20 @@ function main(data) {
    citation_years = data["years"];
    paper_to_citation = data["paper"];
 
+   // setting the citation for paper and name to download
    var title_nodes = $("p.pub_title b");
    title_nodes.each(function (index, node) {
       var paper_title = $(node).text().toLowerCase();
       var citation = paper_to_citation[paper_title];
       if (citation != 0) {
          $(node).append(' (<span style="color:rgb(178 34 34)" >Google Citation: ' + citation + "</span>)")
-
       }
+
+
+      var download_name = paper_title.replace(" ", "_");
+      var paper_node = ("p.pub_author > a").eq(0);
+      // $("p.pub_author > a").eq(1).attr("download", download_name + ".pdf");
+      console.log(paper_node);
 
    });
 
@@ -29,6 +35,8 @@ function main(data) {
 
       years.push(year);
       paper_nums.push(paper_num_by_year);
+
+
    });
 
    var title = $("#publications").find("h2").eq(0).text();
@@ -206,11 +214,35 @@ function main(data) {
       return false;
       
    });
+
+
+
+   
+   
+
 }
 
 $(function() {
    $.getJSON("./google/data.json", function (data) {
       main(data);
+   });
+
+   var title_nodes = $("p.pub_title b");
+   title_nodes.each(function (index, node) {
+      var paper_title = $(node).text().toLowerCase();
+      
+      // var download_name = paper_title.replace(/\s/g, "_");
+      var download_name = paper_title.replaceAll(":", " ");
+      console.log(download_name);
+      var pub_author = $("p.pub_author").eq(index);
+      var paper_node = $(pub_author).find("span").eq(0)
+      var download_node = $(paper_node).clone(true);
+      $(download_node).find("a").eq(0).text("Download");
+      $(download_node).find("a").eq(0).attr("download", download_name + ".pdf");
+      $(download_node).insertAfter($(paper_node));
+
+      // $(paper_node).clone(true).insertAfter($(paper_node))
+
    });
 });
 
