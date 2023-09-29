@@ -1,5 +1,10 @@
-name: Git Action Test
-on: workflow_dispatch
+name: google scholar
+on:
+  push:
+    branches: [master]
+  schedule:
+    - cron: '0 8 * * *'
+  workflow_dispatch:
 
 jobs:
   build:
@@ -18,7 +23,7 @@ jobs:
         pip install beautifulsoup4
     - name: Install
       run: |
-        python3 spider.py
+        python3 ./google/spider.py
       
     - name: Commit
       run: |
