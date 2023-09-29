@@ -119,4 +119,38 @@ $("#layout-menu > a").on("click", function(event) {
    
 });
 
+// var url = "./figs/tmp.json"/*json文件url，本地的就写本地的位置，如果是服务器的就写服务器的路径*/
+// var request = new XMLHttpRequest();
+// request.open("get", url);/*设置请求方法与路径*/
+// request.send(null);/*不发送数据到服务器*/
+// request.onload = function () {/*XHR对象获取到返回信息后执行*/
+//       if (request.status == 200) {/*返回状态为200，即为数据获取成功*/
+//          var json = JSON.parse(request.responseText);
+//          for(var i=0;i<json.length;i++){
+//          console.log(json[i].name);
+//          }
+//          console.log(json);
+//       }
+// }
+
+// $.ajax({
+//    type: "GET",
+//    dataType: "json",
+//    url: "./figs/tmp.json",
+//    success: function (result) {
+//      var str = "";
+//              $.each(result,function(index,obj){             
+//              str += "姓名：" + obj["name"] + " 年龄：" + obj["age"] + "<br>";
+//              });
+//      console.log(str);
+//    }
+//  });
+
+$.getJSON("tmp.json", function (data) {
+   //循环打印输出
+   for (var i = 0; i < data.length; i++) {
+       alert(data[i].name + " " + data[i].sex + " " + data[i].email);
+   }
+});
+
 
