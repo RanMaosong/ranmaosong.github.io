@@ -1,7 +1,7 @@
 function main(data) {
    var pubs = $("#publications > table")
    var total_num = 0
-   var data = "";
+   // var data = "";
 
    citations_by_year = data["citations"];
    citation_years = data["years"];
