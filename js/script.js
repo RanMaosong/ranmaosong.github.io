@@ -20,7 +20,7 @@ function main(data) {
       // setting download name
       // var download_name = paper_title.replace(/\s/g, "_");
       var download_name = paper_title.replaceAll(":", " ");
-      console.log(download_name);
+
       var pub_author = $("p.pub_author").eq(index);
       var paper_node = $(pub_author).find("span").eq(0)
       var download_node = $(paper_node).clone(true);
