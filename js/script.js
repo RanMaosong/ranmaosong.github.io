@@ -257,7 +257,7 @@ function paper_info(info) {
       data += `<b></b></i>, ${year}.<br>`;
    }
 
-   data +=  `<span>[<a href="${paper_href}" target="_blank">Paper</a>]</span>`
+   data +=  `<span>[<a href="${paper_href}" target="_blank">Paper</a>]</span>`;
    if (info.hasOwnProperty("code_href")) {
       data += `[<a href="${code_href}" target="_blank">Code</a>]`
    }
