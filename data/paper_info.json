@@ -61,7 +61,7 @@
         "title": "Denoising of 3D magnetic resonance images using a residual encoder–decoder Wasserstein generative adversarial network",
         "authors": "<b>Maosong Ran</b>; Jinrong Hu; Yang Chen; Hu Chen; Huaiqiang Sun; Jiliu Zhou;Yi Zhang",
         "journal": "Medical Image Analysis",
-        "journal_abbr": "MedIa",
+        "journal_abbr": "MedIA",
         "year": 2019,
         "pic_href": "./figs/papers/00003.png",
         "paper_href": "./pdf/Denoising of 3D magnetic resonance images using a residual encoder–decoder Wasserstein generative adversarial network.pdf",
