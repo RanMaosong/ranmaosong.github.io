@@ -261,7 +261,7 @@ function paper_info(info) {
    if (code_href != "") {
       data += `[<a href="${code_href}" target="_blank">Code</a>]`
    }
-   data += `[<a href="bibtext.html?bibtex${bibtex_href}">BibTex</a>]
+   data += `[<a href="bibtext.html?bibtex=${bibtex_href}">BibTex</a>]
          </p>
       </td>
    </tr>`
