@@ -305,6 +305,7 @@ function create_publications(data) {
 
 
 $(function() {
+   $.ajaxSettings.async = false;
    $.getJSON("./data/paper_info.json", function (data) {
       create_publications(data);
    });
@@ -312,6 +313,7 @@ $(function() {
    $.getJSON("./google/data.json", function (data) {
       main(data);
    });
+   $.ajaxSettings.async = true;
 
 });
 
