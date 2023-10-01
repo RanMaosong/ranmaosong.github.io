@@ -11,10 +11,14 @@
         };
 
         function extract_bibtex(data) {
-            var regex = /@\w+\{\w+,\n(\s*\w+=\{[\S| ]+\},?[\f|\t|\v]*\n)+\s*}/g;
+            var regex = /@\w+\{\w+,\n(\s*\w+=\{[\S| ]+\},?[\f|\t|\v]*\n\w*)+\s*}/g;
                 // var regex = /(\s*\w+=\{[\S| ]+\},?[\f|\t|\v]*\n)+\s*}/g
             var bibtexs = data.match(regex);
             return bibtexs;
+        }
+
+        function show_bibtex(data) {
+
         }
 
         $(function(){
@@ -29,14 +33,15 @@
             var all_bibtex = extract_bibtex(bibtex_file);
 
 
-            var bibtex = "";
+
             for (var item of all_bibtex) {
                 if (item.indexOf(bibtex_name) != -1) {
-                    bibtex = item;
+
+                    $("pre").text(item);
                 }
             }
 
-            $("pre").text(bibtex);
+            
 
             
 
