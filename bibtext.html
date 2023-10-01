@@ -24,22 +24,19 @@
         $(function(){
             var bibtex_name = getUrlParam("bibtex");
 
-            var bibtex_file = "";
+
 
             $.getJSON("./data/bibtex.bib", function (data) {
-                bibtex_file = data;
+                var all_bibtex = extract_bibtex(data);
+                for (var item of all_bibtex) {
+                    if (item.indexOf(bibtex_name) != -1) {
+                        $("pre").text(item);
+                        break;
+                    }
+                }
             });
 
-            var all_bibtex = extract_bibtex(bibtex_file);
-
-
-
-            for (var item of all_bibtex) {
-                if (item.indexOf(bibtex_name) != -1) {
-
-                    $("pre").text(item);
-                }
-            }
+            
 
             
 
