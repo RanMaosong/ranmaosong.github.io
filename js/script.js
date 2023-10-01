@@ -259,9 +259,9 @@ function paper_info(info) {
 
    data +=  `<span>[<a href="${paper_href}" target="_blank">Paper</a>]</span>`
    if (code_href != "") {
-      data += `[<a href="${code_href}" target="_blank">Code</a>]`
+      data += `[<a href="/bibtext.html?${code_href}" target="_blank">Code</a>]`
    }
-   data += `[<a href="${bibtex_href}">BibTex</a>]
+   data += `[<a href="?bibtex${bibtex_href}">BibTex</a>]
          </p>
       </td>
    </tr>`
@@ -298,6 +298,8 @@ function create_publications(data) {
    $("#publications").append($newElement);
    curent_node = "";
 }
+
+
 
 
 

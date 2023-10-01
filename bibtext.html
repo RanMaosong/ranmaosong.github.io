@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <meta name="color-scheme" content="light dark">
+    </head>
+    <script src="./js/jquery-1.11.1.min.js"></script>
+    <script>
+        function getUrlParam(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+            var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+            if (r != null) return unescape(r[2]); return null; //返回参数值
+        };
+
+        function extract_bibtex(data) {
+            var regex = /@\w+\{\w+,\n(\s*\w+=\{[\S| ]+\},?[\f|\t|\v]*\n)+\s*}/g;
+                // var regex = /(\s*\w+=\{[\S| ]+\},?[\f|\t|\v]*\n)+\s*}/g
+            var bibtexs = data.match(regex);
+            return bibtexs;
+        }
+
+        $(function(){
+            var bibtex_name = getUrlParam("bibtex");
+
+            var bibtex_file = "";
+
+            $.getJSON("./data/bibtex.bib", function (data) {
+                bibtex_file = data;
+            });
+
+            var all_bibtex = extract_bibtex(bibtex_file);
+
+
+            var bibtex = "";
+            for (var item of all_bibtex) {
+                if (item.indexOf(bibtex_name) != -1) {
+                    bibtex = item;
+                }
+            }
+
+            $("pre").text(bibtex);
+
+            
+
+        });
+
+        
+
+
+    </script>
+    <body>
+        <pre style="word-wrap: break-word; white-space: pre-wrap;">
+
+        </pre>
+    </body>
+</html>

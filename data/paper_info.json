@@ -7,7 +7,7 @@
         "year": 2023,
         "pic_href": "./figs/papers/00008.png",
         "paper_href": "./pdf/Dynamic_Corrected_Split_Federated_Learning_with_Homomorphic_Encryption_for_U-shaped_Medical_Image_Networks.pdf",
-        "bibtex_href": "./bibtex/00008.html",
+        "bibtex_href": "yang2023dynamic",
         "code_href": ""
     },
 
@@ -19,7 +19,7 @@
         "year": 2023,
         "pic_href": "./figs/papers/00007.png",
         "paper_href": "/pdf/A_Robust_Prototype-Free_Retrieval_Method_for_Automatic_Check-Out.pdf",
-        "bibtex_href": "./bibtex/00007.html",
+        "bibtex_href": "huangfu2023robust",
         "code_href": ""
     },
     {
@@ -30,7 +30,7 @@
         "year": 2023,
         "pic_href": "./figs/papers/00006.png",
         "paper_href": "./pdf/Dynamic_Focus_Mechanism-Based_Dual-Domain_Reconstruction_Network_for_Accelerated_MRI.pdf",
-        "bibtex_href": "./bibtex/00006.html",
+        "bibtex_href": "./bibtex/wang2023dynamic.html",
         "code_href": ""
     },
     {
@@ -41,7 +41,7 @@
         "year": 2021,
         "pic_href": "./figs/papers/00005.png",
         "paper_href": "./pdf/MD-Recon-Net_A_Parallel_Dual-Domain_Convolutional_Neural_Network_for_Compressed_Sensing_MRI.pdf",
-        "bibtex_href": "./bibtex/00005.html",
+        "bibtex_href": "ran2020md",
         "code_href": "https://github.com/Deep-Imaging-Group/MD-Recon-Net"
     },
 
@@ -53,7 +53,7 @@
         "year": 2020,
         "pic_href": "./figs/papers/00004.png",
         "paper_href": "./pdf/Residual_EncoderDecoder_Conditional_Generative_Adversarial_Network_for_Pansharpening.pdf",
-        "bibtex_href": "./bibtex/00004.html",
+        "bibtex_href": "shao2019residual",
         "code_href": "https://github.com/Deep-Imaging-Group/RED-cGAN"
     },
 
@@ -65,7 +65,7 @@
         "year": 2019,
         "pic_href": "./figs/papers/00003.png",
         "paper_href": "./pdf/Denoising of 3D magnetic resonance images using a residual encoder–decoder Wasserstein generative adversarial network.pdf",
-        "bibtex_href": "./bibtex/00003.html",
+        "bibtex_href": "ran2019denoising",
         "code_href": "https://github.com/Deep-Imaging-Group/RED-WGAN"
     },
 
@@ -76,7 +76,7 @@
         "year": 2019,
         "pic_href": "./figs/papers/00002.png",
         "paper_href": "./pdf/Simultaneous denoising and super-resolution of optical coherence tomography images based on generative adversarial network.pdf",
-        "bibtex_href": "./bibtex/00002.html",
+        "bibtex_href": "huang2019simultaneous",
         "code_href": "https://github.com/Deep-Imaging-Group/SDSR-OCT"
     }
 
