@@ -264,10 +264,10 @@ function paper_info(info) {
 
    if (info.hasOwnProperty("bibtex_href")) {
       data += `[<a href="bibtex.html?bibtex=${bibtex_href}">BibTex</a>]
-   }
-         </p>
+      </p>
       </td>
-   </tr>`
+      </tr>`
+   }
 
 
    return data;
