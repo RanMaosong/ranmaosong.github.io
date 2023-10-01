@@ -24,9 +24,7 @@
         $(function(){
             var bibtex_name = getUrlParam("bibtex");
 
-
-
-            $.getJSON("./data/bibtex.bib", function (data) {
+            $.get("./data/bibtex.bib", function (data) {
                 var all_bibtex = extract_bibtex(data);
                 for (var item of all_bibtex) {
                     if (item.indexOf(bibtex_name) != -1) {
