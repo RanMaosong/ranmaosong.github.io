@@ -263,11 +263,11 @@ function paper_info(info) {
    }
 
    if (info.hasOwnProperty("bibtex_href")) {
-      data += `[<a href="bibtex.html?bibtex=${bibtex_href}">BibTex</a>]
-      </p>
-      </td>
-      </tr>`
+      data += `[<a href="bibtex.html?bibtex=${bibtex_href}">BibTex</a>]`
    }
+   data += `</p>
+   </td>
+   </tr>`;
 
 
    return data;
