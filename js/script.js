@@ -251,18 +251,18 @@ function paper_info(info) {
          <p class="pub_title"><b>${title}</b></p>
          <p class="pub_author">${authors}<br>
             ${journal} `
-   if (info.hasOwnProperty("journal_abbr")) {
+   if (info.hasOwnProperty("journal_abbr") && journal_abbr != "") {
       data += `<b>(${journal_abbr})</b></i>, ${year}.<br>`
    } else {
       data += `<b></b></i>, ${year}.<br>`;
    }
 
    data +=  `<span>[<a href="${paper_href}" target="_blank">Paper</a>]</span>`;
-   if (info.hasOwnProperty("code_href")) {
+   if (info.hasOwnProperty("code_href") && code_href != "") {
       data += `[<a href="${code_href}" target="_blank">Code</a>]`
    }
 
-   if (info.hasOwnProperty("bibtex_href")) {
+   if (info.hasOwnProperty("bibtex_href") && bibtex_href != "") {
       data += `[<a href="bibtex.html?bibtex=${bibtex_href}">BibTex</a>]`
    }
    data += `</p>
