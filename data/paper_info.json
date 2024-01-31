@@ -8,7 +8,7 @@
         "pic_href": "./figs/papers/00009.png",
         "paper_href": "./pdf/Promoting_fast_MR_imaging_pipeline_by_full-stack_AI.pdf",
         "bibtex_href": "wang2024promoting",
-        "code_href": ""
+        "code_href": "https://github.com/wangzhiwen-scu/FSL"
     }, 
    {
         "title": "Dynamic Corrected Split Federated Learning with Homomorphic Encryption for U-shaped Medical Image Networks",
