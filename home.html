@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>DeepImagingGroup</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+</head>
+
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+    <div class="site-wrap">
+
+        <div class="site-mobile-menu site-navbar-target">
+            <div class="site-mobile-menu-header">
+                <div class="site-mobile-menu-close mt-3">
+                    <span class="icon-close2 js-menu-toggle"></span>
+                </div>
+            </div>
+            <div class="site-mobile-menu-body"></div>
+        </div>
+
+        <div class="header-top">
+            <div class="container" style="padding:20px">
+                <div class="row align-items-center">
+                    <!-- <div class="col-12 col-lg-6 d-flex"> -->
+                    <img src="./logo.png" width="20%">
+                    <a class="ml-auto site-logo" style="font-size: 50px;">
+                        <b style="color: rgb(180, 16, 10)">D</b>eep <b style="color: rgb(180, 16, 10)">I</b>maging <b
+                            style="color: rgb(180, 16, 10)">G</b>roup (<b style="color: rgb(180, 16, 10)">DIG</b>)
+                    </a>
+                    <a href="#"
+                        class="ml-auto d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black"><span
+                            class="icon-menu h3"></span></a>
+
+                    <!-- </div> -->
+                    <!-- <div class="col-12 col-lg-6 ml-auto d-flex">
+                    <div class="ml-md-auto top-social d-none d-lg-inline-block">
+                        <a href="#" class="d-inline-block p-3"> </a>
+                        <a href="#" class="d-inline-block p-3"> </a>
+                        <a href="#" class="d-inline-block p-3"> </a>
+                    </div>
+
+                </div> -->
+                    <!--          <div class="col-6 d-block d-lg-none text-right">-->
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="site-navbar py-2 js-sticky-header site-navbar-target d-none pl-0 d-lg-block" role="banner">
+
+            <div class="container" style="padding-right=10%">
+                <div class="d-flex align-items-right">
+                    <div class="ml-auto">
+                        <nav class="site-navigation position-relative text-right" role="navigation">
+                            <ul class="site-menu main-menu js-clone-nav mr-auto d-none pl-0 d-lg-block">
+                                <li class="active">
+                                    <a href="index.html" class="nav-link text-right">Home</a>
+                                </li>
+                                <li>
+                                    <a href="about.html" class="nav-link text-left">About</a>
+                                </li>
+                                <li>
+                                    <a href="publication.html" class="nav-link text-left">Publication</a>
+                                </li>
+                                <li>
+                                    <a href="member.html" class="nav-link text-left">Members</a>
+                                </li>
+                                <li>
+                                    <a href="resource.html" class="nav-link text-left">Resource</a>
+                                </li>
+                                <li>
+                                    <a href="contact.html" class="nav-link text-left">Contact</a>
+                                </li>
+                            </ul>
+                        </nav>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="site-blocks-cover"
+        style="background-image: url('./background.jpg');"
+        data-stellar-background-ratio="1">
+
+
+        <div class="container" style="padding-top: 5%;">
+
+            <div class="row align-items-center justify-content-center">
+
+                <div style="display: flex; justify-content: space-between; align-items: center; ">
+                    <div style="width: 100%; height: 70%; margin-right: 5%;">
+                        <div class="slider-container">
+                            <button class="prev" onclick="changeImage(-1)">&#10094;</button>
+                            <div class="slider">
+                                <img src_="./news_image/group1.webp" alt="Image 1">
+                                <img src_="./news_image/group2.webp" alt="Image 2">
+                                <img src_="./news_image/group3.webp" alt="Image 3">
+                            </div>
+                            <button class="next" onclick="changeImage(1)">&#10095;</button>
+                        </div>
+                    </div>
+
+                    <!-- 右侧 div -->
+                    <div style="width: 100%; height: 50%; ">
+
+                        <p style="font-family: 'Times New Roman', serif; font-weight: bold; font-style: italic;">Latest
+                            Research Highlight</p>
+                        <div class="banner">
+                            <div class="banner-left">
+                                <div class="image-container">
+                                    <a href="https://arxiv.org/abs/2503.00908"><img src="./news_image/LLMCT.webp"
+                                            style="width: 100%;"></a>
+                                </div>
+                            </div>
+                            <div class="banner-right" style="padding-left: 3%;">
+                                <p style="font-family: 'Times New Roman', serif; font-size: 16px;">Patient-Level Anatomy
+                                    Meets Scanning-Level Physics: Personalized Federated
+                                    Low-Dose CT Denoising Empowered by Large Language Model</p>
+                                <p
+                                    style="font-family: 'Times New Roman', serif; font-weight: bold; font-style: italic;font-size: 16px;">
+                                    Ziyuan Yang et al, CVPR, 2025</p>
+                                <!-- <a href="https://www.example.com" target="_blank">
+                                <button style="padding: 10px 20px; font-size: 16px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                                  See More
+                                </button>
+                              </a> -->
+                            </div>
+                        </div>
+                        <div class="banner">
+                            <div class="banner-left">
+                                <div class="image-container">
+                                    <a href="https://arxiv.org/abs/2502.00859"><img src="./news_image/FedRIR.webp"
+                                            style="width: 100%;"></a>
+                                </div>
+                            </div>
+                            <div class="banner-right" style="padding-left: 3%;padding-top: 3%;">
+                                <p style="font-family: 'Times New Roman', serif; font-size: 16px;">FedRIR: Rethinking
+                                    Information Representation in Federated Learning</p>
+                                <p
+                                    style="font-family: 'Times New Roman', serif; font-weight: bold; font-style: italic;font-size: 16px;">
+                                    Yongqiang Huang et al, WWW, 2025</p>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="site-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div style="margin-bottom:20px">
+                        <h2>🔥 News</h2>
+                    </div>
+                    <!-- 2025 News -->
+                    <div class="panel" style="border-bottom: 1px solid rgba(0, 0, 0, .15);">
+                        <div class="panel-header" onclick="togglePanel(this)">
+                            <h2><i class="fas fa-arrow-down arrow" id="arrowIcon"></i></i> 2025</h2>
+                        </div>
+                        <div class="panel-content active">
+                            <div class="panel-content active">
+                                <h5 style="color:rgb(68, 68, 68)">[Mar.]</h5>
+                                <ul style="margin-bottom:5px;">
+                                    <li> 1 paper was accepted for IEEE Transactions on Parallel and Distributed Systems.
+                                    </li>
+                                    <li> 1 paper was accepted for 2025 IEEE/CVF Conference on Computer Vision and
+                                        Pattern Recognition (CVPR). Congratulations to Ziyuan!</li>
+                                </ul>
+                            </div>
+                            <div class="panel-content active">
+                                <h5 style="color:rgb(68, 68, 68)">[Jan.]</h5>
+                                <ul style="margin-bottom:5px;">
+                                    <li> 1 paper was accepted for 2025 International World Wide Web Conferences (WWW)
+                                        (Oral). Congratulations to Yongqiang!</li>
+                                    <li> Happy new year!</li>
+                                </ul>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- 2024 News -->
+                    <div class="panel">
+                        <div class="panel-header" onclick="togglePanel(this)">
+                            <h2><i class="fas fa-arrow-right arrow" id="arrowIcon"></i></i> 2024</h2>
+                        </div>
+                        <div class="panel-content">
+                            <h5 style="color:rgb(68, 68, 68)">[Dec.]</h5>
+                            <ul style="margin-bottom:5px;">
+                                <li> 1 paper was accepted for IEEE Transactions on Medical Imaging (IEEE T-MI).</li>
+                                <li> 3 paper were accepted for 2025 IEEE International Conference on Acoustics, Speech,
+                                    and Signal
+                                    Processing
+                                    (ICASSP).</li>
+                                <li> 2 Ph.D. students graduated. Congratulations to Dr. Zhiwen Wang and Dr. Hui Yu!
+                                </li>
+                            </ul>
+
+                            <h5 style="color:rgb(68, 68, 68)">[Nov.]</h5>
+                            <ul style="margin-bottom:5px">
+                                <li> 1 paper was accepted for IEEE Transactions on Radiation and Plasma Medical Sciences
+                                    (IEEE T-RPMS).</a>
+                                </li>
+                            </ul>
+
+                            <h5 style="color:rgb(68, 68, 68)">[Sep.]</h5>
+                            <ul style="margin-bottom:5px">
+                                <li> 1 paper was accepted for IEEE Transactions on Medical Imaging (IEEE T-MI). </li>
+                                <li> 1 paper was accepted for IEEE Transactions on Information Forensics and Security
+                                    (IEEE T-IFS). </li>
+                                <li> 1 paper was accepted for IEEE Transactions on Radiation and Plasma Medical Sciences
+                                    (IEEE T-RPMS).</li>
+                                <li> 1 paper was accepted for IEEE Journal of Biomedical and Health Informatics (IEEE
+                                    JBHI).</li>
+                                <li> 2 PhD students joined DIG, welcome Yongqiang Huang and Fengzhi Xu!</li>
+                                </li>
+                            </ul>
+
+                            <h5 style="color:rgb(68, 68, 68)">[Aug.]</h5>
+                            <ul style="margin-bottom:5px">
+                                <li> 1 paper was accepted for IEEE Transactions on Medical Imaging (IEEE T-MI).</li>
+                            </ul>
+
+                            <h5 style="color:rgb(68, 68, 68)">[Jul.]</h5>
+                            <ul style="margin-bottom:5px">
+                                <li> 1 paper was accepted for International Journal of Applied Earth Observation and
+                                    Geoinformation.</li>
+                                <li> 1 paper was accepted for IEEE Transactions on Circuits and Systems for Video
+                                    Technology (IEEE T-CSVT).</li>
+                                <li> 1 paper was accepted for Image and Vision Computing.</li>
+                                <li> 2 papers were accepted for Physics in Medicine and Biology.</li>
+                            </ul>
+
+                            <h5 style="color:rgb(68, 68, 68)">[Jun.]</h5>
+                            <ul style="margin-bottom:5px">
+                                <li> 2 papers were accepted for 2024 Medical Image Computing and Computer Assisted
+                                    Intervention (MICCAI).</li>
+                            </ul>
+
+                            <h5 style="color:rgb(68, 68, 68)">[Apr.]</h5>
+                            <ul style="margin-bottom:5px">
+                                <li> 1 paper was accepted for Journal of Scientific Computing.</li>
+                                <li> 1 paper was accepted for International Journal of Computer Vision (IJCV).</li>
+                            </ul>
+
+                            <h5 style="color:rgb(68, 68, 68)">[Feb.]</h5>
+                            <ul style="margin-bottom:5px">
+                                <li> One paper was accepted for 2024 IEEE/CVF Computer Vision and Pattern Recognition
+                                    Conference (CVPR).</li>
+                            </ul>
+
+                            <h5 style="color:rgb(68, 68, 68)">[Feb.]</h5>
+                            <ul style="margin-bottom:5px">
+                                <li> 1 paper was accepted for Computers in Biology and Medicine.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- END section -->
+
+
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="copyright">
+                        <p>
+                            Copyright &copy;
+                            <script>document.write(new Date().getFullYear());</script>
+                            All rights reserved | Built upon <a style="color: rgb(180,16,10);"
+                                href="https://getbootstrap.com/"
+                                class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1"><i
+                                    class="fa-brands fa-bootstrap"></i>
+                                Bootstrap</a>
+                        </p>
+                        <a href="https://beian.miit.gov.cn/" target="_blank" style="color:#999">蜀ICP备2021013452号-1</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+    <script src="./jquery-1.11.1.min.js"></script>
+    <script>
+        function togglePanel(header) {
+            const content = header.nextElementSibling;
+            const arrowIcon = header.querySelector('.arrow');
+            content.classList.toggle('active');
+            if (content.classList.contains('active')) {
+                arrowIcon.classList.remove('fa-arrow-right');
+                arrowIcon.classList.add('fa-arrow-down');
+            } else {
+                arrowIcon.classList.remove('fa-arrow-down');
+                arrowIcon.classList.add('fa-arrow-right');
+            }
+        }
+
+        let currentIndex = 0;
+
+        function changeImage(direction) {
+            const images = document.querySelectorAll('.slider img');
+            const totalImages = images.length;
+
+            // Calculate new index
+            currentIndex = (currentIndex + direction + totalImages) % totalImages;
+
+            // Move the slider
+            document.querySelector('.slider').style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+        document.addEventListener("DOMContentLoaded", function () {
+            const images = document.querySelectorAll("img");
+
+            images.forEach(img => {
+                if (img.hasAttribute('data-src')) {
+                    img.setAttribute('loading', 'lazy');
+                    img.src = img.getAttribute('data-src');
+                }
+            });
+        });
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const images = document.querySelectorAll("img");
+
+            images.forEach(img => {
+                if (img.hasAttribute('data-src')) {
+                    img.setAttribute('loading', 'lazy');
+                    img.src = img.getAttribute('data-src');
+                }
+            });
+        });
+
+        $(function() {
+            var imgs = $("img");
+            imgs.each(function(index, node) {
+
+                var url = $(this).attr("src_");
+                console.log(url)
+                $(this).attr("src", url)
+                console.log(url);
+                
+            });
+        });
+    </script>
+</body>
+
+</html>

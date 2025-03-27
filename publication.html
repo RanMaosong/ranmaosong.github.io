@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>DeepImagingGroup</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+<div class="site-wrap">
+
+    <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close mt-3">
+                <span class="icon-close2 js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+
+    <div class="header-top">
+        <div class="container" style="padding:20px">
+            <div class="row align-items-center">
+                <!-- <div class="col-12 col-lg-6 d-flex"> -->
+                    <img src="./logo.png" width="20%">
+                    <a class="ml-auto site-logo" style="font-size: 50px;">
+                            <b style="color: rgb(180, 16, 10)">D</b>eep <b style="color: rgb(180, 16, 10)">I</b>maging <b style="color: rgb(180, 16, 10)">G</b>roup (<b style="color: rgb(180, 16, 10)">DIG</b>)
+                    </a>
+                    <a href="#"
+                       class="ml-auto d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black"><span
+                            class="icon-menu h3"></span></a>
+
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="site-navbar py-2 js-sticky-header site-navbar-target d-none pl-0 d-lg-block" role="banner">
+
+        <div class="container" style="padding-right=10%">
+            <div class="d-flex align-items-right">
+                <div class="ml-auto">
+                    <nav class="site-navigation position-relative text-right" role="navigation">
+                        <ul class="site-menu main-menu js-clone-nav mr-auto d-none pl-0 d-lg-block">
+                            <li class="active">
+                                <a href="index.html" class="nav-link text-right">Home</a>
+                            </li>
+                            <li>
+                                <a href="about.html" class="nav-link text-left">About</a>
+                            </li>
+                            <li>
+                                <a href="publication.html" class="nav-link text-left">Publication</a>
+                            </li>
+                            <li>
+                                <a href="member.html" class="nav-link text-left">Members</a>
+                            </li>
+                            <li>
+                                <a href="resource.html" class="nav-link text-left">Resource</a>
+                            </li>
+                            <li>
+                                <a href="contact.html" class="nav-link text-left">Contact</a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<div class="site-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <p>An up-to-date full paper list can be found in <a style="color: rgb(180,16,10);" href="https://scholar.google.com.hk/citations?hl=zh-CN&user=kCtQkrkAAAAJ">Google Scholar</a> page.</p>
+                <div style="margin-bottom:20px"><h2>Journal</h2></div>
+                
+                <!-- 2024 -->
+                <div class="panel" style="border-bottom: 1px solid rgba(0, 0, 0, .15);">
+                    <div class="panel-header" onclick="togglePanel(this)">
+                        <h4><i class="fas fa-arrow-down arrow" id="arrowIcon"></i></i> 2024</h4>
+                    </div>
+                    <div class="panel-content active">
+                        <ul style="margin-bottom:5px;">
+                            <li> UniAda: Domain Unifying and Adapting Network for Generalizable Medical Image Segmentation. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">Z Zhang, Y Chen, H Yu, Z Wang, S Wang, F Fan, H Shan, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">IEEE Transactions on Medical Imaging.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://ieeexplore.ieee.org/abstract/document/10816643">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="https://github.com/ZhouZhang233/UniAda">[code]</a></p>
+                            </li>
+                            <li> Self-supervised content-consistent contrast enhancement framework for ultrafast plane-wave imaging. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    A Wang, J Lu, Z Yang, W Liang, H Zhuang, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    IEEE Transactions on Instrumentation and Measurement.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://ieeexplore.ieee.org/abstract/document/10711901">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="https://github.com/ Wang-aohua/SC3E">[code]</a></p>
+                            </li>
+                            <li> Solving Zero-Shot Sparse-View CT Reconstruction With Variational Score Solver. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    L He, W Du, P Liao, F Fan, H Chen, H Yang, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    IEEE Transactions on Medical Imaging.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://ieeexplore.ieee.org/abstract/document/10706876">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="https://github.com/fpsandnoob/vss">[code]</a></p>
+                            </li>
+                            <li> PrideDiff: Physics-Regularized Generalized Diffusion Model for CT Reconstruction. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    Z Lu, Q Gao, T Wang, Z Yang, Z Wang, H Yu, H Chen, J Zhou, H Shan, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    IEEE Transactions on Radiation and Plasma Medical Sciences.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://ieeexplore.ieee.org/abstract/document/10701005">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="https://github.com/Deep-Imaging-Group">[code]</a></p>
+                            </li>
+                            <li> Physics-driven spectrum-consistent federated learning for palmprint verification. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    Z Yang, ABJ Teoh, B Zhang, L Leng, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    International Journal of Computer Vision.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://link.springer.com/article/10.1007/s11263-024-02077-9">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="https://github.com/Zi-YuanYang/PSFed-Palm">[code]</a></p>
+                            </li>
+                            <li> Provably convergent learned inexact descent algorithm for low-dose ct reconstruction. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    Q Zhang, M Alvandipour, W Xia, Y Zhang, X Ye, Y Chen</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    Journal of Scientific Computing.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://link.springer.com/article/10.1007/s10915-024-02638-7">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                            <li> Test-Time Adaptation via Orthogonal Meta-Learning for Medical Imaging. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    Z Wang, Z Lu, T Wang, Z Yang, H Yu, Z Wang, Y Chen, J Lu, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    IEEE Transactions on Radiation and Plasma Medical Sciences.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://ieeexplore.ieee.org/abstract/document/10681615">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="https://github.com/Zi-YuanYang/PSFed-Palm">[code]</a></p>
+                            </li>
+                            <li> A dual-level cancelable framework for palmprint verification and hack-proof data storage. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    Z Yang, M Kang, ABJ Teoh, C Gao, W Chen, B Zhang, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    IEEE Transactions on Information Forensics and Security.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://ieeexplore.ieee.org/abstract/document/10681118">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="https://github.com/Zi-YuanYang/DCPV">[code]</a></p>
+                            </li>
+                            <li> Gradient-Guided Network with Fourier Enhancement for Glioma Segmentation in Multimodal 3D MRI. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    Z Zhang, H Yu, Z Wang, Z Wang, J Lu, Y Liu, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    IEEE Journal of Biomedical and Health Informatics.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://ieeexplore.ieee.org/abstract/document/10666019/">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                            <li> Bi-Constraints Diffusion: A Conditional Diffusion Model with Degradation Guidance for Metal Artifact Reduction. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    M Luo, N Zhou, T Wang, L He, W Wang, H Chen, P Liao, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    IEEE Transactions on Medical Imaging.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://ieeexplore.ieee.org/abstract/document/10638000">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                            <li> PRX-Change: Enhancing remote sensing change detection through progressive feature refinement and Cross-Attention interaction. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    H Tan, L He, W Du, H Liu, H Chen, Y Zhang, H Yang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    International Journal of Applied Earth Observation and Geoinformation.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://www.sciencedirect.com/science/article/pii/S1569843224003625">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                            <li> Weakly supervised low-dose computed tomography denoising based on generative adversarial networks. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    P Liao, X Zhang, Y Wu, H Chen, W Du, H Liu, H Yang, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    Quantitative Imaging in Medicine and Surgery.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11320552/">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                            <li> Generalizable MRI motion correction via compressed sensing equivariant imaging prior. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    Z Wang, M Ran, Z Yang, H Yu, J Jin, T Wang, J Lu, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    IEEE Transactions on Circuits and Systems for Video Technology.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://ieeexplore.ieee.org/abstract/document/10606502">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="https://github.com/wangzhiwen-scu/EIP4MoCo">[code]</a></p>
+                            </li>
+                            <li> ReMAR: a preoperative CT angiography guided metal artifact reduction framework designed for follow-up CTA of endovascular coiling. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    Y Zhang, L Liu, H Yu, T Wang, Y Zhang, Y Liu</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    Physics in Medicine & Biology.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://iopscience.iop.org/article/10.1088/1361-6560/ad5ef4/meta">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="https://github.com/wangzhiwen-scu/EIP4MoCo">[code]</a></p>
+                            </li>
+                            <li> Multiple organ segmentation framework for brain metastasis radiotherapy. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    H Yu, Z Yang, Z Zhang, T Wang, M Ran, Z Wang, L Liu, Y Liu, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    Computers in Biology and Medicine.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://www.sciencedirect.com/science/article/pii/S0010482524007224">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="https://github.com/wangzhiwen-scu/EIP4MoCo">[code]</a></p>
+                            </li>
+                            <li> Evidence-based uncertainty-aware semi-supervised medical image segmentation. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    Y Chen, Z Yang, C Shen, Z Wang, Z Zhang, Y Qin, X Wei, J Lu, Y Liu, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    Computers in Biology and Medicine.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://www.sciencedirect.com/science/article/pii/S001048252400088X">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="https://github.com/CYYukio/EVidential-Inference-Learning">[code]</a></p>
+                            </li>
+                            <li> Promoting fast MR imaging pipeline by full-stack AI. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    Z Wang, B Li, H Yu, Z Zhang, M Ran, W Xia, Z Yang, J Lu, H Chen, J Zhou, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    Iscience.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://www.cell.com/iscience/fulltext/S2589-0042(23)02685-8">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                            <li> Bidirectional condition diffusion probabilistic models for pet image denoising. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    C Shen, C Tie, Z Yang, N Zhang, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    IEEE Transactions on Radiation and Plasma Medical Sciences.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://ieeexplore.ieee.org/abstract/document/10401984/">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                            <li> Progressive dual-domain-transfer cycleGAN for unsupervised MRI reconstruction. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    B Li, Z Wang, Z Yang, W Xia, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    Neurocomputing.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://www.sciencedirect.com/science/article/pii/S0925231223010573">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- 2023 -->
+                <div class="panel" style="border-bottom: 1px solid rgba(0, 0, 0, .15);">
+                    <div class="panel-header" onclick="togglePanel(this)">
+                        <h4><i class="fas fa-arrow-right arrow" id="arrowIcon"></i></i> 2023</h4>
+                    </div>
+                    <div class="panel-content">
+                        <ul style="margin-bottom:5px;">
+                            <li> FAM-Former: Global Transformer and Feature Aggregation Module for Knee MRI Age Estimation. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    L He, H Zhu, X Deng, F Fan, P Liao, W Du, H Chen, Z Deng, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    IEEE Transactions on Instrumentation and Measurement.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://ieeexplore.ieee.org/abstract/document/10371402">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                            <li> Hypernetwork-based physics-driven personalized federated learning for CT imaging. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    Z Yang, W Xia, Z Lu, Y Chen, X Li, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    IEEE Transactions on Neural Networks and Learning Systems.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://ieeexplore.ieee.org/abstract/document/10361833">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="https://github.com/Zi-YuanYang/HyperFed">[code]</a></p>
+                            </li>
+                            <li> SOUL-net: A sparse and low-rank unrolling network for spectral CT image reconstruction. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    X Chen, W Xia, Z Yang, H Chen, Y Liu, J Zhou, Z Wang, Y Chen, B Wen, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    IEEE Transactions on Neural Networks and Learning Systems.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://ieeexplore.ieee.org/abstract/document/10271326">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                            <li> CoreDiff: Contextual error-modulated generalized diffusion model for low-dose CT denoising and generalization. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    Q Gao, Z Li, J Zhang, Y Zhang, H Shan</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    IEEE Transactions on Medical Imaging.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://ieeexplore.ieee.org/abstract/document/10268250">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="https://github.com/qgao21/CoreDiff">[code]</a></p>
+                            </li>
+                            <li> Dynamic corrected split federated learning with homomorphic encryption for u-shaped medical image networks. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    Z Yang, Y Chen, H Huangfu, M Ran, H Wang, X Li, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    IEEE Journal of Biomedical and Health Informatics.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://ieeexplore.ieee.org/abstract/document/10256094">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                            <li> A review of deep learning CT reconstruction from incomplete projection data. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    T Wang, W Xia, J Lu, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    IEEE Transactions on Radiation and Plasma Medical Sciences.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://ieeexplore.ieee.org/abstract/document/10253669">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                            <li> SemiMAR: Semi-supervised learning for CT metal artifact reduction. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    T Wang, H Yu, Z Wang, H Chen, Y Liu, J Lu, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    IEEE Journal of Biomedical and Health Informatics.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://ieeexplore.ieee.org/abstract/document/10239528/">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                            <li> Comprehensive competition mechanism in palmprint recognition. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    Z Yang, H Huangfu, L Leng, B Zhang, ABJ Teoh, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    IEEE Transactions on Information Forensics and Security.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://ieeexplore.ieee.org/abstract/document/10223233">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="https://github.com/Zi-YuanYang/CCNet">[code]</a></p>
+                            </li>
+                            <li> Speckle denoising of optical coherence tomography image using residual encoder–decoder CycleGAN. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    K Xie, M Luo, H Chen, M Yang, Y He, P Liao, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    Signal, Image and Video Processing.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://link.springer.com/article/10.1007/s11760-022-02361-6">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                            <li> RegFormer: A local–nonlocal regularization-based model for sparse-view CT reconstruction. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    W Xia, Z Yang, Z Lu, Z Wang, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    IEEE Transactions on Radiation and Plasma Medical Sciences.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://ieeexplore.ieee.org/abstract/document/10138692/">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                            <li> CO<sub>3</sub>Net: Coordinate-Aware Contrastive Competitive Neural Network for Palmprint Recognition. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    Z Yang, W Xia, Y Qiao, Z Lu, B Zhang, L Leng, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    IEEE Transactions on Instrumentation and Measurement.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://ieeexplore.ieee.org/abstract/document/10124928">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                            <li> Blind image quality assessment via deep response feature decomposition and aggregation. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    H Wang, G Wang, W Xia, Z Yang, H Yu, L Fang, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    IEEE Journal of Selected Topics in Signal Processing.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://ieeexplore.ieee.org/abstract/document/10123006">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                            <li> Cross-database attack of different coding-based palmprint templates. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    Z Yang, L Leng, ABJ Teoh, B Zhang, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    Knowledge-Based Systems.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://www.sciencedirect.com/science/article/pii/S0950705123000606">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                            <li> Physics-/model-based and data-driven methods for low-dose computed tomography: A survey. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    W Xia, H Shan, G Wang, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    IEEE signal processing magazine.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://ieeexplore.ieee.org/abstract/document/10054206">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                            <li> DeSeg: auto detector-based segmentation for brain metastases. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    H Yu, Z Zhang, W Xia, Y Liu, L Liu, W Luo, J Zhou, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    Physics in Medicine & Biology.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://iopscience.iop.org/article/10.1088/1361-6560/acace7/meta">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                            <li> TIME-Net: Transformer-integrated multi-encoder network for limited-angle artifact removal in dual-energy CBCT. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    Y Zhang, D Hu, Z Yan, Q Zhao, G Quan, S Luo, Y Zhang, Y Chen</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    Medical Image Analysis.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://www.sciencedirect.com/science/article/pii/S136184152200278X">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 2022 -->
+                <div class="panel">
+                    <div class="panel-header" onclick="togglePanel(this)">
+                        <h4><i class="fas fa-arrow-right arrow" id="arrowIcon"></i></i> 2022</h4>
+                    </div>
+                    <div class="panel-content">
+                        <ul style="margin-bottom:5px;">
+                            <li> DREAM-Net: Deep residual error iterative minimization network for sparse-view CT reconstruction. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    Y Zhang, D Hu, S Hao, J Liu, G Quan, Y Zhang, X Ji, Y Chen</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    IEEE Journal of Biomedical and Health Informatics.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://ieeexplore.ieee.org/abstract/document/9963565">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                            <li> Mlf-iosc: multi-level fusion network with independent operation search cell for low-dose ct denoising. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    J Shen, M Luo, H Liu, P Liao, H Chen, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    IEEE Transactions on Medical Imaging.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://ieeexplore.ieee.org/abstract/document/9966660">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                            <li> LEARN++: recurrent dual-domain reconstruction network for compressed sensing CT. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    Y Zhang, H Chen, W Xia, Y Chen, B Liu, Y Liu, H Sun, J Zhou</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    IEEE Transactions on Radiation and Plasma Medical Sciences.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://ieeexplore.ieee.org/abstract/document/9951388">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                            <li> Low-dose CT Denoising Based on Subspace Projection and Edge Enhancement. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    Y Wei, Z Yang, W Xia, T Wang, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    CT Theory and Applications.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://www.cttacn.org.cn/en/article/doi/10.15953/j.ctta.2022.108">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                            <li> M<sub>3</sub>NAS: Multi-Scale and Multi-Level Memory-Efficient Neural Architecture Search for Low-Dose CT Denoising. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    Z Lu, W Xia, Y Huang, M Hou, H Chen, J Zhou, H Shan, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    IEEE Transactions on Medical Imaging.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://ieeexplore.ieee.org/abstract/document/9936653/">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                            <li> ERA-WGAT: Edge-enhanced residual autoencoder with a window-based graph attention convolutional network for low-dose CT denoising. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    H Liu, P Liao, H Chen, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    Biomedical Optics Express.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://opg.optica.org/boe/fulltext.cfm?uri=boe-13-11-5775&id=509901">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                            <li> DGRUnit: Dual graph reasoning unit for brain tumor segmentation. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    Q Ma, S Zhou, C Li, F Liu, Y Liu, M Hou, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    Computers in biology and medicine.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://www.sciencedirect.com/science/article/pii/S0010482522007879">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                            <li> Unsupervised bayesian PET reconstruction. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    C Shen, W Xia, H Ye, M Hou, H Chen, Y Liu, J Zhou, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    IEEE Transactions on Radiation and Plasma Medical Sciences.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://ieeexplore.ieee.org/abstract/document/9878162/">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                            <li> PRIOR: Prior-regularized iterative optimization reconstruction for 4D CBCT. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    D Hu, Y Zhang, J Liu, Y Zhang, JL Coatrieux, Y Chen</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    IEEE Journal of Biomedical and Health Informatics.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://ieeexplore.ieee.org/abstract/document/9866113">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                            <li> LDP-Net: An unsupervised pansharpening network based on learnable degradation processes. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    J Ni, Z Shao, Z Zhang, M Hou, J Zhou, L Fang, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://ieeexplore.ieee.org/abstract/document/9814841">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                            <li> Human identification performed with skull’s sphenoid sinus based on deep learning. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    H Wen, W Wu, F Fan, P Liao, H Chen, Y Zhang, Z Deng, W Lv</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    International Journal of Legal Medicine.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://link.springer.com/article/10.1007/s00414-021-02761-2">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                            <li> A selective kernel-based cycle-consistent generative adversarial network for unpaired low-dose CT denoising. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    C Tan, M Yang, Z You, H Chen, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    Precision Clinical Medicine.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://academic.oup.com/pcm/article/5/2/pbac011/6571262">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                            <li> A fine-grained network for human identification using panoramic dental images. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    H Chen, C Sun, P Liao, Y Lai, F Fan, Y Lin, Z Deng, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    Patterns.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://www.cell.com/patterns/fulltext/S2666-3899(22)00070-8">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                            <li> IDOL-Net: An interactive dual-domain parallel network for CT metal artifact reduction. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    T Wang, Z Lu, Z Yang, W Xia, M Hou, H Sun, Y Liu, H Chen, J Zhou, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    IEEE Transactions on Radiation and Plasma Medical Sciences.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://ieeexplore.ieee.org/abstract/document/9765584">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                            <li> Training low dose CT denoising network without high quality reference data. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    J Jing, W Xia, M Hou, H Chen, Y Liu, J Zhou, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    Physics in Medicine & Biology.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://iopscience.iop.org/article/10.1088/1361-6560/ac5f70/meta">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                            <li> DHI-GAN: improving dental-based human identification using generative adversarial networks. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    Y Lin, F Fan, J Zhang, J Zhou, P Liao, H Chen, Z Deng, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    Physics in Medicine & Biology.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://ieeexplore.ieee.org/abstract/document/9741851">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="https://github.com/sculyi/MedicalImages/">[code]</a></p>
+                            </li>
+                            <li> FONT-SIR: Fourth-order nonlocal tensor decomposition model for spectral CT image reconstruction. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    X Chen, W Xia, Y Liu, H Chen, J Zhou, Z Zha, B Wen, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    IEEE Transactions on Medical Imaging.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://ieeexplore.ieee.org/abstract/document/9726161">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                            <li> Iterative reconstruction for low-dose CT using deep gradient priors of generative model. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    Z He, Y Zhang, Y Guan, B Guan, S Niu, Y Zhang, Y Chen, Q Liu</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    IEEE Transactions on Radiation and Plasma Medical Sciences.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://ieeexplore.ieee.org/abstract/document/9703672">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                            <li> Multi-task short-term reactive and active load forecasting method based on attention-LSTM model. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    J Qin, Y Zhang, S Fan, X Hu, Y Huang, Z Lu, Y Liu</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    International Journal of Electrical Power & Energy Systems.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://www.sciencedirect.com/science/article/pii/S0142061521007560">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                            <li> NFANet: A novel method for weakly supervised water extraction from high-resolution remote-sensing imagery. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    M Lu, L Fang, M Li, B Zhang, Y Zhang, P Ghamisi</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    IEEE Transactions on Geoscience and Remote Sensing.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://ieeexplore.ieee.org/abstract/document/9668924">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 2021 -->
+                <!-- <div class="panel">
+                    <div class="panel-header" onclick="togglePanel(this)">
+                        <h4><i class="fas fa-arrow-right arrow" id="arrowIcon"></i></i> 2021</h4>
+                    </div>
+                    <div class="panel-content">
+                        <ul style="margin-bottom:5px;">
+                            <li> DREAM-Net: Deep residual error iterative minimization network for sparse-view CT reconstruction. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    Y Zhang, D Hu, S Hao, J Liu, G Quan, Y Zhang, X Ji, Y Chen</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    IEEE Journal of Biomedical and Health Informatics.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://ieeexplore.ieee.org/abstract/document/9966660">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                        </ul>
+                    </div>
+                </div> -->
+                
+                <!-- <div class="trend-entry d-flex">
+                    
+                    <div class="trend-contents">
+                        [1] Low-Dose CT With a Residual Encoder-Decoder Convolutional Neural Network. &nbsp;&nbsp;&nbsp;
+                        <a style="color: blue;" href="https://ieeexplore.ieee.org/document/7947200/">[paper]</a> &nbsp;&nbsp;&nbsp;
+                        <a style="color: red;" href="https://github.com/Deep-Imaging-Group/Low-Dose-CT-With-a-Residual-Encoder-Decoder-Convolutional-Neural-Network">[code]</a></p>
+
+                    </div>
+                </div> -->
+                <div style="margin-bottom:20px; margin-top: 50px;"><h2>Conference</h2></div>
+                <!-- 2024 -->
+                <div class="panel" style="border-bottom: 1px solid rgba(0, 0, 0, .15);">
+                    <div class="panel-header" onclick="togglePanel(this)">
+                        <h4><i class="fas fa-arrow-down arrow" id="arrowIcon"></i></i> 2024</h4>
+                    </div>
+                    <div class="panel-content active">
+                        <ul style="margin-bottom:5px;">
+                            <li> Textual inversion and self-supervised refinement for radiology report generation. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    Y Luo, H Li, X Wu, M Cao, X Huang, Z Zhu, P Liao, H Chen, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    International Conference on Medical Image Computing and Computer-Assisted Intervention.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://link.springer.com/chapter/10.1007/978-3-031-72086-4_64">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                            <li> Inject Backdoor in Measured Data to Jeopardize Full-Stack Medical Image Analysis System. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    Z Yang, Y Chen, M Sun, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    International Conference on Medical Image Computing and Computer-Assisted Intervention.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://link.springer.com/chapter/10.1007/978-3-031-72104-5_38">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="https://github.com/Deep-Imaging-Group/LTGM">[code]</a></p>
+                            </li>
+                            <li> Point Segment and Count: A Generalized Framework for Object Counting. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    Z Huang, M Dai, Y Zhang, J Zhang, H Shan</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://openaccess.thecvf.com/content/CVPR2024/html/Huang_Point_Segment_and_Count_A_Generalized_Framework_for_Object_Counting_CVPR_2024_paper.html">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 2023 -->
+                <div class="panel">
+                    <div class="panel-header" onclick="togglePanel(this)">
+                        <h4><i class="fas fa-arrow-right arrow" id="arrowIcon"></i></i> 2023</h4>
+                    </div>
+                    <div class="panel-content">
+                        <ul style="margin-bottom:5px;">
+                            <li> PET image denoising with score-based diffusion probabilistic models. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    C Shen, Z Yang, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    International Conference on Medical Image Computing and Computer-Assisted Intervention.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://link.springer.com/chapter/10.1007/978-3-031-43907-0_26">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                            <li> Inter-slice consistency for unpaired low-dose ct denoising using boosted contrastive learning. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    J Jing, T Wang, H Yu, Z Lu, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    International Conference on Medical Image Computing and Computer-Assisted Intervention.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://link.springer.com/chapter/10.1007/978-3-031-43907-0_23">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                            <li> Building a bridge: close the domain gap in ct metal artifact reduction. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    T Wang, H Yu, Y Liu, H Sun, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    International Conference on Medical Image Computing and Computer-Assisted Intervention.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://link.springer.com/chapter/10.1007/978-3-031-43999-5_20">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                            <li> ASCON: Anatomy-Aware Supervised Contrastive Learning Framework for Low-Dose CT Denoising. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    Z Chen, Q Gao, Y Zhang, H Shan</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    International Conference on Medical Image Computing and Computer-Assisted Intervention.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://link.springer.com/chapter/10.1007/978-3-031-43999-5_34">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="https://github.com/hao1635/ASCON">[code]</a></p>
+                            </li>
+                            <li> A Robust Prototype-Free Retrieval Method for Automatic Check-Out. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    H Huangfu, Z Yang, M Ran, W Zhang, J Lu, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    IEEE Symposium on Computers and Communications.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://ieeexplore.ieee.org/abstract/document/10218102/">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                            <li> Stay in the middle: A semi-supervised model for CT metal artifact reduction. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    T Wang, H Yu, Z Lu, Z Zhang, J Zhou, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    IEEE International Conference on Acoustics, Speech and Signal Processing.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://ieeexplore.ieee.org/abstract/document/10095681">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                            <li> EVIL: Evidential inference learning for trustworthy semi-supervised medical image segmentation. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    Y Chen, Z Yang, C Shen, Z Wang, Y Qin, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    IEEE International Symposium on Biomedical Imaging.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://ieeexplore.ieee.org/abstract/document/10230589">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                            <li> Dynamic focus mechanism-based dual-domain reconstruction network for accelerated MRI. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    Z Wang, Z Wang, Z Zhang, Z Yang, M Ran, H Yu, Z Yu, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    IEEE International Symposium on Biomedical Imaging.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://ieeexplore.ieee.org/abstract/document/10230834">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 2022 -->
+                <div class="panel">
+                    <div class="panel-header" onclick="togglePanel(this)">
+                        <h4><i class="fas fa-arrow-right arrow" id="arrowIcon"></i></i> 2022</h4>
+                    </div>
+                    <div class="panel-content">
+                        <ul style="margin-bottom:5px;">
+                            <li> CORE-lens: Simultaneous communication and object recognition with disentangled-GAN cameras. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    Z Liu, T Zheng, C Hu, Y Yang, Y Sun, Y Zhang, Z Chen, L Chen, J Luo</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    Annual International Conference on Mobile Computing And Networking.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://dl.acm.org/doi/abs/10.1145/3495243.3560526">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                            <li> A transformer-based iterative reconstruction model for sparse-view ct reconstruction. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    W Xia, Z Yang, Q Zhou, Z Lu, Z Wang, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    International Conference on Medical Image Computing and Computer-Assisted Intervention.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://link.springer.com/chapter/10.1007/978-3-031-16446-0_75">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                            <li> Depth completion using geometry-aware embedding. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    H Chen, H Yang, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    International Conference on Robotics and Automation.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://ieeexplore.ieee.org/abstract/document/9811556">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                            <li> Leaders: Learnable deep radial subsampling for mri reconstruction. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    Z Wang, B Li, W Xia, C Shen, M Hou, H Chen, Y Liu, J Zhou, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    International Symposium on Biomedical Imaging.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://ieeexplore.ieee.org/abstract/document/9761544">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                            <li> Low-dose CT denoising via neural architecture search. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    Z Lu, W Xia, Y Huang, M Hou, H Chen, H Shan, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    International Symposium on Biomedical Imaging.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://ieeexplore.ieee.org/abstract/document/9761544">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                            <li> Unsupervised PET reconstruction from a Bayesian perspective. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    C Shen, W Xia, H Ye, M Hou, H Chen, Y Liu, J Zhou, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    International Symposium on Biomedical Imaging.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://ieeexplore.ieee.org/abstract/document/9761513">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                            <li> Noise reduction in dental CT images based on generative adversarial network. <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    H Shao, H Gu, P Liao, H Chen, Y Zhang</span> <br>
+                                <span style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 14px;">
+                                    International Conference on Graphics and Image Processing.</span>
+                                <a style="color: rgb(0, 123, 255);" href="https://www.spiedigitallibrary.org/conference-proceedings-of-spie/12083/1208326/Noise-reduction-in-dental-CT-images-based-on-generative-adversarial/10.1117/12.2623120.short3">[paper]</a>
+                                <a style="color: rgb(180,16,10);" href="">[code]</a></p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+<!-- END section -->
+
+
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="copyright">
+                    <p>
+                        Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                        All rights reserved | Built upon <a style="color: rgb(180,16,10);" href="https://getbootstrap.com/"
+                        class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1"><i class="fa-brands fa-bootstrap"></i>
+                        Bootstrap</a>
+                    </p>
+                    <a href="https://beian.miit.gov.cn/" target="_blank" style="color:#999">蜀ICP备2021013452号-1</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+<script>
+    function togglePanel(header) {
+      const content = header.nextElementSibling;
+      const arrowIcon = header.querySelector('.arrow');
+      content.classList.toggle('active');
+      if (content.classList.contains('active')) {
+        arrowIcon.classList.remove('fa-arrow-right');
+        arrowIcon.classList.add('fa-arrow-down');
+      } else {
+        arrowIcon.classList.remove('fa-arrow-down');
+        arrowIcon.classList.add('fa-arrow-right');
+      }
+    }
+  </script>
+</body>
+
+</html>
