@@ -1,5 +1,16 @@
 [
-    {
+   {
+        "title": "Promoting fast MR imaging pipeline by full-stack AI",
+        "authors": "Zhiwen Wang; Bowen Li; Hui Yu; Zhongzhou Zhang; <b>Maosong Ran</b>; Wenjun Xia; Ziyuan Yang; Jingfeng Lu; Hu Chen; Jiliu Zhou and others",
+        "journal": "Iscience",
+        "journal_abbr": "",
+        "year": 2024,
+        "pic_href": "./figs/papers/00009.png",
+        "paper_href": "./pdf/Promoting_fast_MR_imaging_pipeline_by_full-stack_AI.pdf",
+        "bibtex_href": "wang2024promoting",
+        "code_href": "https://github.com/wangzhiwen-scu/FSL"
+    }, 
+   {
         "title": "Dynamic Corrected Split Federated Learning with Homomorphic Encryption for U-shaped Medical Image Networks",
         "authors": "Ziyuan Yang; Yingyu Chen; Huijie Huangfu; <b>Maosong Ran</b>; Hui Wang; Xiaoxiao Li; Yi Zhang",
         "journal": "IEEE Journal of Biomedical and Health Informatics",
