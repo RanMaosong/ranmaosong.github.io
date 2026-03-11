@@ -44,7 +44,9 @@ for paper in papers:
     citation = int(citation) if citation != "" else 0
     paper_to_citation[title] = citation
 
-node = bs.select("#gsc_rsb_cit")[0].select("div.gsc_g_hist_wrp")[0].select("div.gsc_md_hist_b")[0]
+node = bs.select("#gsc_rsb_cit")[0]
+node = node.select("div.gsc_g_hist_wrp")[0]
+node = node.select("div.gsc_md_hist_b")[0]
 
 years = []
 citations = []
